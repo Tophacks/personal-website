@@ -44,10 +44,41 @@ const sections = [
       <h2>Things I’ve been building.</h2>
       <p>Click a project to move it onto the laptop.</p>
       <div class="project-list">
-        <div class="project" data-project="quadmates"><div class="meta"><span>Quadmates</span><span>Product / Full-stack</span></div><h3>Campus coordination</h3><p>A study-matching product designed around turning intent into actual plans.</p></div>
-        <div class="project" data-project="transit"><div class="meta"><span>TransitOps</span><span>Simulation / Systems</span></div><h3>Adaptive transit operations</h3><p>Exploring how distributed infrastructure could coordinate buses, stations, signals, and demand.</p></div>
-        <div class="project" data-project="staff"><div class="meta"><span>Staff Management</span><span>Full-stack / Operations</span></div><h3>Workforce coordination</h3><p>A live management app for organizing staff and operational information.</p></div>
-        <div class="project" data-project="vision"><div class="meta"><span>Vision experiments</span><span>AI / Computer vision</span></div><h3>Machines that interpret scenes</h3><p>Experiments around perception, autonomy, and real-world decision making.</p></div>
+        <div class="project" data-project="quadmates">
+          <div class="meta"><span>Quadmates</span><span>Product / Full-stack</span></div>
+          <h3>Campus coordination</h3>
+          <p>A study-matching product designed around turning intent into actual plans.</p>
+          <div class="project-links">
+            <a href="https://quadmates.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
+            <a href="https://github.com/Tophacks/quadmates" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
+          </div>
+        </div>
+        <div class="project" data-project="transit">
+          <div class="meta"><span>TransitOps</span><span>Simulation / Systems</span></div>
+          <h3>Adaptive transit operations</h3>
+          <p>Exploring how distributed infrastructure could coordinate buses, stations, signals, and demand.</p>
+          <div class="project-links">
+            <a href="https://transitops-phi.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
+            <a href="https://github.com/Tophacks/TransitOps" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
+          </div>
+        </div>
+        <div class="project" data-project="staff">
+          <div class="meta"><span>Staff Management</span><span>Full-stack / Operations</span></div>
+          <h3>Workforce coordination</h3>
+          <p>A live management app for organizing staff and operational information.</p>
+          <div class="project-links">
+            <a href="https://staff-management-app-five.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
+            <a href="https://github.com/Tophacks/staff-management-app" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
+          </div>
+        </div>
+        <div class="project" data-project="vision">
+          <div class="meta"><span>Vision experiments</span><span>AI / Computer vision</span></div>
+          <h3>Machines that interpret scenes</h3>
+          <p>Experiments around perception, autonomy, and real-world decision making.</p>
+          <div class="project-links">
+            <a href="https://github.com/Tophacks" target="_blank" rel="noreferrer" data-stop-project>GitHub ↗</a>
+          </div>
+        </div>
       </div>
     `,
     right: `
@@ -186,7 +217,13 @@ function render(index, animate = true) {
 
 function attachProjects() {
   document.querySelectorAll("[data-project]").forEach(el => {
-    el.addEventListener("click", () => showProject(el.dataset.project));
+    el.addEventListener("click", event => {
+      if (event.target.closest("[data-stop-project]")) return;
+      showProject(el.dataset.project);
+      if (window.innerWidth <= 820) {
+        document.querySelector(".laptop")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
   });
 }
 
@@ -208,6 +245,15 @@ function showProject(key) {
     previewButton.style.display = "none";
   }
   repoLink.href = project.repo;
+  const preview = document.getElementById("sitePreview");
+  const frame = document.getElementById("previewFrame");
+  if (!preview.hidden && project.live) {
+    frame.src = project.live;
+    document.getElementById("previewLabel").textContent = new URL(project.live).hostname;
+  } else if (!project.live) {
+    preview.hidden = true;
+    frame.src = "";
+  }
   typeText(project.terminal);
 }
 
@@ -251,7 +297,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const hash = location.hash.replace("#", "");
 const initial = sections.findIndex(s => s.id === hash);
 render(initial >= 0 ? initial : 0, false);
-typeText(projects.quadmates.terminal);
+showProject("quadmates");
 
 function renderSearchResults(query) {
   const box = document.getElementById("searchResults");
