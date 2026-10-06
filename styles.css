@@ -326,6 +326,36 @@ button { color: inherit; }
   gap:6px;
 }
 .cursor { width:6px; height:12px; background:#9db296; animation:blink 1s steps(1) infinite; }
+.device-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+.device-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:30px;
+  padding:7px 10px;
+  border:1px solid #626860;
+  border-radius:6px;
+  color:#cbd1c7;
+  text-decoration:none;
+  font-size:9px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  transition:background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.device-link:hover {
+  border-color:#a9b6a2;
+  transform:translateY(-1px);
+}
+.device-link.primary {
+  background:#cfd8c8;
+  color:#151719;
+  border-color:#cfd8c8;
+}
 @keyframes blink { 50% { opacity:0; } }
 .laptop-base {
   width: 116%;
