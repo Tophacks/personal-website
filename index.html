@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nate Powell — software, systems, and things I'm building." />
+  <title>Nate Powell — Field Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="desk" aria-label="Nate Powell portfolio">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+      <a class="mark" href="#" aria-label="Home">NP</a>
+      <p>Field notes · Waterloo, Canada</p>
+      <button id="soundToggle" class="text-button" type="button" aria-label="Toggle interface sounds">sound off</button>
+    </header>
+
+    <section class="workspace">
+      <aside class="device laptop" aria-label="Project terminal">
+        <div class="laptop-screen">
+          <div class="screen-bar"><span></span><span></span><span></span></div>
+          <p class="screen-kicker">currently building</p>
+          <h2 id="deviceTitle">Quadmates</h2>
+          <p id="deviceCopy">A campus product for turning “we should study sometime” into an actual plan.</p>
+          <div class="terminal-line"><span>›</span><span id="typedText"></span><span class="cursor"></span></div>
+        </div>
+        <div class="laptop-base"></div>
+      </aside>
+
+      <section class="book-wrap">
+        <nav class="tabs" aria-label="Portfolio sections">
+          <button class="tab active" data-section="cover">Start</button>
+          <button class="tab" data-section="about">About</button>
+          <button class="tab" data-section="projects">Projects</button>
+          <button class="tab" data-section="work">Work</button>
+          <button class="tab" data-section="notes">Notes</button>
+          <button class="tab" data-section="contact">Contact</button>
+        </nav>
+
+        <article class="book" id="book">
+          <div class="page page-left" id="leftPage"></div>
+          <div class="spine" aria-hidden="true"></div>
+          <div class="page page-right" id="rightPage"></div>
+          <div class="page-flip" id="pageFlip" aria-hidden="true"></div>
+        </article>
+
+        <div class="book-controls">
+          <button id="prevPage" class="page-arrow" type="button" aria-label="Previous section">←</button>
+          <span id="pageNumber">01 / 06</span>
+          <button id="nextPage" class="page-arrow" type="button" aria-label="Next section">→</button>
+        </div>
+      </section>
+
+      <aside class="device tablet" aria-label="Current explorations">
+        <div class="tablet-screen">
+          <p class="screen-kicker">open tabs</p>
+          <button class="mini-card" data-jump="projects">
+            <span>01</span>
+            <strong>Transit systems</strong>
+            <small>simulation + operations</small>
+          </button>
+          <button class="mini-card" data-jump="projects">
+            <span>02</span>
+            <strong>Campus products</strong>
+            <small>people + coordination</small>
+          </button>
+          <button class="mini-card" data-jump="notes">
+            <span>03</span>
+            <strong>AI / autonomy</strong>
+            <small>questions worth chasing</small>
+          </button>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <p>Designed like a notebook because the work is never really finished.</p>
+      <p>© <span id="year"></span> Nate Powell</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
