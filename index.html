@@ -25,13 +25,28 @@
       <aside class="device laptop" aria-label="Project terminal">
         <div class="laptop-screen">
           <div class="screen-bar"><span></span><span></span><span></span></div>
-          <p class="screen-kicker">currently building</p>
-          <h2 id="deviceTitle">Quadmates</h2>
-          <p id="deviceCopy">A campus product for turning “we should study sometime” into an actual plan.</p>
-          <div class="terminal-line"><span>›</span><span id="typedText"></span><span class="cursor"></span></div>
-          <div class="device-actions">
-            <a id="liveAppLink" class="device-link primary" href="https://quadmates.vercel.app" target="_blank" rel="noreferrer">Open live app ↗</a>
-            <a id="repoLink" class="device-link" href="https://github.com/Tophacks/quadmates" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <div class="browser-toolbar">
+            <input id="appSearch" class="browser-search" type="search" placeholder="Search apps..." aria-label="Search portfolio apps" />
+            <button id="searchButton" class="browser-go" type="button">Go</button>
+          </div>
+          <div id="searchResults" class="search-results" aria-live="polite"></div>
+          <div class="browser-content">
+            <p class="screen-kicker">selected app</p>
+            <h2 id="deviceTitle">Quadmates</h2>
+            <p id="deviceCopy">A campus product for turning “we should study sometime” into an actual plan.</p>
+            <div class="terminal-line"><span>›</span><span id="typedText"></span><span class="cursor"></span></div>
+            <div class="device-actions">
+              <button id="previewAppButton" class="device-link" type="button">Preview site</button>
+              <a id="liveAppLink" class="device-link primary" href="https://quadmates.vercel.app" target="_blank" rel="noreferrer">Open live app ↗</a>
+              <a id="repoLink" class="device-link" href="https://github.com/Tophacks/quadmates" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+            <div id="sitePreview" class="site-preview" hidden>
+              <div class="preview-header">
+                <span id="previewLabel">quadmates.vercel.app</span>
+                <button id="closePreview" type="button">×</button>
+              </div>
+              <iframe id="previewFrame" title="Live app preview" loading="lazy"></iframe>
+            </div>
           </div>
         </div>
         <div class="laptop-base"></div>
