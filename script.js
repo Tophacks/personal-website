@@ -146,6 +146,14 @@ const projects = {
   }
 };
 
+const appEntries = [
+  { key: "quadmates", label: "Quadmates", keywords: "study campus matching students" },
+  { key: "transit", label: "TransitOps", keywords: "transit bus simulation operations" },
+  { key: "staff", label: "Staff Management", keywords: "staff workforce management operations" },
+  { key: "vision", label: "Vision Lab", keywords: "ai computer vision autonomy" }
+];
+
+let currentProjectKey = "quadmates";
 let current = 0;
 const leftPage = document.getElementById("leftPage");
 const rightPage = document.getElementById("rightPage");
@@ -185,15 +193,19 @@ function attachProjects() {
 function showProject(key) {
   const project = projects[key];
   if (!project) return;
+  currentProjectKey = key;
   document.getElementById("deviceTitle").textContent = project.title;
   document.getElementById("deviceCopy").textContent = project.copy;
   const liveLink = document.getElementById("liveAppLink");
   const repoLink = document.getElementById("repoLink");
+  const previewButton = document.getElementById("previewAppButton");
   if (project.live) {
     liveLink.href = project.live;
     liveLink.style.display = "inline-flex";
+    previewButton.style.display = "inline-flex";
   } else {
     liveLink.style.display = "none";
+    previewButton.style.display = "none";
   }
   repoLink.href = project.repo;
   typeText(project.terminal);
@@ -240,3 +252,70 @@ const hash = location.hash.replace("#", "");
 const initial = sections.findIndex(s => s.id === hash);
 render(initial >= 0 ? initial : 0, false);
 typeText(projects.quadmates.terminal);
+
+function renderSearchResults(query) {
+  const box = document.getElementById("searchResults");
+  const q = query.trim().toLowerCase();
+  if (!q) {
+    box.classList.remove("active");
+    box.innerHTML = "";
+    return;
+  }
+  const matches = appEntries.filter(app =>
+    (app.label + " " + app.keywords).toLowerCase().includes(q)
+  );
+  if (!matches.length) {
+    box.innerHTML = '<div class="search-result"><small>No matching apps</small></div>';
+    box.classList.add("active");
+    return;
+  }
+  box.innerHTML = matches.map(app => {
+    const p = projects[app.key];
+    return `<button class="search-result" data-search-project="${app.key}" type="button"><strong>${app.label}</strong><small>${p.live ? "Live app available" : "Project only"}</small></button>`;
+  }).join("");
+  box.classList.add("active");
+  box.querySelectorAll("[data-search-project]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      showProject(btn.dataset.searchProject);
+      box.classList.remove("active");
+      document.getElementById("appSearch").value = "";
+    });
+  });
+}
+
+function previewCurrentApp() {
+  const project = projects[currentProjectKey];
+  if (!project || !project.live) return;
+  const preview = document.getElementById("sitePreview");
+  const frame = document.getElementById("previewFrame");
+  const label = document.getElementById("previewLabel");
+  try {
+    label.textContent = new URL(project.live).hostname;
+  } catch {
+    label.textContent = project.title;
+  }
+  frame.src = project.live;
+  preview.hidden = false;
+}
+
+const searchInput = document.getElementById("appSearch");
+document.getElementById("searchButton").addEventListener("click", () => renderSearchResults(searchInput.value));
+searchInput.addEventListener("input", e => renderSearchResults(e.target.value));
+searchInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    const q = e.currentTarget.value.trim().toLowerCase();
+    const match = appEntries.find(app => (app.label + " " + app.keywords).toLowerCase().includes(q));
+    if (match) {
+      showProject(match.key);
+      document.getElementById("searchResults").classList.remove("active");
+      e.currentTarget.value = "";
+    } else {
+      renderSearchResults(q);
+    }
+  }
+});
+document.getElementById("previewAppButton").addEventListener("click", previewCurrentApp);
+document.getElementById("closePreview").addEventListener("click", () => {
+  document.getElementById("sitePreview").hidden = true;
+  document.getElementById("previewFrame").src = "";
+});
