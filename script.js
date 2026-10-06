@@ -46,6 +46,7 @@ const sections = [
       <div class="project-list">
         <div class="project" data-project="quadmates"><div class="meta"><span>Quadmates</span><span>Product / Full-stack</span></div><h3>Campus coordination</h3><p>A study-matching product designed around turning intent into actual plans.</p></div>
         <div class="project" data-project="transit"><div class="meta"><span>TransitOps</span><span>Simulation / Systems</span></div><h3>Adaptive transit operations</h3><p>Exploring how distributed infrastructure could coordinate buses, stations, signals, and demand.</p></div>
+        <div class="project" data-project="staff"><div class="meta"><span>Staff Management</span><span>Full-stack / Operations</span></div><h3>Workforce coordination</h3><p>A live management app for organizing staff and operational information.</p></div>
         <div class="project" data-project="vision"><div class="meta"><span>Vision experiments</span><span>AI / Computer vision</span></div><h3>Machines that interpret scenes</h3><p>Experiments around perception, autonomy, and real-world decision making.</p></div>
       </div>
     `,
@@ -118,17 +119,30 @@ const projects = {
   quadmates: {
     title: "Quadmates",
     copy: "A campus product for turning “we should study sometime” into an actual plan.",
-    terminal: "matching people → coordinating plans"
+    terminal: "matching people → coordinating plans",
+    live: "https://quadmates.vercel.app",
+    repo: "https://github.com/Tophacks/quadmates"
   },
   transit: {
     title: "TransitOps",
     copy: "A systems concept for adaptive transit operations using stations, signals, and shared intelligence.",
-    terminal: "demand → negotiate → dispatch → adapt"
+    terminal: "demand → negotiate → dispatch → adapt",
+    live: "https://transitops-phi.vercel.app",
+    repo: "https://github.com/Tophacks/TransitOps"
+  },
+  staff: {
+    title: "Staff Management",
+    copy: "A live full-stack app for organizing staff and operational information.",
+    terminal: "staff → schedule → coordinate → operate",
+    live: "https://staff-management-app-five.vercel.app",
+    repo: "https://github.com/Tophacks/staff-management-app"
   },
   vision: {
     title: "Vision Lab",
     copy: "Computer-vision experiments focused on how software interprets messy physical environments.",
-    terminal: "scene → features → context → action"
+    terminal: "scene → features → context → action",
+    live: "",
+    repo: "https://github.com/Tophacks"
   }
 };
 
@@ -173,6 +187,15 @@ function showProject(key) {
   if (!project) return;
   document.getElementById("deviceTitle").textContent = project.title;
   document.getElementById("deviceCopy").textContent = project.copy;
+  const liveLink = document.getElementById("liveAppLink");
+  const repoLink = document.getElementById("repoLink");
+  if (project.live) {
+    liveLink.href = project.live;
+    liveLink.style.display = "inline-flex";
+  } else {
+    liveLink.style.display = "none";
+  }
+  repoLink.href = project.repo;
   typeText(project.terminal);
 }
 
