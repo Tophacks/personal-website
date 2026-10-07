@@ -49,7 +49,7 @@ const sections = [
           <h3>Campus coordination</h3>
           <p>A study-matching product designed around turning intent into actual plans.</p>
           <div class="project-links">
-            <a href="https://quadmates.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
+            <a href="https://quadmates.ca" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
             <a href="https://github.com/Tophacks/quadmates" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
           </div>
         </div>
@@ -151,7 +151,7 @@ const projects = {
     title: "Quadmates",
     copy: "A campus product for turning “we should study sometime” into an actual plan.",
     terminal: "matching people → coordinating plans",
-    live: "https://quadmates.vercel.app",
+    live: "https://quadmates.ca",
     repo: "https://github.com/Tophacks/quadmates"
   },
   transit: {
