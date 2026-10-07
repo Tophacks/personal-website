@@ -4,12 +4,12 @@ const sections = [
     left: `
       <p class="eyebrow">Field notebook · Vol. 01</p>
       <h1 class="display">Nate<br>Powell</h1>
-      <p class="hand">Software, systems, and things I’m building.</p>
+      <p class="hand">Curious about systems. Usually building something.</p>
     `,
     right: `
       <p class="eyebrow">Contents</p>
       <h2>Start anywhere.</h2>
-      <p class="lead">I like problems where software has to survive contact with the real world: people, infrastructure, messy constraints, and changing information.</p>
+      <p class="lead">I like understanding how systems work, pulling apart difficult problems, and building things that can have a real-world impact. Most of what interests me lives somewhere between technology, economics, business, and the people actually using the system.</p>
       <div class="index-list">
         <div class="index-item"><span>About</span><span>02</span></div>
         <div class="index-item"><span>Selected projects</span><span>03</span></div>
@@ -23,18 +23,18 @@ const sections = [
     id: "about",
     left: `
       <p class="eyebrow">02 · About</p>
-      <h2>I’m interested in systems, not just screens.</h2>
-      <p class="lead">I’m a University of Waterloo student who moves between software, economics, product thinking, and operations.</p>
-      <p>I’m most interested in technology that coordinates the physical world: transportation, robotics, infrastructure, finance, and tools that make groups of people work better together.</p>
+      <h2>I like figuring out how things connect.</h2>
+      <p class="lead">I’m a University of Waterloo student interested in the intersections between science, technology, economics, finance, and business.</p>
+      <p>I’m especially drawn to problems where software meets the physical world — transportation, robotics, infrastructure, autonomy, and products that help people coordinate better. I like learning how the whole system works, not just the part on the screen.</p>
     `,
     right: `
       <p class="eyebrow">How I work</p>
       <div class="note-list">
-        <div class="note"><div class="meta"><span>01</span><span>Build</span></div><h3>Prototype the idea</h3><p>Get something tangible working before polishing the story around it.</p></div>
-        <div class="note"><div class="meta"><span>02</span><span>Question</span></div><h3>Pull the system apart</h3><p>What actually constrains it? What changes at scale? What happens when assumptions fail?</p></div>
-        <div class="note"><div class="meta"><span>03</span><span>Connect</span></div><h3>Cross disciplines</h3><p>Engineering decisions become product, economic, and operational decisions surprisingly quickly.</p></div>
+        <div class="note"><div class="meta"><span>01</span><span>Build</span></div><h3>Make it real early</h3><p>I’d rather have a rough prototype I can test than a perfect idea sitting in a document.</p></div>
+        <div class="note"><div class="meta"><span>02</span><span>Question</span></div><h3>Keep asking why</h3><p>I like finding the constraint underneath the obvious problem — what breaks, what scales, and what everyone assumed would just work.</p></div>
+        <div class="note"><div class="meta"><span>03</span><span>Connect</span></div><h3>Move between disciplines</h3><p>Technical choices quickly become product, financial, operational, and human decisions. That overlap is usually the interesting part.</p></div>
       </div>
-      <p class="quote">“Make the complicated thing understandable — then make it useful.”</p>
+      <p class="quote">I’m happiest when I’m learning something new, building with other people, and turning a complicated idea into something useful.</p>
     `
   },
   {
@@ -93,25 +93,25 @@ const sections = [
     id: "work",
     left: `
       <p class="eyebrow">04 · Work + experience</p>
-      <h2>Different environments. Same instinct.</h2>
+      <h2>Different roles, same curiosity.</h2>
       <div class="work-list">
-        <div class="work-item"><div class="meta"><span>UW Orbital</span><span>Business + Finance</span></div><h3>Student satellite design team</h3><p>Sponsor outreach, budget tracking, operations, and web updates.</p></div>
-        <div class="work-item"><div class="meta"><span>City of Ottawa</span><span>Aquatics</span></div><h3>Lifeguard + swim instructor</h3><p>Real-time judgement, instruction, safety, and operating under clear procedures.</p></div>
+        <div class="work-item"><div class="meta"><span>UW Orbital</span><span>Business + Finance</span></div><h3>Student satellite design team</h3><p>Worked across sponsorships, financials, outreach, and team operations — the less flashy pieces that still have to work for ambitious projects to happen.</p></div>
+        <div class="work-item"><div class="meta"><span>City of Ottawa</span><span>Aquatics</span></div><h3>Lifeguard + swim instructor</h3><p>A very different kind of systems job: communicate clearly, make decisions quickly, manage risk, and stay calm when the situation changes.</p></div>
       </div>
     `,
     right: `
       <p class="eyebrow">What transfers</p>
       <h2>Operations matter.</h2>
-      <p class="lead">Software doesn’t exist in isolation. The human process around a system often determines whether the technology actually works.</p>
-      <p>That’s why I’m drawn to product and engineering work where reliability, coordination, economics, and implementation matter as much as the code.</p>
-      <p class="hand">Next: deeper software + product experience.</p>
+      <p class="lead">A good technical solution still has to work with budgets, operations, deadlines, teams, and real people.</p>
+      <p>Experiences in project work, sponsorships, marketing, financials, and organizing teams have made me care as much about execution and communication as the idea itself.</p>
+      <p class="hand">Still learning. Preferably by building.</p>
     `
   },
   {
     id: "notes",
     left: `
       <p class="eyebrow">05 · Open notebook</p>
-      <h2>Questions I keep coming back to.</h2>
+      <h2>Things I can’t stop thinking about.</h2>
       <div class="note-list">
         <div class="note"><div class="meta"><span>Autonomy</span><span>01</span></div><p>How should autonomous systems reason when the environment stops matching the training distribution?</p></div>
         <div class="note"><div class="meta"><span>Transit</span><span>02</span></div><p>What if intersections and stations could negotiate service dynamically instead of following a static plan?</p></div>
@@ -121,18 +121,18 @@ const sections = [
     right: `
       <p class="eyebrow">Marginalia</p>
       <h2>A portfolio should show unfinished thinking too.</h2>
-      <p class="lead">This page is deliberately less polished. Good projects usually begin as an annoying question, a sketch, or an assumption that doesn’t quite make sense.</p>
-      <p>Eventually this section can hold short technical notes, diagrams, experiments, and postmortems.</p>
-      <p class="hand">Not everything needs to become a startup.</p>
+      <p class="lead">Most of my interests start as a rabbit hole: autonomy, transportation, national security, history, space, robotics, or some system that seems more complicated the longer you look at it.</p>
+      <p>This is where I want to keep the questions, diagrams, experiments, and half-finished ideas that eventually turn into projects.</p>
+      <p class="hand">Some rabbit holes become repos.</p>
     `
   },
   {
     id: "contact",
     left: `
       <p class="eyebrow">06 · Contact</p>
-      <h2>Let’s build something difficult.</h2>
-      <p class="lead">I’m interested in software, AI, product, infrastructure, finance, and engineering problems where there’s a real system underneath the interface.</p>
-      <p>For internships, projects, collaborations, or a good technical question:</p>
+      <h2>Always happy to talk interesting problems.</h2>
+      <p class="lead">I’m interested in software, AI, robotics, economics, finance, product, and infrastructure — especially where those areas overlap.</p>
+      <p>If you’re recruiting, building something ambitious, collaborating on a project, or just have a question worth chasing, feel free to reach out.</p>
     `,
     right: `
       <p class="eyebrow">Find me</p>
