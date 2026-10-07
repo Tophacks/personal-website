@@ -557,8 +557,9 @@ button { color: inherit; }
   }
 
   .laptop-base {
-    width:106%;
-    margin-left:-3%;
+    width:112%;
+    margin-left:-6%;
+    height:72px;
   }
 
   .footer {
