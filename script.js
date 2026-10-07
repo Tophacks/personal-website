@@ -122,7 +122,7 @@ const sections = [
       <p class="eyebrow">Marginalia</p>
       <h2>A portfolio should show unfinished thinking too.</h2>
       <p class="lead">Most of my interests start as a rabbit hole: autonomy, transportation, national security, history, space, robotics, or some system that seems more complicated the longer you look at it.</p>
-      <p>This is where I want to keep the questions, diagrams, experiments, and half-finished ideas that eventually turn into projects.</p>
+      <p>This page is for the questions, sketches, and half-formed ideas that sit in the background before they become something more concrete.</p>
       <p class="hand">Some rabbit holes become repos.</p>
     `
   },
@@ -235,25 +235,13 @@ function showProject(key) {
   document.getElementById("deviceCopy").textContent = project.copy;
   const liveLink = document.getElementById("liveAppLink");
   const repoLink = document.getElementById("repoLink");
-  const previewButton = document.getElementById("previewAppButton");
   if (project.live) {
     liveLink.href = project.live;
     liveLink.style.display = "inline-flex";
-    previewButton.style.display = "inline-flex";
   } else {
     liveLink.style.display = "none";
-    previewButton.style.display = "none";
   }
   repoLink.href = project.repo;
-  const preview = document.getElementById("sitePreview");
-  const frame = document.getElementById("previewFrame");
-  if (!preview.hidden && project.live) {
-    frame.src = project.live;
-    document.getElementById("previewLabel").textContent = new URL(project.live).hostname;
-  } else if (!project.live) {
-    preview.hidden = true;
-    frame.src = "";
-  }
   typeText(project.terminal);
 }
 
@@ -329,21 +317,6 @@ function renderSearchResults(query) {
   });
 }
 
-function previewCurrentApp() {
-  const project = projects[currentProjectKey];
-  if (!project || !project.live) return;
-  const preview = document.getElementById("sitePreview");
-  const frame = document.getElementById("previewFrame");
-  const label = document.getElementById("previewLabel");
-  try {
-    label.textContent = new URL(project.live).hostname;
-  } catch {
-    label.textContent = project.title;
-  }
-  frame.src = project.live;
-  preview.hidden = false;
-}
-
 const searchInput = document.getElementById("appSearch");
 document.getElementById("searchButton").addEventListener("click", () => renderSearchResults(searchInput.value));
 searchInput.addEventListener("input", e => renderSearchResults(e.target.value));
@@ -359,9 +332,4 @@ searchInput.addEventListener("keydown", e => {
       renderSearchResults(q);
     }
   }
-});
-document.getElementById("previewAppButton").addEventListener("click", previewCurrentApp);
-document.getElementById("closePreview").addEventListener("click", () => {
-  document.getElementById("sitePreview").hidden = true;
-  document.getElementById("previewFrame").src = "";
 });
