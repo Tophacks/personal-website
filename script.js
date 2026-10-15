@@ -95,13 +95,18 @@ const sections = [
       <p class="eyebrow">04 · Work + experience</p>
       <h2>Different roles, same curiosity.</h2>
       <div class="work-list">
+        <div class="work-item"><div class="meta"><span>Infosys InStep · Bengaluru, India</span><span>Incoming · Winter 2027</span></div><h3>Computer Engineering Assistant — Co-op</h3><p>Matched through the University of Waterloo co-op program for a January–April 2027 placement. Looking forward to contributing to engineering and software projects, with an interest in automation, machine learning, and computer vision.</p></div>
         <div class="work-item"><div class="meta"><span>UW Orbital</span><span>Business + Finance</span></div><h3>Student satellite design team</h3><p>Worked across sponsorships, financials, outreach, and team operations — the less flashy pieces that still have to work for ambitious projects to happen.</p></div>
         <div class="work-item"><div class="meta"><span>City of Ottawa</span><span>Aquatics</span></div><h3>Lifeguard + swim instructor</h3><p>A very different kind of systems job: communicate clearly, make decisions quickly, manage risk, and stay calm when the situation changes.</p></div>
       </div>
     `,
     right: `
+      <p class="eyebrow">Next chapter · Winter 2027</p>
+      <h2>Incoming at Infosys InStep.</h2>
+      <p class="lead">Computer Engineering Assistant · Bengaluru, India</p>
+      <p>Matched for a University of Waterloo co-op placement from January to April 2027. Eager to gain hands-on engineering experience and explore how software connects with intelligent systems.</p>
       <p class="eyebrow">What transfers</p>
-      <h2>Operations matter.</h2>
+      <h3>Operations matter.</h3>
       <p class="lead">A good technical solution still has to work with budgets, operations, deadlines, teams, and real people.</p>
       <p>Experiences in project work, sponsorships, marketing, financials, and organizing teams have made me care as much about execution and communication as the idea itself.</p>
       <p class="hand">Still learning. Preferably by building.</p>
