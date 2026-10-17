@@ -144,7 +144,7 @@ const sections = [
       <div class="links">
         <a href="https://github.com/Tophacks" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a>
-        <a href="mailto:"><span>Email</span><span>↗</span></a>
+        <a href="mailto:n2powell@uwaterloo.ca"><span>n2powell@uwaterloo.ca</span><span>↗</span></a>
       </div>
       <p class="hand">More links soon.</p>
     `
