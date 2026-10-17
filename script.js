@@ -50,7 +50,7 @@ const sections = [
           <p>A study-matching product designed around turning intent into actual plans.</p>
           <div class="project-links">
             <a href="https://quadmates.ca" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
-            <a href="https://github.com/Tophacks/quadmates" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
+            <a href="engineering.html#quadmates" data-stop-project>Case study ↗</a>
           </div>
         </div>
         <div class="project" data-project="transit">
@@ -85,7 +85,7 @@ const sections = [
       <p class="eyebrow">Project principle</p>
       <h2>Show the system.</h2>
       <p class="lead">A project is more interesting when you can see the decisions inside it—not only the final interface.</p>
-      <p>This portfolio will grow into interactive case studies: architecture, constraints, discarded ideas, demos, and what I’d change next.</p>
+      <p>Explore the technical case studies for architecture, constraints, evaluation plans, and learning notes. <a href="engineering.html">Read the engineering notebook ↗</a></p>
       <div class="quote">The laptop beside the book is intentionally part of the navigation. Projects should feel like software, not résumé bullets.</div>
     `
   },
@@ -157,7 +157,7 @@ const projects = {
     copy: "A campus product for turning “we should study sometime” into an actual plan.",
     terminal: "matching people → coordinating plans",
     live: "https://quadmates.ca",
-    repo: "https://github.com/Tophacks/quadmates"
+    repo: ""
   },
   transit: {
     title: "TransitOps",
@@ -246,7 +246,7 @@ function showProject(key) {
   } else {
     liveLink.style.display = "none";
   }
-  repoLink.href = project.repo;
+  if (project.repo) { repoLink.href = project.repo; repoLink.style.display = "inline-flex"; } else { repoLink.removeAttribute("href"); repoLink.style.display = "none"; }
   typeText(project.terminal);
 }
 
