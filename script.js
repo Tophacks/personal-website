@@ -9,7 +9,7 @@ const sections = [
     right: `
       <p class="eyebrow">Contents</p>
       <h2>Start anywhere.</h2>
-      <p class="lead">I like understanding how systems work, pulling apart difficult problems, and building things that can have a real-world impact. Most of what interests me lives somewhere between technology, economics, business, and the people actually using the system.</p>
+      <p class="lead">I like understanding how systems work, pulling apart difficult problems, and building things that can have a real-world impact. My interests span technology, economics, and business, particularly how systems affect the people who use them.</p>
       <div class="index-list">
         <div class="index-item"><span>About</span><span>02</span></div>
         <div class="index-item"><span>Selected projects</span><span>03</span></div>
@@ -24,7 +24,7 @@ const sections = [
     left: `
       <p class="eyebrow">02 · About</p>
       <h2>I like figuring out how things connect.</h2>
-      <p class="lead">I’m a University of Waterloo student interested in the intersections between science, technology, economics, finance, and business.</p>
+      <p class="lead">I study Mathematical Physics at the University of Waterloo, with interests in software, engineering, economics, and business.</p>
       <p>I’m especially drawn to problems where software meets the physical world — transportation, robotics, infrastructure, autonomy, and products that help people coordinate better. I like learning how the whole system works, not just the part on the screen.</p>
     `,
     right: `
@@ -47,7 +47,7 @@ const sections = [
         <div class="project" data-project="quadmates">
           <div class="meta"><span>Quadmates</span><span>Product / Full-stack</span></div>
           <h3>Campus coordination</h3>
-          <p>A study-matching product designed around turning intent into actual plans.</p>
+          <p>A platform that helps students find study partners and coordinate sessions.</p>
           <div class="project-links">
             <a href="https://quadmates.ca" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
             <a href="engineering.html#quadmates" data-stop-project>Case study ↗</a>
@@ -56,7 +56,7 @@ const sections = [
         <div class="project" data-project="transit">
           <div class="meta"><span>TransitOps</span><span>Simulation / Systems</span></div>
           <h3>Adaptive transit operations</h3>
-          <p>Exploring how distributed infrastructure could coordinate buses, stations, signals, and demand.</p>
+          <p>A simulation exploring how buses, stations, and traffic signals can respond to changing passenger demand.</p>
           <div class="project-links">
             <a href="https://transitops-phi.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
             <a href="https://github.com/Tophacks/TransitOps" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
@@ -74,7 +74,7 @@ const sections = [
         <div class="project" data-project="vision">
           <div class="meta"><span>Vision experiments</span><span>AI / Computer vision</span></div>
           <h3>Machines that interpret scenes</h3>
-          <p>Experiments around perception, autonomy, and real-world decision making.</p>
+          <p>Computer-vision experiments focused on detecting people in live camera footage.</p>
           <div class="project-links">
             <a href="https://github.com/Tophacks" target="_blank" rel="noreferrer" data-stop-project>GitHub ↗</a>
           </div>
@@ -86,7 +86,7 @@ const sections = [
       <h2>Show the system.</h2>
       <p class="lead">A project is more interesting when you can see the decisions inside it—not only the final interface.</p>
       <p>Explore the technical case studies for architecture, constraints, evaluation plans, and learning notes. <a href="engineering.html">Read the engineering notebook ↗</a></p>
-      <div class="quote">The laptop beside the book is intentionally part of the navigation. Projects should feel like software, not résumé bullets.</div>
+      <div class="quote">Select a project to explore its purpose, implementation, and current progress.</div>
     `
   },
   {
@@ -96,7 +96,7 @@ const sections = [
       <h2>Different roles, same curiosity.</h2>
       <div class="work-list">
         <div class="work-item"><div class="meta"><span>Infosys InStep · Bengaluru, India</span><span>Incoming · Winter 2027</span></div><h3>Computer Engineer (Software)</h3><p>Incoming co-op placement · January–April 2027.</p></div>
-        <div class="work-item"><div class="meta"><span>UW Orbital</span><span>Business + Finance</span></div><h3>Student satellite design team</h3><p>Worked across sponsorships, financials, outreach, and team operations — the less flashy pieces that still have to work for ambitious projects to happen.</p></div>
+        <div class="work-item"><div class="meta"><span>UW Orbital</span><span>Business + Finance</span></div><h3>Student satellite design team</h3><p>Support expense tracking, financial-data organization, and external outreach for a multidisciplinary satellite team.</p></div>
         <div class="work-item"><div class="meta"><span>City of Ottawa</span><span>Aquatics</span></div><h3>Lifeguard + swim instructor</h3><p>A very different kind of systems job: communicate clearly, make decisions quickly, manage risk, and stay calm when the situation changes.</p></div>
       </div>
     `,
@@ -108,7 +108,7 @@ const sections = [
       <p class="eyebrow">What transfers</p>
       <h3>Operations matter.</h3>
       <p class="lead">A good technical solution still has to work with budgets, operations, deadlines, teams, and real people.</p>
-      <p>Experiences in project work, sponsorships, marketing, financials, and organizing teams have made me care as much about execution and communication as the idea itself.</p>
+      <p>Working on student projects and financial operations has taught me to value clear communication and careful execution alongside technical ideas.</p>
       <p class="hand">Still learning. Preferably by building.</p>
     `
   },
@@ -135,7 +135,7 @@ const sections = [
     id: "contact",
     left: `
       <p class="eyebrow">06 · Contact</p>
-      <h2>Always happy to talk interesting problems.</h2>
+      <h2>Let's connect.</h2>
       <p class="lead">I’m interested in software, AI, robotics, economics, finance, product, and infrastructure — especially where those areas overlap.</p>
       <p>If you’re recruiting, building something ambitious, collaborating on a project, or just have a question worth chasing, feel free to reach out.</p>
     `,
@@ -154,28 +154,28 @@ const sections = [
 const projects = {
   quadmates: {
     title: "Quadmates",
-    copy: "A campus product for turning “we should study sometime” into an actual plan.",
+    copy: "A platform helping students find study partners and make plans to study together.",
     terminal: "matching people → coordinating plans",
     live: "https://quadmates.ca",
     repo: ""
   },
   transit: {
     title: "TransitOps",
-    copy: "A systems concept for adaptive transit operations using stations, signals, and shared intelligence.",
+    copy: "A transit-operations simulation exploring dispatch and coordination among buses, stations, and signals.",
     terminal: "demand → negotiate → dispatch → adapt",
     live: "https://transitops-phi.vercel.app",
     repo: "https://github.com/Tophacks/TransitOps"
   },
   staff: {
     title: "Staff Management",
-    copy: "A live full-stack app for organizing staff and operational information.",
+    copy: "A staff-management application with role-specific workflows and access controls.",
     terminal: "staff → schedule → coordinate → operate",
     live: "https://staff-management-app-five.vercel.app",
     repo: "https://github.com/Tophacks/staff-management-app"
   },
   vision: {
     title: "Vision Lab",
-    copy: "Computer-vision experiments focused on how software interprets messy physical environments.",
+    copy: "Computer-vision experiments for detecting people in camera footage.",
     terminal: "scene → features → context → action",
     live: "",
     repo: "https://github.com/Tophacks"
