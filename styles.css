@@ -404,3 +404,7 @@ svg { display: block; }
 .project-bottom .clip-link {color:#467842;text-decoration:none;font-size:11px;font-weight:700}
 .project-bottom .clip-link:hover {text-decoration:underline}
 @media(prefers-reduced-motion:reduce){.work-art .recorded-art{transition:none}}
+
+/* Interactive demonstration links */
+.project-bottom .try-link{color:#275e30;font-weight:800;padding:3px 0}
+.hero-actions{flex-wrap:wrap}

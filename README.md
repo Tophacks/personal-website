@@ -15,6 +15,18 @@ The site is an editorial engineering studio rather than a page-flip presentation
 - Responsive layouts, reduced-motion support, skip navigation, focus indicators, and progressive enhancements. Project content stays visible if JavaScript is disabled.
 - A consistent visual language across the engineering case studies and resume page.
 
+## Interactive engineering lab
+
+`demos.html` hosts six self-contained experiments, linked from every portfolio project:
+- TransitOps: four-stop simulation with fixed vs demand-triggered bus dispatch and side-by-side deterministic comparisons.
+- NeuroSim: manual flight model porting the published fictional rocket constants and simplified 2D physics.
+- TransitOps-M: depot reservation / docking / emergency-stop state transitions.
+- Quadmates: fictional discovery filters and guarded study-request workflow.
+- Staffflow: fictional hiring pipeline and server-template-inspired objective question scoring.
+- Vision: bounded-buffer and frame-skip scheduling model (no camera or person detection).
+
+`demo-core.js` holds testable browser ports of pure model logic; `demos.js` renders the interactions. No demo connects to a live database, authentication backend, staff/customer dataset, or trained model. **NeuroSim caveat:** the browser version adds illustrative RCS angular torque, because current published `env.py` records/penalizes RCS but does not actually apply it to the angular acceleration equation. No hardware safety claims or real deployment metrics are implied.
+
 ## Development
 
 Static HTML/CSS/JavaScript with no runtime framework and no build step.
