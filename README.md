@@ -39,6 +39,12 @@ The TransitOps and TransitOps-M case studies lead with the actual application in
 - TransitOps-M embeds `full/transitops-m.html`, copied from the actual `Tophacks/TransitOps-M/transitops_m/dashboard.html` and deliberately forced into the original offline/browser demonstration mode. The original JavaScript simulation controls are preserved. It is **not** connected to its Python API or physical bus controls.
 - The lightweight adapted Engineering Lab demos remain available below these full project experiences.
 
+## NeuroSim source-derived full mission control
+
+`full/neurosim.html` runs a manual browser port of the public `NeuroSim-2.0/neurosim/env.py` physics and `viewer.py` mission control design. It supports two original vehicle presets, three planets, seeded episodes, the eight-observation model, reward shaping, success/failure/timeout conditions, visible thrust and RCS command indicators, keyboard/sliders, live telemetry, and schema-v2 flight JSON exports. It runs without server credentials or uploads.
+
+**Exact limitations:** Original Python `env.py` currently has an accidental literal `\\n` parsing defect; the JS translation implements the intended info/reward logic. Original RCS input changes reward and the record, not angular acceleration, and the JS port intentionally preserves this. The public repo contains no compatible trained 3-action PPO weights; the viewer does not pretend to run a trained agent. Browser seeded randomness is deterministic but not byte-for-byte NumPy seed parity.
+
 ## Development
 
 Static HTML/CSS/JavaScript with no runtime framework and no build step.
