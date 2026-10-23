@@ -30,5 +30,5 @@ Then open `http://localhost:8000`.
 
 - Replace placeholder LinkedIn/email links
 - Add real project screenshots and repository/demo links
-- Add project case-study overlays
+- Keep Staffflow workflows, product screenshots and case-study implementation evidence current
 - Add optional page-turn audio

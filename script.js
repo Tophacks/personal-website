@@ -43,7 +43,7 @@ const sections = [
     id: "projects",
     left: `
       <p class="eyebrow">03 · Selected projects</p>
-      <h2>Three systems.<br>Different constraints.</h2>
+      <h2>Four systems.<br>Different constraints.</h2>
       <p>Click a project to move it onto the laptop.</p>
       <div class="project-list">
         <div class="project" data-project="quadmates">
@@ -64,6 +64,15 @@ const sections = [
             <a href="projects/transitops.html" data-stop-project>Case study ↗</a>
           </div>
         </div>
+        <div class="project" data-project="staff">
+          <div class="meta"><span>Staffflow</span><span>Internal product · Operations</span></div>
+          <h3>A people-operations control centre</h3>
+          <p>A workforce application built around Quadmates, including hiring, candidate assessments, onboarding, shifts and permissions.</p>
+          <div class="project-links">
+            <a href="https://staff-management-app-da8r.vercel.app/" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
+            <a href="projects/staffflow.html" data-stop-project>Case study ↗</a>
+          </div>
+        </div>
         <div class="project" data-project="neurosim">
           <div class="meta"><span>NeuroSim 2.0</span><span>Research experiment</span></div>
           <h3>Learning to control a landing</h3>
@@ -79,7 +88,7 @@ const sections = [
       <div class="note-list">
         <div class="note"><h3><a href="projects/transitops-m.html">TransitOps-M ↗</a></h3><p>Fleet state transitions, depot interlocks, and a conceptual HO-scale layout.</p></div>
         <div class="note"><h3><a href="projects/vision.html">Person detection ↗</a></h3><p>An earlier OpenCV and Tkinter experiment in camera capture and bounded processing.</p></div>
-        <div class="note"><h3><a href="https://staff-management-app-five.vercel.app" target="_blank" rel="noreferrer">Staff management ↗</a></h3><p>A separate workforce-coordination application.</p></div>
+        <div class="note"><h3><a href="projects/staffflow.html">Staffflow architecture ↗</a></h3><p>A full-stack operations platform: recruitment, assessment review, time tracking and team oversight.</p></div>
       </div>
       <div class="cover-actions"><a href="engineering.html">All case studies →</a><a href="projects/transitops.html#replay">Play a simulation →</a></div>
     `
@@ -161,11 +170,12 @@ const projects = {
     repo: "https://github.com/Tophacks/TransitOps"
   },
   staff: {
-    title: "Staff Management",
+    title: "Staffflow",
     copy: "A staff-management application with role-specific workflows and access controls.",
     terminal: "staff → schedule → coordinate → operate",
-    live: "https://staff-management-app-five.vercel.app",
-    repo: ""
+    live: "https://staff-management-app-da8r.vercel.app/",
+    repo: "",
+    caseStudy: "projects/staffflow.html"
   },
   vision: {
     title: "Vision Lab",
@@ -191,6 +201,7 @@ projects.neurosim = {
 const appEntries = [
   { key: "miniature", label: "TransitOps-M", keywords: "depot miniature fleet cad state machine" },
   { key: "neurosim", label: "NeuroSim 2.0", keywords: "rocket reinforcement learning ppo control" },
+  { key: "staff", label: "Staffflow", keywords: "hiring people operations workforce scheduling candidate assessments" },
   { key: "quadmates", label: "Quadmates", keywords: "study campus matching students" },
   { key: "transit", label: "TransitOps", keywords: "transit bus simulation operations" },
   { key: "staff", label: "Staff Management", keywords: "staff workforce management operations" },
@@ -262,7 +273,7 @@ function showProject(key) {
   const project = projects[key];
   if (!project) return;
   currentProjectKey = key;
-  const casePaths = {quadmates:"quadmates", transit:"transitops", miniature:"transitops-m", neurosim:"neurosim", vision:"vision"};
+  const casePaths = {quadmates:"quadmates", transit:"transitops", miniature:"transitops-m", neurosim:"neurosim", vision:"vision", staff:"staffflow"};
   const caseLink = document.getElementById("caseStudyLink");
   caseLink.hidden = !casePaths[key];
   if (casePaths[key]) caseLink.href = `projects/${casePaths[key]}.html`;
