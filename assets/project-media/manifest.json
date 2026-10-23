@@ -1,24 +1,27 @@
 {
   "version": 1,
-  "captured_at": null,
+  "captured_at": "2026-10-23T20:30:46.175Z",
   "projects": {
     "quadmates": {
-      "kind": "source-diagram",
-      "image": "assets/project-media/quadmates-diagram.svg",
-      "description": "Source-grounded product workflow, not a screenshot.",
-      "source": "https://quadmates.ca/"
+      "kind": "public-screen",
+      "image": "assets/project-media/quadmates.jpg",
+      "description": "Public Quadmates entry page; no authenticated student profiles or conversations.",
+      "source": "https://quadmates.ca/",
+      "recorded_at": "2026-10-23T20:30:23.995Z"
     },
     "transitops": {
-      "kind": "source-diagram",
-      "image": "assets/project-media/transitops-diagram.svg",
-      "description": "Source-grounded simulation workflow, not a screenshot.",
-      "source": "https://transitops-phi.vercel.app/"
+      "kind": "public-screen",
+      "image": "assets/project-media/transitops.jpg",
+      "description": "Public TransitOps simulator UI; not an operating transit-agency feed.",
+      "source": "https://transitops-phi.vercel.app/",
+      "recorded_at": "2026-10-23T20:30:31.458Z"
     },
     "staffflow": {
-      "kind": "source-diagram",
-      "image": "assets/project-media/staffflow-diagram.svg",
-      "description": "Source-grounded team operations diagram, not a screenshot or staff data.",
-      "source": "https://staff-management-app-da8r.vercel.app/"
+      "kind": "public-screen",
+      "image": "assets/project-media/staffflow.jpg",
+      "description": "Public Staffflow entry page; no private employee or applicant records.",
+      "source": "https://staff-management-app-da8r.vercel.app/",
+      "recorded_at": "2026-10-23T20:30:39.091Z"
     },
     "neurosim": {
       "kind": "source-diagram",
@@ -27,10 +30,11 @@
       "source": "https://github.com/Tophacks/NeuroSim-2.0"
     },
     "transitops-m": {
-      "kind": "source-diagram",
-      "image": "assets/depot-b-preview.svg",
-      "description": "Depot B CAD concept preview from TransitOps-M repository, not a fabricated physical model.",
-      "source": "https://transitops-m.vercel.app/"
+      "kind": "public-screen",
+      "image": "assets/project-media/transitops-m.jpg",
+      "description": "Public TransitOps-M project website, not footage of physical vehicles.",
+      "source": "https://transitops-m.vercel.app/",
+      "recorded_at": "2026-10-23T20:30:46.154Z"
     },
     "vision": {
       "kind": "source-diagram",
