@@ -83,3 +83,12 @@ test('full application integrations preserve original interfaces and safe fallba
  }
  assert.ok(original.includes('isolated browser mode'));
 });
+
+test('NeuroSim full mission-control interface and case-study embedding are available',()=>{
+ const read=(name)=>readFileSync(join(root,name),'utf8');
+ const full=read('neurosim-mission.html'),view=read('projects/neurosim.html'),engine=read('neurosim-engine.js');
+ assert.ok(full.includes('neurosim-engine.js')&&full.includes('neurosim-mission.js'));
+ assert.ok(full.includes('Export CSV')&&full.includes('Replay flight'));
+ assert.ok(view.includes('src="../neurosim-mission.html"'));
+ assert.ok(engine.includes('thrust*Math.sin(angle)')&&engine.includes('PLANETS'));
+});

@@ -146,3 +146,8 @@ footer { max-width:1320px; padding:12px clamp(20px,4.5vw,60px) 47px; font-size:1
 .original-caveat{padding:14px 22px;color:#5a6e59;font-size:12px;line-height:1.6;margin:0}
 @media(max-width:900px){.original-stage iframe{height:850px}}
 @media(max-width:620px){.original-stage iframe{height:950px}.original-stage-bar{font-size:8px}}
+
+/* NeuroSim mission-control viewer is deliberately spacious */
+[data-full-application="neurosim"] .original-stage iframe{height:960px}
+@media(max-width:900px){[data-full-application="neurosim"] .original-stage iframe{height:1250px}}
+@media(max-width:500px){[data-full-application="neurosim"] .original-stage iframe{height:1440px}}

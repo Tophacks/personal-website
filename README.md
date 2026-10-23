@@ -27,6 +27,10 @@ The site is an editorial engineering studio rather than a page-flip presentation
 
 `demo-core.js` holds testable browser ports of pure model logic; `demos.js` renders the interactions. No demo connects to a live database, authentication backend, staff/customer dataset, or trained model. **NeuroSim caveat:** the browser version adds illustrative RCS angular torque, because current published `env.py` records/penalizes RCS but does not actually apply it to the angular acceleration equation. No hardware safety claims or real deployment metrics are implied.
 
+## Full NeuroSim 2.0 mission control
+
+`neurosim-mission.html` is an independent, full-sized browser mission control application using `neurosim-engine.js`, a port of the public NeuroSim 2.0 Python environment's dynamics, vehicle/planet presets, touchdown and reward equations. It includes animated flight, manual keyboard/touch sliders, planet and vehicle selection, live telemetry, a flight-recorder graph, replay and CSV export. The published repository has no committed trained model weights and contains a known syntax issue, so the portfolio does **not** claim PPO inference or run arbitrary Python. The separate lightweight engineering-lab exhibit deliberately models an optional RCS torque, but the full mission-control page instead retains the Python environment's no-RCS-torque behavior.
+
 ## Original running applications
 
 The TransitOps and TransitOps-M case studies lead with the actual application interfaces rather than replacing them with simplified visualizations.

@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createRequire} from 'node:module';const require=createRequire(import.meta.url);const {create,step,VEHICLES,PLANETS}=require('../neurosim-engine.js');
+test('same seed and controls reproduce exactly the same NeuroSim state',()=>{const a=create({seed:81}),b=create({seed:81});for(let i=0;i<20;i++){step(a,[.55,.1,0]);step(b,[.55,.1,0]);}assert.deepEqual(a,b);});
+test('fuel burn, planet gravity, and touchdown constraints',()=>{const a=create(),b=create({planet:'moon'});const fuel=a.fuel;step(a,[.7,0,0]);step(b,[.7,0,0]);assert.ok(a.fuel<fuel);assert.ok(b.vz>a.vz);assert.equal(VEHICLES.custom.height,8);assert.equal(PLANETS.earth.g,9.81);});
+test('published RCS command affects penalty but not angular motion',()=>{const a=create(),b=create();step(a,[.5,.1,-1]);step(b,[.5,.1,0]);assert.equal(a.theta,b.theta);assert.ok(a.reward<b.reward);});
+test('flight terminates with crash on excessive position',()=>{const s=create();s.x=301;step(s,[0,0,0]);assert.equal(s.status,'crash');});
