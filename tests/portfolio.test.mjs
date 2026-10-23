@@ -94,7 +94,7 @@ test('interactive explorer, filters and mobile navigation preserve semantics', (
     return item;
   });
   const elements = Object.fromEntries(tabNames.map((name,i) => ['panel-' + name,panels[i]]));
-  for (const id of ['consoleTitle','consoleCopy','consoleCase','consoleLive','resultsCount','year','readingProgress']) {
+  for (const id of ['consoleTitle','consoleCopy','consoleCase','consoleLive','resultsCount','year','readingProgress','projectGrid']) {
     elements[id] = fakeElement();
   }
   elements.readingProgress.style = {};
@@ -135,6 +135,7 @@ test('interactive explorer, filters and mobile navigation preserve semantics', (
   assert.equal(tabs[0].getAttribute('aria-selected'), 'true');
   filters[3].dispatch('click');
   assert.equal(cards.filter(card => !card.hidden).length, 2);
+  assert.equal(elements.projectGrid.classList.contains('is-filtered'), true);
   assert.equal(elements.resultsCount.textContent, 'Showing 2 projects');
   assert.equal(filters[3].getAttribute('aria-pressed'),'true');
   filters[0].dispatch('click');

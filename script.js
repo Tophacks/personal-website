@@ -100,6 +100,7 @@
   // Project filters work over the published HTML, including with no network connection.
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
   const cards = Array.from(document.querySelectorAll("[data-project-card]"));
+  const projectGrid = document.getElementById("projectGrid");
   const resultsCount = document.getElementById("resultsCount");
   filterButtons.forEach(button => button.addEventListener("click", () => {
     const filter = button.dataset.filter;
@@ -109,6 +110,7 @@
       card.hidden = !visible;
       if (visible) visibleCount += 1;
     });
+    if (projectGrid) projectGrid.classList.toggle("is-filtered", filter !== "all");
     filterButtons.forEach(candidate => {
       const selected = candidate === button;
       candidate.classList.toggle("selected", selected);
