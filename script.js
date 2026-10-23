@@ -3,14 +3,14 @@ const sections = [
     id: "cover",
     left: `
       <p class="eyebrow">Field notebook · Vol. 01</p>
-      <h1 class="display">Nate<br>Powell</h1>
-      <p class="lead">Waterloo Mathematical Physics student building simulation, autonomy, and coordination software.</p>
-      <div class="cover-actions"><button type="button" data-section-jump="projects">View projects →</button><a href="resumes.html">View resume ↗</a></div>
+      <h1 class="display">Nate<br>Powell<span class="hero-stop">.</span></h1>
+      <p class="lead">I build software for complex systems—where engineering meets the real world.</p><p class="cover-subline">Mathematical Physics · University of Waterloo</p>
+      <div class="cover-actions"><button type="button" data-section-jump="projects">Explore my work ↗</button><a href="engineering.html">Engineering case studies →</a></div>
       <p class="hand">From the model to the people using it.</p>
     `,
     right: `
       <p class="eyebrow">Contents</p>
-      <h2>Start anywhere.</h2>
+      <h2>A notebook of ideas turned into working systems.</h2>
       <p class="lead">I like understanding how systems work, pulling apart difficult problems, and building things that can have a real-world impact. My interests span technology, economics, and business, particularly how systems affect the people who use them.</p>
       <div class="index-list">
         <button type="button" class="index-item" data-section-jump="about"><span>About</span><span>02</span></button>
@@ -44,7 +44,7 @@ const sections = [
     left: `
       <p class="eyebrow">03 · Selected projects</p>
       <h2>Four systems.<br>Different constraints.</h2>
-      <p>Click a project to move it onto the laptop.</p>
+      <p>Select a project to preview its purpose, then explore the underlying engineering.</p>
       <div class="project-list">
         <div class="project" data-project="quadmates">
           <div class="meta"><span>Quadmates</span><span>Product prototype</span></div>
@@ -88,7 +88,7 @@ const sections = [
       <div class="note-list">
         <div class="note"><h3><a href="projects/transitops-m.html">TransitOps-M ↗</a></h3><p>Fleet state transitions, depot interlocks, and a conceptual HO-scale layout.</p></div>
         <div class="note"><h3><a href="projects/vision.html">Person detection ↗</a></h3><p>An earlier OpenCV and Tkinter experiment in camera capture and bounded processing.</p></div>
-        <div class="note"><h3><a href="projects/staffflow.html">Staffflow architecture ↗</a></h3><p>A full-stack operations platform: recruitment, assessment review, time tracking and team oversight.</p></div>
+
       </div>
       <div class="cover-actions"><a href="engineering.html">All case studies →</a><a href="projects/transitops.html#replay">Play a simulation →</a></div>
     `
@@ -228,11 +228,9 @@ function render(index, animate = true) {
     void book.offsetWidth;
     book.classList.add("turning");
   }
-  setTimeout(() => {
-    leftPage.innerHTML = section.left;
-    rightPage.innerHTML = section.right;
-    attachProjects();
-  }, animate ? 160 : 0);
+  leftPage.innerHTML = section.left;
+  rightPage.innerHTML = section.right;
+  attachProjects();
 
   current = index;
   pageNumber.textContent = `${String(index + 1).padStart(2, "0")} / ${String(sections.length).padStart(2, "0")}`;
