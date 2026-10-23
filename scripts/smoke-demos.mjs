@@ -61,6 +61,18 @@ try {
  assert.equal(await embedded.locator('[data-demo-panel="transitops-m"]').isVisible(), true);
  assert.equal(await embedded.locator('[data-demo-panel="transitops"]').isVisible(), false);
 
+
+ // The source-physics NeuroSim viewer operates independently, with real input and export.
+ const neurosim = await browser.newPage({viewport:{width:1220,height:900}});
+ neurosim.on('pageerror',e=>errors.push(e.message));
+ await neurosim.goto(pathToFileURL(resolve('full/neurosim.html')).href);
+ const initialAltitude=await neurosim.locator('#telemetry').innerText();
+ await neurosim.locator('#step').click();
+ assert.notEqual(await neurosim.locator('#telemetry').innerText(),initialAltitude);
+ await neurosim.locator('#planet').selectOption('mars');
+ assert.match(await neurosim.locator('#specs').innerText(),/3.71/);
+ await neurosim.locator('#vehicle').selectOption('custom');
+ assert.match(await neurosim.locator('#specs').innerText(),/500 kg/);
  assert.deepEqual(errors, []);
  console.log('PASS: six interactive panels, workflow actions, and embedded mode.');
 } finally {
