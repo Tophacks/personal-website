@@ -43,11 +43,11 @@ const sections = [
     id: "projects",
     left: `
       <p class="eyebrow">03 · Selected projects</p>
-      <h2>Things I’ve been building.</h2>
+      <h2>Three systems.<br>Different constraints.</h2>
       <p>Click a project to move it onto the laptop.</p>
       <div class="project-list">
         <div class="project" data-project="quadmates">
-          <div class="meta"><span>Quadmates</span><span>Product / Full-stack</span></div>
+          <div class="meta"><span>Quadmates</span><span>Product prototype</span></div>
           <h3>Campus coordination</h3>
           <p>A platform that helps students find study partners and coordinate sessions.</p>
           <div class="project-links">
@@ -56,7 +56,7 @@ const sections = [
           </div>
         </div>
         <div class="project" data-project="transit">
-          <div class="meta"><span>TransitOps</span><span>Simulation / Systems</span></div>
+          <div class="meta"><span>TransitOps</span><span>Simulation prototype</span></div>
           <h3>Adaptive transit operations</h3>
           <p>A simulation exploring how buses, stations, and traffic signals can respond to changing passenger demand.</p>
           <div class="project-links">
@@ -64,35 +64,24 @@ const sections = [
             <a href="projects/transitops.html" data-stop-project>Case study ↗</a>
           </div>
         </div>
-        <div class="project" data-project="staff">
-          <div class="meta"><span>Staff Management</span><span>Full-stack / Operations</span></div>
-          <h3>Workforce coordination</h3>
-          <p>A live management app for organizing staff and operational information.</p>
-          <div class="project-links">
-            <a href="https://staff-management-app-five.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
-
-          </div>
-        </div>
-        <div class="project" data-project="vision">
-          <div class="meta"><span>Vision experiments</span><span>AI / Computer vision</span></div>
-          <h3>Machines that interpret scenes</h3>
-          <p>Computer-vision experiments focused on detecting people in live camera footage.</p>
-          <div class="project-links">
-            <a href="projects/vision.html" data-stop-project>Case study ↗</a>
-          </div>
+        <div class="project" data-project="neurosim">
+          <div class="meta"><span>NeuroSim 2.0</span><span>Research experiment</span></div>
+          <h3>Learning to control a landing</h3>
+          <p>A custom Gymnasium environment with PPO training and separate policy evaluation.</p>
+          <div class="project-links"><a href="projects/neurosim.html" data-stop-project>Case study ↗</a></div>
         </div>
       </div>
     `,
     right: `
-      <p class="eyebrow">Project principle</p>
-      <h2>Show the system.</h2>
-      <p class="lead">A project is more interesting when you can see the decisions inside it—not only the final interface.</p>
-      <p>Explore the technical case studies for architecture, implementation decisions, reproduced results, and open problems. <a href="engineering.html">Read the engineering notebook ↗</a></p>
+      <p class="eyebrow">Supporting + earlier work</p>
+      <h2>The wider notebook.</h2>
+      <p>Explore the engineering details behind each project: implementation, evidence, constraints, and what comes next.</p>
       <div class="note-list">
-        <div class="note"><h3><a href="projects/transitops.html">TransitOps: test the hypothesis ↗</a></h3><p>A fixed-scenario comparison shows why more dispatch interventions can still increase passenger wait.</p></div>
-        <div class="note"><h3><a href="projects/transitops-m.html">TransitOps-M: model the constraints ↗</a></h3><p>Depot reservation, docking confirmation, and deliberate recovery. Eight existing tests passed locally.</p></div>
-        <div class="note"><h3><a href="projects/neurosim.html">NeuroSim: validate before training ↗</a></h3><p>A continuous-control environment with separate evaluation tools and explicit implementation gaps.</p></div>
+        <div class="note"><h3><a href="projects/transitops-m.html">TransitOps-M ↗</a></h3><p>Fleet state transitions, depot interlocks, and a conceptual HO-scale layout.</p></div>
+        <div class="note"><h3><a href="projects/vision.html">Person detection ↗</a></h3><p>An earlier OpenCV and Tkinter experiment in camera capture and bounded processing.</p></div>
+        <div class="note"><h3><a href="https://staff-management-app-five.vercel.app" target="_blank" rel="noreferrer">Staff management ↗</a></h3><p>A separate workforce-coordination application.</p></div>
       </div>
+      <div class="cover-actions"><a href="engineering.html">All case studies →</a><a href="projects/transitops.html#replay">Play a simulation →</a></div>
     `
   },
   {
@@ -149,10 +138,9 @@ const sections = [
       <p class="eyebrow">Find me</p>
       <div class="links">
         <a href="https://github.com/Tophacks" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a>
         <a href="mailto:n2powell@uwaterloo.ca"><span>n2powell@uwaterloo.ca</span><span>↗</span></a>
       </div>
-      <p class="hand">More links soon.</p>
+      <p class="hand">Let’s build something useful.</p>
     `
   }
 ];
@@ -328,9 +316,6 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft" && current > 0) render(current - 1);
 });
 
-document.getElementById("soundToggle").addEventListener("click", e => {
-  e.currentTarget.textContent = e.currentTarget.textContent === "sound off" ? "sound on" : "sound off";
-});
 
 document.getElementById("year").textContent = new Date().getFullYear();
 

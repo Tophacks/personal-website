@@ -583,3 +583,7 @@ a:focus-visible,button:focus-visible,.project:focus-visible{outline:3px solid #3
  .tabs{position:static;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;margin-bottom:12px}.tab{width:auto;padding:10px 12px;border-radius:5px;font-size:11px;text-align:center;white-space:normal}.tab::after{content:none!important}.tab:hover,.tab.active{transform:none}.workspace{gap:24px}.device.laptop{width:min(100%,460px)}.laptop-base{width:100%;margin-left:0}.topbar{gap:12px}.footer{overflow-wrap:anywhere}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.cursor{display:none}}
+
+/* Give the notebook priority over decorative devices on desktop. */
+@media(min-width:1280px){.workspace{grid-template-columns:minmax(190px,.62fr) minmax(700px,2.7fr) minmax(150px,.5fr);gap:clamp(18px,2vw,30px)}.book-wrap{max-width:1060px}.page{padding:clamp(30px,2.8vw,48px)}.laptop-screen{padding:17px}.tablet-screen{padding:22px 13px}}
+@media(min-width:821px) and (max-width:1279px){.workspace{grid-template-columns:180px minmax(0,1fr);gap:22px}.tablet{display:none}.page{padding:30px}}
