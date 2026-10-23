@@ -68,3 +68,18 @@ test('all six projects offer embedded standalone demos',()=>{
   assert.ok(hub.includes('data-demo-tab="'+p+'"'));
  }
 });
+
+test('full application integrations preserve original interfaces and safe fallbacks',()=>{
+ const read=(name)=>readFileSync(join(root,name),'utf8');
+ const transit=read('projects/transitops.html');
+ const mini=read('projects/transitops-m.html');
+ const original=read('full/transitops-m.html');
+ assert.ok(transit.includes('https://transitops-phi.vercel.app/'));
+ assert.ok(transit.includes('Open full TransitOps in new tab'));
+ assert.ok(mini.includes('../full/transitops-m.html'));
+ assert.ok(mini.includes('Open original simulator full-screen'));
+ for(const token of ['simulatedCommand(action,extra)','Reserve depot','Connecting','EMERGENCY_STOP','SIMULATION_RESET']){
+  assert.ok(original.includes(token), 'Original dashboard source should contain '+token);
+ }
+ assert.ok(original.includes('isolated browser mode'));
+});

@@ -27,6 +27,14 @@ The site is an editorial engineering studio rather than a page-flip presentation
 
 `demo-core.js` holds testable browser ports of pure model logic; `demos.js` renders the interactions. No demo connects to a live database, authentication backend, staff/customer dataset, or trained model. **NeuroSim caveat:** the browser version adds illustrative RCS angular torque, because current published `env.py` records/penalizes RCS but does not actually apply it to the angular acceleration equation. No hardware safety claims or real deployment metrics are implied.
 
+## Original running applications
+
+The TransitOps and TransitOps-M case studies lead with the actual application interfaces rather than replacing them with simplified visualizations.
+
+- TransitOps embeds its independent Next.js/FastAPI deployment at `https://transitops-phi.vercel.app/` with a prominent direct-open link if iframe embedding is blocked by the host. The SUMO/TraCI WebSocket simulator requires its own optional service and cannot run from the static portfolio.
+- TransitOps-M embeds `full/transitops-m.html`, copied from the actual `Tophacks/TransitOps-M/transitops_m/dashboard.html` and deliberately forced into the original offline/browser demonstration mode. The original JavaScript simulation controls are preserved. It is **not** connected to its Python API or physical bus controls.
+- The lightweight adapted Engineering Lab demos remain available below these full project experiences.
+
 ## Development
 
 Static HTML/CSS/JavaScript with no runtime framework and no build step.
