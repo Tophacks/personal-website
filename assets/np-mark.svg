@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">NP monogram</title>
+  <rect width="64" height="64" rx="15" fill="#17221b"/>
+  <path d="M13 45V18h6l12 18V18h6v27h-6L19 27v18z" fill="#d8fa86"/>
+  <path d="M41 45V18h10c6 0 9 3 9 9s-4 9-10 9h-3v9h-6zm6-14h4c2 0 3-1 3-4s-1-4-3-4h-4z" fill="#f5f5ef"/>
+</svg>

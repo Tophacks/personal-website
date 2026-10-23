@@ -1,34 +1,55 @@
-# Personal Website
+# Nate Powell — Engineering Field Notes
 
-An interactive portfolio designed as a digital field notebook.
+A personal portfolio for product engineering, transit simulation, reinforcement learning, and computer vision.
 
-## Live Site
+**Live:** https://personal-website-ten-lyart.vercel.app/
 
-**[View the live website](https://personal-website-ten-lyart.vercel.app)**
+## Design
 
-## Concept
+The site is an editorial engineering studio rather than a page-flip presentation:
 
-The site is built around an open book with tabbed navigation. A laptop acts as a project display, while a tablet holds current explorations and shortcuts.
+- An immediately readable hero with clear project and resume links.
+- A keyboard-accessible, four-project interactive systems explorer (illustrative schematics, **not** production telemetry).
+- Six detailed project cards, with category filters and links to source-backed case studies.
+- An approach section, experience timeline, curiosity notes, and direct contact links.
+- Responsive layouts, reduced-motion support, skip navigation, focus indicators, and progressive enhancements. Project content stays visible if JavaScript is disabled.
+- A consistent visual language across the engineering case studies and resume page.
 
-## Run locally
+## Development
 
-No build step is required.
+Static HTML/CSS/JavaScript with no runtime framework and no build step.
+
+Run locally:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open http://localhost:8000/.
 
-## Structure
+Run the checks locally (Node.js 22 recommended):
 
-- `index.html` — layout and device shell
-- `styles.css` — book, desk, responsive design, and animation
-- `script.js` — tab navigation, project interactions, and typing effect
+```bash
+node --check script.js
+node --test tests/*.test.mjs
+```
+
+GitHub Actions runs the same checks for commits and pull requests.
+
+## Files
+
+- `index.html` — fully accessible homepage content and project schematics
+- `styles.css` — visual system, animations, and responsive layouts
+- `script.js` — accessible tab explorer, project filters, mobile nav, progress indicator
+- `engineering.html` and `engineering.css` — evidence-led case-study index
+- `projects/` — individual project case studies
+- `resumes.html` — original PDFs and career profiles
+- `assets/np-mark.svg` — monogram
+
+## Editorial principles
+
+Project diagrams are schematics, not screenshots or live monitoring. Performance claims appear only when the corresponding case study explains the experiment and limitations. Private source code, staff records, and applicant data are not disclosed.
 
 ## Next improvements
 
-- Replace placeholder LinkedIn/email links
-- Add real project screenshots and repository/demo links
-- Keep Staffflow workflows, product screenshots and case-study implementation evidence current
-- Add optional page-turn audio
+Replace schematic artwork with real, permission-checked product screenshots and short demo clips where useful; periodically update case studies against repository changes.

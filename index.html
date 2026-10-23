@@ -1,142 +1,286 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nate Powell — engineering portfolio of simulation, autonomy, AI and product development. Explore Quadmates, TransitOps, NeuroSim and Staffflow." />
-  <meta name="theme-color" content="#e9e4d9" />
-  <title>Nate Powell — Field Notes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ef">
+  <meta name="description" content="Nate Powell builds software for real-world systems: student products, transit simulation, reinforcement learning, and autonomy. Explore engineering case studies and live projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nate Powell — Software, simulation & autonomy">
+  <meta property="og:description" content="Engineering ideas into working systems. Projects, decisions and lessons from building.">
+  <title>Nate Powell — Engineering in the open</title>
+  <link rel="icon" type="image/svg+xml" href="assets/np-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#book">Skip to notebook</a>
-  <main class="desk" aria-label="Nate Powell portfolio">
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
 
-    <header class="topbar">
-      <span class="topbar-rule" aria-hidden="true"></span>
-      <a class="mark" href="#" aria-label="Home">NP</a>
-      <p class="topbar-location"><span class="availability-dot" aria-hidden="true"></span> Independent engineering notebook <span class="location-divider">/</span> Waterloo, Canada</p>
-      <nav class="topbar-links" aria-label="Primary navigation"><a class="case-study-nav" href="#projects">Projects</a><a class="case-study-nav" href="engineering.html">Case studies</a><a class="case-study-nav" href="resumes.html">Resumes</a><a class="header-cta" href="https://github.com/Tophacks" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
-    </header>
+  <header class="site-header" id="top">
+    <div class="site-header-inner container">
+      <a class="brand" href="#top" aria-label="Nate Powell, homepage">
+        <span class="brand-mark">NP<span class="brand-point">.</span></span>
+        <span class="brand-description"><strong>Nate Powell</strong><small>Engineering field notes</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#approach">Approach</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="nav-resume" href="resumes.html">Resume <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation"><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+      <a href="#projects">Projects <span>01</span></a>
+      <a href="#approach">Approach <span>02</span></a>
+      <a href="#experience">Experience <span>03</span></a>
+      <a href="#contact">Contact <span>04</span></a>
+      <a href="resumes.html">Resume <span>↗</span></a>
+    </nav>
+  </header>
 
-    <section class="intro-strip" aria-label="Introduction">
-      <div class="intro-heading"><span class="overline">01 / Selected work</span><p>Software, simulation &amp; systems.</p></div>
-      <div class="intro-aside"><span>2026 · Portfolio</span><span>Explore the notebook ↓</span></div>
-    </section>
-    <section class="workspace">
-      <aside class="device laptop" aria-label="Project terminal">
-        <div class="laptop-screen">
-          <div class="screen-bar"><span></span><span></span><span></span><small>project://preview</small></div>
-          <div class="browser-toolbar">
-            <input id="appSearch" class="browser-search" type="search" placeholder="Search projects..." aria-label="Search portfolio projects" />
-            <button id="searchButton" class="browser-go" type="button">Go</button>
-          </div>
-          <div id="searchResults" class="search-results" aria-live="polite"></div>
-          <div class="browser-content">
-            <p class="screen-kicker">selected project</p>
-            <h2 id="deviceTitle">Quadmates</h2>
-            <p id="deviceCopy">A platform helping students find study partners and make plans to study together.</p>
-            <div class="terminal-line"><span>›</span><span id="typedText"></span><span class="cursor"></span></div>
-            <div class="device-actions">
-              <a id="liveAppLink" class="device-link primary" href="https://quadmates.ca" target="_blank" rel="noreferrer">Open live app ↗</a>
-              <a id="caseStudyLink" class="device-link" href="projects/quadmates.html">Read case study ↗</a>
-              <a id="repoLink" class="device-link" href="https://github.com/Tophacks" target="_blank" rel="noreferrer">GitHub ↗</a>
+  <main id="content">
+    <section class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="hero-kicker"><span class="status-signal" aria-hidden="true"></span> WATERLOO, CANADA <span class="kicker-divider" aria-hidden="true">/</span> BUILDING IN PUBLIC</div>
+        <h1 id="heroTitle">Curious about<br><span class="hero-strong">how things</span><br><em>really work.</em></h1>
+        <p class="hero-subtitle">I'm Nate. I build software where <strong>products, simulation and intelligent systems</strong> meet the real world.</p>
+        <p class="hero-context">Mathematical Physics at the University of Waterloo. Founder of Quadmates. Currently exploring autonomy, transit systems and the engineering behind useful products.</p>
+        <div class="hero-actions">
+          <a class="button button-solid" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button button-text" href="engineering.html">Read the engineering notes <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-footnote"><span class="footnote-line" aria-hidden="true"></span><span>PROTOTYPES, PRODUCT DECISIONS &amp; THE OCCASIONAL FAILED EXPERIMENT.</span></div>
+      </div>
+
+      <aside class="studio-console" aria-label="Interactive project preview">
+        <div class="console-bar">
+          <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>FIELD DEVICE / PROJECT EXPLORER</span>
+          <span class="console-bar-right">v. 2026</span>
+        </div>
+        <div class="console-tabs" role="tablist" aria-label="Preview a project">
+          <button id="tab-quadmates" class="console-tab active" role="tab" aria-selected="true" aria-controls="panel-quadmates" data-scene="quadmates" data-case="projects/quadmates.html" data-live="https://quadmates.ca" type="button">01 <span>Quadmates</span></button>
+          <button id="tab-transit" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-transit" data-scene="transit" data-case="projects/transitops.html" data-live="https://transitops-phi.vercel.app" tabindex="-1" type="button">02 <span>TransitOps</span></button>
+          <button id="tab-staff" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-staff" data-scene="staff" data-case="projects/staffflow.html" data-live="https://staff-management-app-da8r.vercel.app/" tabindex="-1" type="button">03 <span>Staffflow</span></button>
+          <button id="tab-neurosim" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-neurosim" data-scene="neurosim" data-case="projects/neurosim.html" data-live="" tabindex="-1" type="button">04 <span>NeuroSim</span></button>
+        </div>
+        <div class="console-viewport">
+          <section id="panel-quadmates" class="scene scene-quadmates" role="tabpanel" aria-labelledby="tab-quadmates" tabindex="0">
+            <div class="scene-label"><span>PRODUCT SYSTEM</span><span>01 / 04</span></div>
+            <div class="constellation" aria-hidden="true">
+              <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+                <defs><pattern id="dotField" width="21" height="21" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#52605a"/></pattern></defs>
+                <rect x="0" y="0" width="500" height="260" fill="url(#dotField)" opacity=".55"/>
+                <path d="M108 68 L249 131 L383 67 M249 131 L395 208 M249 131 L104 208 M108 68 L104 208 M383 67 L395 208" stroke="#607269" stroke-width="1.5" stroke-dasharray="5 7" fill="none"/>
+                <circle cx="249" cy="131" r="61" fill="#222d27" stroke="#d9f980" stroke-width="2"/>
+                <circle cx="249" cy="131" r="43" fill="none" stroke="#566754" stroke-width="1"/>
+                <text x="249" y="125" text-anchor="middle" font-size="15" font-family="monospace" fill="#f5f9e8">QUAD</text><text x="249" y="147" text-anchor="middle" font-size="15" font-family="monospace" fill="#d9f980">MATES</text>
+                <circle cx="108" cy="68" r="22" fill="#303e37" stroke="#96aa9b"/><circle cx="383" cy="67" r="22" fill="#303e37" stroke="#96aa9b"/>
+                <circle cx="104" cy="208" r="22" fill="#303e37" stroke="#96aa9b"/><circle cx="395" cy="208" r="22" fill="#303e37" stroke="#96aa9b"/>
+                <g fill="#e6eedc" font-family="monospace" text-anchor="middle" font-size="10"><text x="108" y="72">CS</text><text x="383" y="71">MATH</text><text x="104" y="212">ECON</text><text x="395" y="212">PHYS</text></g>
+                <g fill="#d9f980"><circle cx="182" cy="99" r="4"/><circle cx="319" cy="99" r="4"/><circle cx="318" cy="168" r="4"/></g>
+              </svg>
             </div>
-          </div>
-        </div>
-        <div class="laptop-base" aria-hidden="true">
-          <div class="keyboard">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="space-key"></span><span></span><span></span><span></span>
-          </div>
-          <div class="trackpad"></div>
-          <div class="laptop-lip"></div>
-        </div>
-      </aside>
+            <div class="scene-bottom"><span>DISCOVER</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>CONNECT</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>STUDY</span></div>
+          </section>
 
-      <section class="book-wrap">
-        <nav class="tabs" aria-label="Portfolio sections">
-          <button class="tab active" data-section="cover">Start</button>
-          <button class="tab" data-section="about">About</button>
-          <button class="tab" data-section="projects">Projects</button>
-          <button class="tab" data-section="work">Work</button>
-          <button class="tab" data-section="notes">Notes</button>
-          <button class="tab" data-section="contact">Contact</button>
-        </nav>
+          <section id="panel-transit" class="scene scene-transit" role="tabpanel" aria-labelledby="tab-transit" tabindex="0" hidden>
+            <div class="scene-label"><span>TRANSIT SIMULATION</span><span>02 / 04</span></div>
+            <svg class="transit-diagram" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs><pattern id="transitGrid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" stroke="#3b4744" fill="none" stroke-width=".8"/></pattern></defs>
+              <rect width="500" height="260" fill="url(#transitGrid)" opacity=".5"/>
+              <path d="M55 172 L148 172 L224 91 L339 91 L428 170" stroke="#c5ea76" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".86"/>
+              <path d="M55 172 L148 172 L224 91 L339 91 L428 170" stroke="#1b2420" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round" fill="none"/>
+              <g fill="#1c2520" stroke="#e5f2bc" stroke-width="3"><circle cx="55" cy="172" r="13"/><circle cx="148" cy="172" r="13"/><circle cx="224" cy="91" r="13"/><circle cx="339" cy="91" r="13"/><circle cx="428" cy="170" r="13"/></g>
+              <g font-size="11" font-family="monospace" fill="#e6e8d7"><text x="40" y="203">DEPOT</text><text x="134" y="205">S1</text><text x="212" y="62">S2</text><text x="326" y="62">S3</text><text x="408" y="201">S4</text></g>
+              <rect x="257" y="76" width="46" height="30" rx="6" fill="#f1f2e8" stroke="#1c2520" stroke-width="2"/>
+              <rect x="264" y="82" width="23" height="9" rx="2" fill="#657169"/><circle cx="269" cy="107" r="5" fill="#141c19"/><circle cx="292" cy="107" r="5" fill="#141c19"/>
+              <path d="M359 133 L401 133 M374 123 L374 145" stroke="#d8f581" stroke-width="2"/>
+            </svg>
+            <div class="scene-bottom"><span>MODEL</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>DISPATCH</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>EVALUATE</span></div>
+          </section>
 
-        <article class="book" id="book">
-          <div class="page page-left" id="leftPage"></div>
-          <div class="spine" aria-hidden="true"></div>
-          <div class="page page-right" id="rightPage"></div>
-          <div class="page-flip" id="pageFlip" aria-hidden="true"></div>
-        </article>
+          <section id="panel-staff" class="scene scene-staff" role="tabpanel" aria-labelledby="tab-staff" tabindex="0" hidden>
+            <div class="scene-label"><span>PEOPLE OPERATIONS</span><span>03 / 04</span></div>
+            <div class="kanban" aria-hidden="true">
+              <div class="kanban-column"><span class="kanban-name">APPLICATION</span><div class="kanban-ticket"><i></i><b>Application</b><small>Review work</small></div><div class="kanban-ticket muted-ticket"><i></i><b>Screen</b><small>Portfolio · Fit</small></div></div>
+              <div class="kanban-column"><span class="kanban-name">EVALUATION</span><div class="kanban-ticket active-ticket"><i></i><b>Assessment</b><small>Score + review</small></div><div class="kanban-ticket muted-ticket"><i></i><b>Interview</b><small>Human decision</small></div></div>
+              <div class="kanban-column"><span class="kanban-name">OPERATIONS</span><div class="kanban-ticket"><i></i><b>Onboard</b><small>Roles · Access</small></div><div class="kanban-ticket muted-ticket"><i></i><b>Coordinate</b><small>Shifts · Work</small></div></div>
+            </div>
+            <div class="scene-bottom"><span>RECRUIT</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>REVIEW</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>OPERATE</span></div>
+          </section>
 
-        <div class="book-controls">
-          <button id="prevPage" class="page-arrow" type="button" aria-label="Previous section">←</button>
-          <span id="pageNumber">01 / 06</span>
-          <button id="nextPage" class="page-arrow" type="button" aria-label="Next section">→</button>
+          <section id="panel-neurosim" class="scene scene-neurosim" role="tabpanel" aria-labelledby="tab-neurosim" tabindex="0" hidden>
+            <div class="scene-label"><span>LEARNING &amp; CONTROL</span><span>04 / 04</span></div>
+            <svg class="rocket-diagram" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g stroke="#4b5e54" stroke-width="1" fill="none"><path d="M40 214 H460 M40 169 H460 M40 124 H460 M40 79 H460"/><path d="M100 32 V231 M200 32 V231 M300 32 V231 M400 32 V231"/></g>
+              <path d="M105 62 Q138 122 208 105 T301 148 T369 221" stroke="#d5f27c" stroke-width="2.5" stroke-dasharray="6 9" fill="none"/>
+              <g transform="translate(290 88) rotate(26)"><rect x="-13" y="-37" width="26" height="74" rx="8" fill="#ecf1dc"/><path d="M-13 -27 L0 -55 L13 -27" fill="#d5f27c"/><path d="M-13 18 L-24 33 L-13 31 M13 18 L24 33 L13 31" stroke="#ecf1dc" stroke-width="4" fill="none"/><path d="M-8 39 L0 60 L8 39" fill="#eea780"/></g>
+              <circle cx="368" cy="220" r="12" fill="none" stroke="#d5f27c" stroke-width="2"/><path d="M346 220 H391 M368 199 V242" stroke="#d5f27c" stroke-width="1.5"/>
+              <g font-family="monospace" font-size="10" fill="#bdcab7"><text x="57" y="42">POLICY</text><text x="333" y="176">TARGET</text><text x="58" y="238">SIMULATION SPACE</text></g>
+            </svg>
+            <div class="scene-bottom"><span>TRAIN</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>CONTROL</span><span class="scene-arrow" aria-hidden="true">⟶</span><span>TEST</span></div>
+          </section>
         </div>
-      </section>
-
-      <aside class="device tablet" aria-label="Current explorations">
-        <div class="tablet-screen">
-          <p class="screen-kicker">browse / collections</p>
-          <button class="mini-card" data-select="transit">
-            <span>01</span>
-            <strong>Transit systems</strong>
-            <small>simulation + operations</small>
-          </button>
-          <button class="mini-card" data-select="quadmates">
-            <span>02</span>
-            <strong>Campus products</strong>
-            <small>people + coordination</small>
-          </button>
-          <button class="mini-card" data-select="neurosim">
-            <span>03</span>
-            <strong>AI / autonomy</strong>
-            <small>learning + control</small>
-          </button>
+        <div class="console-info">
+          <div><span class="console-overline">SELECTED SYSTEM</span><h2 id="consoleTitle">Quadmates</h2><p id="consoleCopy">Helping students discover people to study with, then turn a connection into a plan.</p></div>
+          <div class="console-actions"><a id="consoleCase" href="projects/quadmates.html">Case study <span aria-hidden="true">↗</span></a><a id="consoleLive" href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Live project <span aria-hidden="true">↗</span></a></div>
         </div>
+        <p class="console-note">Schematic previews · not live telemetry</p>
       </aside>
     </section>
 
-    <section class="showcase" id="selected-work" aria-labelledby="showcase-title">
-      <div class="showcase-heading">
-        <div><p class="overline">02 / Built, tested, iterated</p><h2 id="showcase-title">Selected projects<span class="serif-accent">.</span></h2>
-        <p class="showcase-lead">A closer look at the systems I design—from students finding collaborators to autonomous control and operational tooling.</p></div>
-        <a class="showcase-all" href="engineering.html">Explore all engineering case studies <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="showcase-grid">
-        <article class="feature-project feature-main">
-          <div class="feature-number">01 <span>/ PRODUCT ENGINEERING</span></div><div class="feature-art art-quadmates" aria-hidden="true"><div class="art-dot a"></div><div class="art-dot b"></div><div class="art-dot c"></div><div class="art-connection one"></div><div class="art-connection two"></div><span class="art-caption">CONNECT / COLLABORATE / LEARN</span></div>
-          <div class="feature-info"><h3>Quadmates</h3><p>A student platform for discovery, conversation and study coordination.</p><div class="feature-bottom"><span>React · Express · Supabase</span><a href="projects/quadmates.html" aria-label="Read Quadmates case study">Case study ↗</a></div></div>
-        </article>
-        <article class="feature-project">
-          <div class="feature-number">02 <span>/ SIMULATION &amp; AUTONOMY</span></div><div class="feature-art art-transit" aria-hidden="true"><div class="transit-track"></div><div class="transit-stop s1"></div><div class="transit-stop s2"></div><div class="transit-stop s3"></div><div class="transit-bus">→</div><span class="art-caption">ROUTE / DISPATCH / OPTIMIZE</span></div>
-          <div class="feature-info"><h3>TransitOps</h3><p>Decision-making experiments for demand-responsive transit systems.</p><div class="feature-bottom"><span>Python · FastAPI · SUMO</span><a href="projects/transitops.html" aria-label="Read TransitOps case study">Case study ↗</a></div></div>
-        </article>
-        <article class="feature-project">
-          <div class="feature-number">03 <span>/ OPERATIONS PLATFORM</span></div><div class="feature-art art-staff" aria-hidden="true"><div class="staff-panel"><span>STAFFFLOW / COMMAND CENTER</span><i></i><i></i><i></i><div><b></b><b></b><b></b></div></div><span class="art-caption">PEOPLE / HIRING / OPERATIONS</span></div>
-          <div class="feature-info"><h3>Staffflow</h3><p>An internal operating system for hiring, teams and work coordination.</p><div class="feature-bottom"><span>React · Node.js · Postgres</span><a href="projects/staffflow.html" aria-label="Read Staffflow case study">Case study ↗</a></div></div>
-        </article>
-        <article class="feature-project">
-          <div class="feature-number">04 <span>/ REINFORCEMENT LEARNING</span></div><div class="feature-art art-neuro" aria-hidden="true"><div class="orbit-ring"></div><div class="orbit-ring second"></div><div class="rocket-symbol">↑</div><span class="art-caption">TRAIN / EVALUATE / LAND</span></div>
-          <div class="feature-info"><h3>NeuroSim</h3><p>Reinforcement-learning experiments in simulated rocket landing control.</p><div class="feature-bottom"><span>Python · Gymnasium · PPO</span><a href="projects/neurosim.html" aria-label="Read NeuroSim case study">Case study ↗</a></div></div>
-        </article>
+    <div class="signal-strip" aria-label="Areas of work">
+      <div class="container signal-strip-inner"><span>FULL-STACK PRODUCTS</span><b aria-hidden="true">✳</b><span>SIMULATION &amp; EVALUATION</span><b aria-hidden="true">✳</b><span>AI &amp; AUTONOMY</span><b aria-hidden="true">✳</b><span>REAL-WORLD SYSTEMS</span></div>
+    </div>
+
+    <section class="projects-section" id="projects" aria-labelledby="projectsTitle">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-index">01 / SELECTED WORK</span><h2 id="projectsTitle">Built to answer<br><em>better questions.</em></h2></div>
+          <p>Not just the end result—the architecture, trade-offs, tests and things that still need work. Open a case study to see the details.</p>
+        </div>
+        <div class="project-tools">
+          <div class="project-filters" role="group" aria-label="Filter projects">
+            <button class="filter-button selected" type="button" data-filter="all" aria-pressed="true">All projects <span>06</span></button>
+            <button class="filter-button" type="button" data-filter="product" aria-pressed="false">Products</button>
+            <button class="filter-button" type="button" data-filter="simulation" aria-pressed="false">Simulation</button>
+            <button class="filter-button" type="button" data-filter="autonomy" aria-pressed="false">Autonomy</button>
+          </div>
+          <span class="results-count" id="resultsCount" aria-live="polite">Showing 6 projects</span>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+          <article class="project-card project-card-featured" data-project-card data-category="product">
+            <div class="work-art art-quadmates" aria-hidden="true">
+              <div class="art-grid"></div><div class="flow-orb orb-one">01</div><div class="flow-orb orb-two">02</div><div class="flow-orb orb-three">03</div>
+              <div class="connector connector-one"></div><div class="connector connector-two"></div><div class="art-main-badge"><span>Q</span><strong>Quadmates</strong><small>Find your people.</small></div>
+              <span class="visual-corner">DISCOVERY / COORDINATION</span>
+            </div>
+            <div class="project-card-content"><div class="project-topline"><span>01 / PRODUCT ENGINEERING</span><span class="project-state">PROTOTYPE</span></div>
+              <h3><a href="projects/quadmates.html">Quadmates <span aria-hidden="true">↗</span></a></h3>
+              <p>Making it easier to find study partners and actually coordinate a session. Discovery stays open; matching is a suggestion, not a gatekeeper.</p>
+              <div class="project-stack"><span>React</span><span>Express</span><span>Supabase</span></div>
+              <div class="project-bottom"><a href="projects/quadmates.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Live app ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-featured" data-project-card data-category="simulation">
+            <div class="work-art art-transit" aria-hidden="true">
+              <div class="route-map"><svg viewBox="0 0 590 270" xmlns="http://www.w3.org/2000/svg"><path d="M-20 196 L125 196 L211 98 L378 98 L465 169 L610 169" stroke="#a6f17e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M-20 196 L125 196 L211 98 L378 98 L465 169 L610 169" stroke="#0d251b" stroke-width="2.4" stroke-dasharray="7 12" fill="none"/><g fill="#0d251b" stroke="#e8f8d3" stroke-width="3"><circle cx="125" cy="196" r="15"/><circle cx="211" cy="98" r="15"/><circle cx="378" cy="98" r="15"/><circle cx="465" cy="169" r="15"/></g><g fill="#eaf8e0" font-family="monospace" font-size="13"><text x="104" y="233">A</text><text x="201" y="61">B</text><text x="369" y="61">C</text><text x="456" y="206">D</text></g><rect x="263" y="78" width="54" height="39" rx="9" fill="#f3f9ed"/><rect x="271" y="84" width="30" height="10" rx="2" fill="#304e36"/><circle cx="278" cy="117" r="6" fill="#12251b"/><circle cx="304" cy="117" r="6" fill="#12251b"/></svg></div>
+              <span class="visual-corner">CONTROL / COMPARISON</span><span class="art-meta">RULES ≠ OUTCOMES</span>
+            </div>
+            <div class="project-card-content"><div class="project-topline"><span>02 / TRANSIT SIMULATION</span><span class="project-state">EXPERIMENT</span></div>
+              <h3><a href="projects/transitops.html">TransitOps <span aria-hidden="true">↗</span></a></h3>
+              <p>A transit operations simulator for testing how dispatch decisions affect passenger service. One adaptive strategy performed worse than the baseline—and that mattered.</p>
+              <div class="project-stack"><span>Python</span><span>FastAPI</span><span>SUMO / TraCI</span></div>
+              <div class="project-bottom"><a href="projects/transitops.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://transitops-phi.vercel.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-card data-category="product">
+            <div class="work-art art-staff" aria-hidden="true">
+              <div class="mini-workspace"><div class="mini-sidebar"><span></span><span></span><span></span><span></span></div><div class="mini-main"><i>Operations</i><div class="mini-metrics"><span>Hiring</span><span>People</span><span>Work</span></div><div class="mini-lines"><span></span><span></span><span></span></div></div></div>
+              <span class="visual-corner">INTERNAL TOOLS / PEOPLE</span>
+            </div>
+            <div class="project-card-content"><div class="project-topline"><span>03 / PEOPLE OPERATIONS</span><span class="project-state">INTERNAL APP</span></div>
+              <h3><a href="projects/staffflow.html">Staffflow <span aria-hidden="true">↗</span></a></h3>
+              <p>A team workspace built for Quadmates: hiring, assessments, onboarding, time tracking and project coordination.</p>
+              <div class="project-stack"><span>React</span><span>Node.js</span><span>Postgres</span></div>
+              <div class="project-bottom"><a href="projects/staffflow.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://staff-management-app-da8r.vercel.app/" target="_blank" rel="noopener noreferrer">Live app ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-card data-category="autonomy">
+            <div class="work-art art-neuro" aria-hidden="true"><div class="neuro-rings"><span></span><span></span><span></span></div><div class="rocket-shape"><span class="rocket-nose"></span><span class="rocket-body"></span><span class="rocket-flame"></span></div><span class="visual-corner">LEARNING / CLOSED-LOOP CONTROL</span></div>
+            <div class="project-card-content"><div class="project-topline"><span>04 / REINFORCEMENT LEARNING</span><span class="project-state">EXPERIMENT</span></div>
+              <h3><a href="projects/neurosim.html">NeuroSim 2.0 <span aria-hidden="true">↗</span></a></h3>
+              <p>Training and evaluating landing policies in a simulated rocket environment, with a focus on whether the controller really lands.</p>
+              <div class="project-stack"><span>Python</span><span>Gymnasium</span><span>PPO</span></div>
+              <div class="project-bottom"><a href="projects/neurosim.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/NeuroSim-2.0" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-card data-category="simulation">
+            <div class="work-art art-depot" aria-hidden="true"><img src="assets/depot-b-preview.svg" alt="" loading="lazy"><span class="visual-corner">FLEET LOGIC / HARDWARE CONCEPT</span></div>
+            <div class="project-card-content"><div class="project-topline"><span>05 / PHYSICAL SYSTEMS</span><span class="project-state">CONCEPT</span></div>
+              <h3><a href="projects/transitops-m.html">TransitOps-M <span aria-hidden="true">↗</span></a></h3>
+              <p>Exploring how miniature buses reserve bays, confirm docking and recover safely from faults before hardware integration.</p>
+              <div class="project-stack"><span>Python</span><span>State machines</span><span>CAD</span></div>
+              <div class="project-bottom"><a href="projects/transitops-m.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/TransitOps-M" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project-card data-category="autonomy">
+            <div class="work-art art-vision" aria-hidden="true"><div class="scan-field"><span class="scan-person"><i></i><b></b></span><div class="scan-frame"><span>PERSON 01</span></div><div class="scan-line"></div></div><span class="visual-corner">PERCEPTION / IMAGE PROCESSING</span></div>
+            <div class="project-card-content"><div class="project-topline"><span>06 / COMPUTER VISION</span><span class="project-state">EARLIER WORK</span></div>
+              <h3><a href="projects/vision.html">Person detection <span aria-hidden="true">↗</span></a></h3>
+              <p>An earlier OpenCV prototype exploring camera capture, bounded processing and the trade-off between speed and coverage.</p>
+              <div class="project-stack"><span>OpenCV</span><span>Python</span><span>Tkinter</span></div>
+              <div class="project-bottom"><a href="projects/vision.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/Real-Time-Person-Detection" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+            </div>
+          </article>
+        </div>
+        <a class="all-work-link" href="engineering.html"><span>Read the full engineering notebook</span><span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
-    <footer class="footer">
-      <p>A working notebook of projects, ideas, and lessons learned.</p>
-      <p><a href="mailto:n2powell@uwaterloo.ca">n2powell@uwaterloo.ca</a> · © <span id="year"></span> Nate Powell</p>
-    </footer>
+    <section class="approach-section" id="approach" aria-labelledby="approachTitle">
+      <div class="container approach-grid">
+        <div class="approach-intro"><span class="section-index">02 / HOW I THINK</span><h2 id="approachTitle">The interesting part is <em>what happens next.</em></h2>
+          <p>A prototype is a beginning, not the conclusion. I care about what the system does under constraints, what breaks when it meets reality, and whether the result helps anyone.</p>
+          <a href="projects/transitops.html">See a result that challenged my assumptions <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="approach-list">
+          <div class="approach-item"><span>01</span><div><h3>Build something testable.</h3><p>Make a working slice of the problem so the next decision is informed by evidence, not just intuition.</p></div><b aria-hidden="true">↗</b></div>
+          <div class="approach-item"><span>02</span><div><h3>Model the trade-offs.</h3><p>Performance, complexity, reliability and human experience all matter. The constraints tell you where to look.</p></div><b aria-hidden="true">↗</b></div>
+          <div class="approach-item"><span>03</span><div><h3>Show the unfinished work.</h3><p>Clear limitations and reproducible experiments are more useful than a perfect-sounding demo.</p></div><b aria-hidden="true">↗</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-section" id="experience" aria-labelledby="experienceTitle">
+      <div class="container experience-grid">
+        <div><span class="section-index">03 / OUTSIDE THE CODE</span><h2 id="experienceTitle">Different worlds.<br><em>Same curiosity.</em></h2>
+          <p>My work moves between software, applied engineering, teams and operations. The overlap is where I learn most.</p>
+          <a class="inline-arrow" href="resumes.html">View resumes and experience <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="experience-entries">
+          <div><span class="experience-date">WINTER 2027 · INCOMING</span><div><h3>Infosys InStep</h3><p>Computer Engineer (Software) · Bengaluru, India</p></div></div>
+          <div><span class="experience-date">2026 — PRESENT</span><div><h3>UW Orbital</h3><p>Business &amp; Finance Team · University of Waterloo</p></div></div>
+          <div><span class="experience-date">2024 — PRESENT</span><div><h3>City of Ottawa</h3><p>Lifeguard &amp; Swim Instructor · Aquatics</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes-section" id="notes" aria-labelledby="notesTitle">
+      <div class="container"><div class="notes-header"><span class="section-index">04 / CURRENT RABBIT HOLES</span><h2 id="notesTitle">Questions worth<br><em>chasing.</em></h2></div>
+        <div class="notes-grid">
+          <a href="projects/neurosim.html"><span class="notes-no">01 / AUTONOMY</span><h3>What happens when the environment changes?</h3><p>Learning systems, safe failure, and closed-loop control.</p><span class="notes-arrow" aria-hidden="true">↗</span></a>
+          <a href="projects/transitops.html"><span class="notes-no">02 / TRANSIT</span><h3>Can operations make smarter decisions together?</h3><p>Dispatch, demand, and system-wide rather than local optimization.</p><span class="notes-arrow" aria-hidden="true">↗</span></a>
+          <a href="projects/quadmates.html"><span class="notes-no">03 / PRODUCTS</span><h3>What makes a useful tool become a habit?</h3><p>Building products for people, not just features.</p><span class="notes-arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contactTitle">
+      <div class="container contact-panel"><div class="contact-head"><span class="section-index">05 / CONTACT</span><span class="contact-asterisk" aria-hidden="true">✳</span></div>
+        <h2 id="contactTitle">Let's build<br><em>something useful.</em></h2>
+        <div class="contact-bottom"><p>Interested in collaboration, software, robotics, infrastructure, or just a good engineering question? I'm happy to connect.</p>
+          <div class="contact-links"><a href="mailto:n2powell@uwaterloo.ca">Get in touch <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <noscript><p class="noscript-note">Explore the <a href="engineering.html">engineering case studies</a> or <a href="resumes.html">resumes</a>. The interactive notebook requires JavaScript.</p></noscript>
-  <script src="script.js"></script>
+  <footer class="site-footer"><div class="container footer-inner"><a href="#top" class="footer-brand">NP<span>.</span></a><span>ENGINEERING FIELD NOTES / WATERLOO, CANADA</span><span>© <span id="year">2026</span> NATE POWELL</span><a href="#top">BACK TO TOP ↑</a></div></footer>
 </body>
 </html>
