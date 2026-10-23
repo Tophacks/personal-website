@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nate Powell — Waterloo Mathematical Physics student building simulation, autonomy, and coordination software." />
+  <meta name="description" content="Nate Powell — engineering portfolio of simulation, autonomy, AI and product development. Explore Quadmates, TransitOps, NeuroSim and Staffflow." />
+  <meta name="theme-color" content="#e9e4d9" />
   <title>Nate Powell — Field Notes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +18,20 @@
     <div class="ambient ambient-two"></div>
 
     <header class="topbar">
+      <span class="topbar-rule" aria-hidden="true"></span>
       <a class="mark" href="#" aria-label="Home">NP</a>
-      <p>Field notes · Waterloo, Canada</p><a class="case-study-nav" href="engineering.html">Engineering case studies ↗</a><a class="case-study-nav" href="resumes.html">Resumes ↗</a>
+      <p class="topbar-location"><span class="availability-dot" aria-hidden="true"></span> Independent engineering notebook <span class="location-divider">/</span> Waterloo, Canada</p>
+      <nav class="topbar-links" aria-label="Primary navigation"><a class="case-study-nav" href="#projects">Projects</a><a class="case-study-nav" href="engineering.html">Case studies</a><a class="case-study-nav" href="resumes.html">Resumes</a><a class="header-cta" href="https://github.com/Tophacks" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
     </header>
 
+    <section class="intro-strip" aria-label="Introduction">
+      <div class="intro-heading"><span class="overline">01 / Selected work</span><p>Software, simulation &amp; systems.</p></div>
+      <div class="intro-aside"><span>2026 · Portfolio</span><span>Explore the notebook ↓</span></div>
+    </section>
     <section class="workspace">
       <aside class="device laptop" aria-label="Project terminal">
         <div class="laptop-screen">
-          <div class="screen-bar"><span></span><span></span><span></span></div>
+          <div class="screen-bar"><span></span><span></span><span></span><small>project://preview</small></div>
           <div class="browser-toolbar">
             <input id="appSearch" class="browser-search" type="search" placeholder="Search projects..." aria-label="Search portfolio projects" />
             <button id="searchButton" class="browser-go" type="button">Go</button>
@@ -77,7 +84,7 @@
 
       <aside class="device tablet" aria-label="Current explorations">
         <div class="tablet-screen">
-          <p class="screen-kicker">open tabs</p>
+          <p class="screen-kicker">browse / collections</p>
           <button class="mini-card" data-select="transit">
             <span>01</span>
             <strong>Transit systems</strong>
@@ -95,6 +102,32 @@
           </button>
         </div>
       </aside>
+    </section>
+
+    <section class="showcase" id="selected-work" aria-labelledby="showcase-title">
+      <div class="showcase-heading">
+        <div><p class="overline">02 / Built, tested, iterated</p><h2 id="showcase-title">Selected projects<span class="serif-accent">.</span></h2>
+        <p class="showcase-lead">A closer look at the systems I design—from students finding collaborators to autonomous control and operational tooling.</p></div>
+        <a class="showcase-all" href="engineering.html">Explore all engineering case studies <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="showcase-grid">
+        <article class="feature-project feature-main">
+          <div class="feature-number">01 <span>/ PRODUCT ENGINEERING</span></div><div class="feature-art art-quadmates" aria-hidden="true"><div class="art-dot a"></div><div class="art-dot b"></div><div class="art-dot c"></div><div class="art-connection one"></div><div class="art-connection two"></div><span class="art-caption">CONNECT / COLLABORATE / LEARN</span></div>
+          <div class="feature-info"><h3>Quadmates</h3><p>A student platform for discovery, conversation and study coordination.</p><div class="feature-bottom"><span>React · Express · Supabase</span><a href="projects/quadmates.html" aria-label="Read Quadmates case study">Case study ↗</a></div></div>
+        </article>
+        <article class="feature-project">
+          <div class="feature-number">02 <span>/ SIMULATION &amp; AUTONOMY</span></div><div class="feature-art art-transit" aria-hidden="true"><div class="transit-track"></div><div class="transit-stop s1"></div><div class="transit-stop s2"></div><div class="transit-stop s3"></div><div class="transit-bus">→</div><span class="art-caption">ROUTE / DISPATCH / OPTIMIZE</span></div>
+          <div class="feature-info"><h3>TransitOps</h3><p>Decision-making experiments for demand-responsive transit systems.</p><div class="feature-bottom"><span>Python · FastAPI · SUMO</span><a href="projects/transitops.html" aria-label="Read TransitOps case study">Case study ↗</a></div></div>
+        </article>
+        <article class="feature-project">
+          <div class="feature-number">03 <span>/ OPERATIONS PLATFORM</span></div><div class="feature-art art-staff" aria-hidden="true"><div class="staff-panel"><span>STAFFFLOW / COMMAND CENTER</span><i></i><i></i><i></i><div><b></b><b></b><b></b></div></div><span class="art-caption">PEOPLE / HIRING / OPERATIONS</span></div>
+          <div class="feature-info"><h3>Staffflow</h3><p>An internal operating system for hiring, teams and work coordination.</p><div class="feature-bottom"><span>React · Node.js · Postgres</span><a href="projects/staffflow.html" aria-label="Read Staffflow case study">Case study ↗</a></div></div>
+        </article>
+        <article class="feature-project">
+          <div class="feature-number">04 <span>/ REINFORCEMENT LEARNING</span></div><div class="feature-art art-neuro" aria-hidden="true"><div class="orbit-ring"></div><div class="orbit-ring second"></div><div class="rocket-symbol">↑</div><span class="art-caption">TRAIN / EVALUATE / LAND</span></div>
+          <div class="feature-info"><h3>NeuroSim</h3><p>Reinforcement-learning experiments in simulated rocket landing control.</p><div class="feature-bottom"><span>Python · Gymnasium · PPO</span><a href="projects/neurosim.html" aria-label="Read NeuroSim case study">Case study ↗</a></div></div>
+        </article>
+      </div>
     </section>
 
     <footer class="footer">
