@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "total_passengers_arrived": 497,
+    "total_passengers_boarded": 476,
+    "completed_trips": 345,
+    "cumulative_wait_minutes": 4724,
+    "max_queue": 71,
+    "passengers_left_waiting": 21,
+    "buses_staged": 0,
+    "signal_priority_requests": 0,
+    "average_wait_minutes": 9.92436974789916
+  },
+  "adaptive": {
+    "total_passengers_arrived": 497,
+    "total_passengers_boarded": 451,
+    "completed_trips": 302,
+    "cumulative_wait_minutes": 5244,
+    "max_queue": 117,
+    "passengers_left_waiting": 46,
+    "buses_staged": 2,
+    "signal_priority_requests": 5,
+    "average_wait_minutes": 11.627494456762749
+  }
+}

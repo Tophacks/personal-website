@@ -59,7 +59,7 @@ const sections = [
           <p>A simulation exploring how buses, stations, and traffic signals can respond to changing passenger demand.</p>
           <div class="project-links">
             <a href="https://transitops-phi.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
-            <a href="https://github.com/Tophacks/TransitOps" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
+            <a href="engineering.html#transitops" data-stop-project>Case study ↗</a>
           </div>
         </div>
         <div class="project" data-project="staff">
@@ -68,7 +68,7 @@ const sections = [
           <p>A live management app for organizing staff and operational information.</p>
           <div class="project-links">
             <a href="https://staff-management-app-five.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
-            <a href="https://github.com/Tophacks/staff-management-app" target="_blank" rel="noreferrer" data-stop-project>Code ↗</a>
+
           </div>
         </div>
         <div class="project" data-project="vision">
@@ -76,7 +76,7 @@ const sections = [
           <h3>Machines that interpret scenes</h3>
           <p>Computer-vision experiments focused on detecting people in live camera footage.</p>
           <div class="project-links">
-            <a href="https://github.com/Tophacks" target="_blank" rel="noreferrer" data-stop-project>GitHub ↗</a>
+            <a href="engineering.html#vision" data-stop-project>Case study ↗</a>
           </div>
         </div>
       </div>
@@ -85,8 +85,12 @@ const sections = [
       <p class="eyebrow">Project principle</p>
       <h2>Show the system.</h2>
       <p class="lead">A project is more interesting when you can see the decisions inside it—not only the final interface.</p>
-      <p>Explore the technical case studies for architecture, constraints, evaluation plans, and learning notes. <a href="engineering.html">Read the engineering notebook ↗</a></p>
-      <div class="quote">Select a project to explore its purpose, implementation, and current progress.</div>
+      <p>Explore the technical case studies for architecture, implementation decisions, reproduced results, and open problems. <a href="engineering.html">Read the engineering notebook ↗</a></p>
+      <div class="note-list">
+        <div class="note"><h3><a href="engineering.html#transitops">TransitOps: test the hypothesis ↗</a></h3><p>A fixed-scenario comparison shows why more dispatch interventions can still increase passenger wait.</p></div>
+        <div class="note"><h3><a href="engineering.html#miniature">TransitOps-M: model the constraints ↗</a></h3><p>Depot reservation, docking confirmation, and deliberate recovery. Eight existing tests passed locally.</p></div>
+        <div class="note"><h3><a href="engineering.html#neurosim">NeuroSim: validate before training ↗</a></h3><p>A continuous-control environment with separate evaluation tools and explicit implementation gaps.</p></div>
+      </div>
     `
   },
   {
@@ -171,18 +175,32 @@ const projects = {
     copy: "A staff-management application with role-specific workflows and access controls.",
     terminal: "staff → schedule → coordinate → operate",
     live: "https://staff-management-app-five.vercel.app",
-    repo: "https://github.com/Tophacks/staff-management-app"
+    repo: ""
   },
   vision: {
     title: "Vision Lab",
     copy: "Computer-vision experiments for detecting people in camera footage.",
-    terminal: "scene → features → context → action",
+    terminal: "capture → bounded queue → HOG + SVM",
     live: "",
-    repo: "https://github.com/Tophacks"
+    repo: "https://github.com/Tophacks/Real-Time-Person-Detection"
   }
 };
 
+projects.miniature = {
+  title: "TransitOps-M",
+  copy: "A hardware-independent fleet model with depot reservations, docking confirmation, interlocks, and conceptual CAD.",
+  terminal: "reserve → confirm → release",
+  live: "", repo: "https://github.com/Tophacks/TransitOps-M"
+};
+projects.neurosim = {
+  title: "NeuroSim 2.0",
+  copy: "An experimental landing environment with PPO training and outcome-based evaluation tooling. Implementation gaps remain.",
+  terminal: "environment → policy → evaluate",
+  live: "", repo: "https://github.com/Tophacks/NeuroSim-2.0"
+};
 const appEntries = [
+  { key: "miniature", label: "TransitOps-M", keywords: "depot miniature fleet cad state machine" },
+  { key: "neurosim", label: "NeuroSim 2.0", keywords: "rocket reinforcement learning ppo control" },
   { key: "quadmates", label: "Quadmates", keywords: "study campus matching students" },
   { key: "transit", label: "TransitOps", keywords: "transit bus simulation operations" },
   { key: "staff", label: "Staff Management", keywords: "staff workforce management operations" },
@@ -222,6 +240,14 @@ function render(index, animate = true) {
 
 function attachProjects() {
   document.querySelectorAll("[data-project]").forEach(el => {
+    el.tabIndex = 0;
+    el.setAttribute("role", "group");
+    el.setAttribute("aria-label", `Select ${projects[el.dataset.project]?.title || "project"}`);
+    el.addEventListener("keydown", event => {
+      if (event.target === el && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault(); showProject(el.dataset.project);
+      }
+    });
     el.addEventListener("click", event => {
       if (event.target.closest("[data-stop-project]")) return;
       showProject(el.dataset.project);
@@ -277,6 +303,7 @@ document.querySelectorAll("[data-jump]").forEach(el => {
 });
 
 document.addEventListener("keydown", e => {
+  if (e.target.closest("input, textarea, select, [contenteditable]")) return;
   if (e.key === "ArrowRight" && current < sections.length - 1) render(current + 1);
   if (e.key === "ArrowLeft" && current > 0) render(current - 1);
 });
