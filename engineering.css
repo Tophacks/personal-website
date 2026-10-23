@@ -108,3 +108,18 @@ footer { max-width:1320px; padding:12px clamp(20px,4.5vw,60px) 47px; font-size:1
   .architecture { background:#f5f5f5; color:#181e1b; }
   .architecture h3,.architecture b { color:#181e1b; }
 }
+
+
+/* Project-specific screenshots and video clips. The captions distinguish screen captures
+   from code-derived schematics and never present a login screen as a private dashboard. */
+.media-slot[hidden]{display:none!important}
+.media-slot{margin:30px 0 37px;border:1px solid #cdd7ca;border-radius:13px;background:#f8faf4;padding:clamp(15px,2.5vw,25px)}
+.media-title{font:700 11px/1.3 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:#315747;margin:0 0 16px}
+.media-frame{width:100%;background:#0f201b;border-radius:9px;overflow:hidden;border:1px solid #cedacd}
+.media-frame img,.media-frame video{display:block;width:100%;max-height:540px;aspect-ratio:16/9;object-fit:contain;background:#111c1a}
+.media-caption{margin:12px 0 0;font-size:13px;line-height:1.65;color:#55665c}
+.media-caption strong{color:#24483b}
+.media-extras{display:flex;align-items:center;flex-wrap:wrap;gap:13px;margin-top:13px}
+.media-extras a{font-size:13px;font-weight:700;color:#315747;text-decoration:underline}
+.media-video{margin-top:17px}
+.media-video-label{font:600 11px/1.4 'IBM Plex Mono',monospace;color:#466456;margin:0 0 9px}

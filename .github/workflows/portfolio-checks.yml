@@ -19,6 +19,6 @@ jobs:
         with:
           node-version: '22'
       - name: Check JavaScript syntax
-        run: node --check script.js
+        run: node --check script.js && node --check media.js && node --check scripts/capture-projects.mjs
       - name: Validate pages, links and interactions
         run: node --test tests/*.test.mjs

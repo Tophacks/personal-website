@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "captured_at": null,
+  "projects": {
+    "quadmates": {
+      "kind": "source-diagram",
+      "image": "assets/project-media/quadmates-diagram.svg",
+      "description": "Source-grounded product workflow, not a screenshot.",
+      "source": "https://quadmates.ca/"
+    },
+    "transitops": {
+      "kind": "source-diagram",
+      "image": "assets/project-media/transitops-diagram.svg",
+      "description": "Source-grounded simulation workflow, not a screenshot.",
+      "source": "https://transitops-phi.vercel.app/"
+    },
+    "staffflow": {
+      "kind": "source-diagram",
+      "image": "assets/project-media/staffflow-diagram.svg",
+      "description": "Source-grounded team operations diagram, not a screenshot or staff data.",
+      "source": "https://staff-management-app-da8r.vercel.app/"
+    },
+    "neurosim": {
+      "kind": "source-diagram",
+      "image": "assets/project-media/neurosim-diagram.svg",
+      "description": "Source-grounded simulation architecture. No trained-policy success is implied.",
+      "source": "https://github.com/Tophacks/NeuroSim-2.0"
+    },
+    "transitops-m": {
+      "kind": "source-diagram",
+      "image": "assets/depot-b-preview.svg",
+      "description": "Depot B CAD concept preview from TransitOps-M repository, not a fabricated physical model.",
+      "source": "https://transitops-m.vercel.app/"
+    },
+    "vision": {
+      "kind": "source-diagram",
+      "image": "assets/project-media/vision-diagram.svg",
+      "description": "Source-grounded camera-to-detector processing diagram. No real camera footage is shown.",
+      "source": "https://github.com/Tophacks/Real-Time-Person-Detection"
+    }
+  }
+}
