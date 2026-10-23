@@ -4,18 +4,20 @@ const sections = [
     left: `
       <p class="eyebrow">Field notebook · Vol. 01</p>
       <h1 class="display">Nate<br>Powell</h1>
-      <p class="hand">Curious about systems. Usually building something.</p>
+      <p class="lead">Waterloo Mathematical Physics student building simulation, autonomy, and coordination software.</p>
+      <div class="cover-actions"><button type="button" data-section-jump="projects">View projects →</button><a href="resumes.html">View resume ↗</a></div>
+      <p class="hand">From the model to the people using it.</p>
     `,
     right: `
       <p class="eyebrow">Contents</p>
       <h2>Start anywhere.</h2>
       <p class="lead">I like understanding how systems work, pulling apart difficult problems, and building things that can have a real-world impact. My interests span technology, economics, and business, particularly how systems affect the people who use them.</p>
       <div class="index-list">
-        <div class="index-item"><span>About</span><span>02</span></div>
-        <div class="index-item"><span>Selected projects</span><span>03</span></div>
-        <div class="index-item"><span>Work + experience</span><span>04</span></div>
-        <div class="index-item"><span>Notes / questions</span><span>05</span></div>
-        <div class="index-item"><span>Contact</span><span>06</span></div>
+        <button type="button" class="index-item" data-section-jump="about"><span>About</span><span>02</span></button>
+        <button type="button" class="index-item" data-section-jump="projects"><span>Selected projects</span><span>03</span></button>
+        <button type="button" class="index-item" data-section-jump="work"><span>Work + experience</span><span>04</span></button>
+        <button type="button" class="index-item" data-section-jump="notes"><span>Notes / questions</span><span>05</span></button>
+        <button type="button" class="index-item" data-section-jump="contact"><span>Contact</span><span>06</span></button>
       </div>
     `
   },
@@ -50,7 +52,7 @@ const sections = [
           <p>A platform that helps students find study partners and coordinate sessions.</p>
           <div class="project-links">
             <a href="https://quadmates.ca" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
-            <a href="engineering.html#quadmates" data-stop-project>Case study ↗</a>
+            <a href="projects/quadmates.html" data-stop-project>Case study ↗</a>
           </div>
         </div>
         <div class="project" data-project="transit">
@@ -59,7 +61,7 @@ const sections = [
           <p>A simulation exploring how buses, stations, and traffic signals can respond to changing passenger demand.</p>
           <div class="project-links">
             <a href="https://transitops-phi.vercel.app" target="_blank" rel="noreferrer" data-stop-project>Live ↗</a>
-            <a href="engineering.html#transitops" data-stop-project>Case study ↗</a>
+            <a href="projects/transitops.html" data-stop-project>Case study ↗</a>
           </div>
         </div>
         <div class="project" data-project="staff">
@@ -76,7 +78,7 @@ const sections = [
           <h3>Machines that interpret scenes</h3>
           <p>Computer-vision experiments focused on detecting people in live camera footage.</p>
           <div class="project-links">
-            <a href="engineering.html#vision" data-stop-project>Case study ↗</a>
+            <a href="projects/vision.html" data-stop-project>Case study ↗</a>
           </div>
         </div>
       </div>
@@ -87,9 +89,9 @@ const sections = [
       <p class="lead">A project is more interesting when you can see the decisions inside it—not only the final interface.</p>
       <p>Explore the technical case studies for architecture, implementation decisions, reproduced results, and open problems. <a href="engineering.html">Read the engineering notebook ↗</a></p>
       <div class="note-list">
-        <div class="note"><h3><a href="engineering.html#transitops">TransitOps: test the hypothesis ↗</a></h3><p>A fixed-scenario comparison shows why more dispatch interventions can still increase passenger wait.</p></div>
-        <div class="note"><h3><a href="engineering.html#miniature">TransitOps-M: model the constraints ↗</a></h3><p>Depot reservation, docking confirmation, and deliberate recovery. Eight existing tests passed locally.</p></div>
-        <div class="note"><h3><a href="engineering.html#neurosim">NeuroSim: validate before training ↗</a></h3><p>A continuous-control environment with separate evaluation tools and explicit implementation gaps.</p></div>
+        <div class="note"><h3><a href="projects/transitops.html">TransitOps: test the hypothesis ↗</a></h3><p>A fixed-scenario comparison shows why more dispatch interventions can still increase passenger wait.</p></div>
+        <div class="note"><h3><a href="projects/transitops-m.html">TransitOps-M: model the constraints ↗</a></h3><p>Depot reservation, docking confirmation, and deliberate recovery. Eight existing tests passed locally.</p></div>
+        <div class="note"><h3><a href="projects/neurosim.html">NeuroSim: validate before training ↗</a></h3><p>A continuous-control environment with separate evaluation tools and explicit implementation gaps.</p></div>
       </div>
     `
   },
@@ -207,6 +209,9 @@ const appEntries = [
   { key: "vision", label: "Vision Lab", keywords: "ai computer vision autonomy" }
 ];
 
+document.querySelectorAll("[data-select]").forEach(button => {
+  button.addEventListener("click", () => showProject(button.dataset.select));
+});
 let currentProjectKey = "quadmates";
 let current = 0;
 const leftPage = document.getElementById("leftPage");
@@ -235,10 +240,17 @@ function render(index, animate = true) {
   prev.disabled = index === 0;
   next.disabled = index === sections.length - 1;
   tabs.forEach(tab => tab.classList.toggle("active", tab.dataset.section === section.id));
+  tabs.forEach(tab => tab.setAttribute("aria-current", tab.dataset.section === section.id ? "page" : "false"));
   history.replaceState(null, "", `#${section.id}`);
 }
 
 function attachProjects() {
+  document.querySelectorAll("[data-section-jump]").forEach(button => {
+    button.addEventListener("click", () => {
+      const index = sections.findIndex(section => section.id === button.dataset.sectionJump);
+      if (index >= 0) render(index);
+    });
+  });
   document.querySelectorAll("[data-project]").forEach(el => {
     el.tabIndex = 0;
     el.setAttribute("role", "group");
@@ -262,6 +274,11 @@ function showProject(key) {
   const project = projects[key];
   if (!project) return;
   currentProjectKey = key;
+  const casePaths = {quadmates:"quadmates", transit:"transitops", miniature:"transitops-m", neurosim:"neurosim", vision:"vision"};
+  const caseLink = document.getElementById("caseStudyLink");
+  caseLink.hidden = !casePaths[key];
+  if (casePaths[key]) caseLink.href = `projects/${casePaths[key]}.html`;
+  document.querySelectorAll("[data-select]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.select === key)));
   document.getElementById("deviceTitle").textContent = project.title;
   document.getElementById("deviceCopy").textContent = project.copy;
   const liveLink = document.getElementById("liveAppLink");
@@ -276,14 +293,17 @@ function showProject(key) {
   typeText(project.terminal);
 }
 
+let typingTimer;
 function typeText(text) {
+  clearInterval(typingTimer);
   const target = document.getElementById("typedText");
   target.textContent = "";
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { target.textContent = text; return; }
   let i = 0;
-  const timer = setInterval(() => {
+  typingTimer = setInterval(() => {
     target.textContent += text[i] || "";
     i++;
-    if (i >= text.length) clearInterval(timer);
+    if (i >= text.length) clearInterval(typingTimer);
   }, 24);
 }
 

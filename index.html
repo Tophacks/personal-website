@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nate Powell — student developer and founder working across software, systems, and business." />
+  <meta name="description" content="Nate Powell — Waterloo Mathematical Physics student building simulation, autonomy, and coordination software." />
   <title>Nate Powell — Field Notes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#book">Skip to notebook</a>
   <main class="desk" aria-label="Nate Powell portfolio">
     <div class="ambient ambient-one"></div>
     <div class="ambient ambient-two"></div>
@@ -37,6 +38,7 @@
             <div class="terminal-line"><span>›</span><span id="typedText"></span><span class="cursor"></span></div>
             <div class="device-actions">
               <a id="liveAppLink" class="device-link primary" href="https://quadmates.ca" target="_blank" rel="noreferrer">Open live app ↗</a>
+              <a id="caseStudyLink" class="device-link" href="projects/quadmates.html">Read case study ↗</a>
               <a id="repoLink" class="device-link" href="https://github.com/Tophacks" target="_blank" rel="noreferrer">GitHub ↗</a>
             </div>
           </div>
@@ -77,20 +79,20 @@
       <aside class="device tablet" aria-label="Current explorations">
         <div class="tablet-screen">
           <p class="screen-kicker">open tabs</p>
-          <button class="mini-card" data-jump="projects">
+          <button class="mini-card" data-select="transit">
             <span>01</span>
             <strong>Transit systems</strong>
             <small>simulation + operations</small>
           </button>
-          <button class="mini-card" data-jump="projects">
+          <button class="mini-card" data-select="quadmates">
             <span>02</span>
             <strong>Campus products</strong>
             <small>people + coordination</small>
           </button>
-          <button class="mini-card" data-jump="notes">
+          <button class="mini-card" data-select="neurosim">
             <span>03</span>
             <strong>AI / autonomy</strong>
-            <small>questions worth chasing</small>
+            <small>learning + control</small>
           </button>
         </div>
       </aside>
@@ -102,6 +104,7 @@
     </footer>
   </main>
 
+  <noscript><p class="noscript-note">Explore the <a href="engineering.html">engineering case studies</a> or <a href="resumes.html">resumes</a>. The interactive notebook requires JavaScript.</p></noscript>
   <script src="script.js"></script>
 </body>
 </html>
