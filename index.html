@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="media.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -55,7 +56,7 @@
         <p class="hero-context">Mathematical Physics at the University of Waterloo. Founder of Quadmates. Currently exploring autonomy, transit systems and the engineering behind useful products.</p>
         <div class="hero-actions">
           <a class="button button-solid" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-          <a class="button button-text" href="engineering.html">Read the engineering notes <span aria-hidden="true">↗</span></a>
+          <a class="button button-text" href="engineering.html">Read the engineering notes <span aria-hidden="true">↗</span></a><a class="button button-text" href="demos.html">Try interactive demos <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-footnote"><span class="footnote-line" aria-hidden="true"></span><span>PROTOTYPES, PRODUCT DECISIONS &amp; THE OCCASIONAL FAILED EXPERIMENT.</span></div>
       </div>
@@ -159,7 +160,7 @@
         </div>
 
         <div class="project-grid" id="projectGrid">
-          <article class="project-card project-card-featured" data-project-card data-category="product">
+          <article class="project-card project-card-featured" data-project-card data-media-project="quadmates" data-category="product">
             <div class="work-art art-quadmates" aria-hidden="true">
               <div class="art-grid"></div><div class="flow-orb orb-one">01</div><div class="flow-orb orb-two">02</div><div class="flow-orb orb-three">03</div>
               <div class="connector connector-one"></div><div class="connector connector-two"></div><div class="art-main-badge"><span>Q</span><strong>Quadmates</strong><small>Find your people.</small></div>
@@ -169,11 +170,11 @@
               <h3><a href="projects/quadmates.html">Quadmates <span aria-hidden="true">↗</span></a></h3>
               <p>Making it easier to find study partners and actually coordinate a session. Discovery stays open; matching is a suggestion, not a gatekeeper.</p>
               <div class="project-stack"><span>React</span><span>Express</span><span>Supabase</span></div>
-              <div class="project-bottom"><a href="projects/quadmates.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Live app ↗</a></div>
+              <div class="project-bottom"><a href="projects/quadmates.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Live app ↗</a><a class="try-link" href="demos.html?project=quadmates">Try live demo ↗</a></div>
             </div>
           </article>
 
-          <article class="project-card project-card-featured" data-project-card data-category="simulation">
+          <article class="project-card project-card-featured" data-project-card data-media-project="transitops" data-category="simulation">
             <div class="work-art art-transit" aria-hidden="true">
               <div class="route-map"><svg viewBox="0 0 590 270" xmlns="http://www.w3.org/2000/svg"><path d="M-20 196 L125 196 L211 98 L378 98 L465 169 L610 169" stroke="#a6f17e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M-20 196 L125 196 L211 98 L378 98 L465 169 L610 169" stroke="#0d251b" stroke-width="2.4" stroke-dasharray="7 12" fill="none"/><g fill="#0d251b" stroke="#e8f8d3" stroke-width="3"><circle cx="125" cy="196" r="15"/><circle cx="211" cy="98" r="15"/><circle cx="378" cy="98" r="15"/><circle cx="465" cy="169" r="15"/></g><g fill="#eaf8e0" font-family="monospace" font-size="13"><text x="104" y="233">A</text><text x="201" y="61">B</text><text x="369" y="61">C</text><text x="456" y="206">D</text></g><rect x="263" y="78" width="54" height="39" rx="9" fill="#f3f9ed"/><rect x="271" y="84" width="30" height="10" rx="2" fill="#304e36"/><circle cx="278" cy="117" r="6" fill="#12251b"/><circle cx="304" cy="117" r="6" fill="#12251b"/></svg></div>
               <span class="visual-corner">CONTROL / COMPARISON</span><span class="art-meta">RULES ≠ OUTCOMES</span>
@@ -182,11 +183,11 @@
               <h3><a href="projects/transitops.html">TransitOps <span aria-hidden="true">↗</span></a></h3>
               <p>A transit operations simulator for testing how dispatch decisions affect passenger service. One adaptive strategy performed worse than the baseline—and that mattered.</p>
               <div class="project-stack"><span>Python</span><span>FastAPI</span><span>SUMO / TraCI</span></div>
-              <div class="project-bottom"><a href="projects/transitops.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://transitops-phi.vercel.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+              <div class="project-bottom"><a href="projects/transitops.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://transitops-phi.vercel.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a><a class="try-link" href="demos.html?project=transitops">Try live demo ↗</a></div>
             </div>
           </article>
 
-          <article class="project-card" data-project-card data-category="product">
+          <article class="project-card" data-project-card data-media-project="staffflow" data-category="product">
             <div class="work-art art-staff" aria-hidden="true">
               <div class="mini-workspace"><div class="mini-sidebar"><span></span><span></span><span></span><span></span></div><div class="mini-main"><i>Operations</i><div class="mini-metrics"><span>Hiring</span><span>People</span><span>Work</span></div><div class="mini-lines"><span></span><span></span><span></span></div></div></div>
               <span class="visual-corner">INTERNAL TOOLS / PEOPLE</span>
@@ -195,37 +196,37 @@
               <h3><a href="projects/staffflow.html">Staffflow <span aria-hidden="true">↗</span></a></h3>
               <p>A team workspace built for Quadmates: hiring, assessments, onboarding, time tracking and project coordination.</p>
               <div class="project-stack"><span>React</span><span>Node.js</span><span>Postgres</span></div>
-              <div class="project-bottom"><a href="projects/staffflow.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://staff-management-app-da8r.vercel.app/" target="_blank" rel="noopener noreferrer">Live app ↗</a></div>
+              <div class="project-bottom"><a href="projects/staffflow.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://staff-management-app-da8r.vercel.app/" target="_blank" rel="noopener noreferrer">Live app ↗</a><a class="try-link" href="demos.html?project=staffflow">Try live demo ↗</a></div>
             </div>
           </article>
 
-          <article class="project-card" data-project-card data-category="autonomy">
+          <article class="project-card" data-project-card data-media-project="neurosim" data-category="autonomy">
             <div class="work-art art-neuro" aria-hidden="true"><div class="neuro-rings"><span></span><span></span><span></span></div><div class="rocket-shape"><span class="rocket-nose"></span><span class="rocket-body"></span><span class="rocket-flame"></span></div><span class="visual-corner">LEARNING / CLOSED-LOOP CONTROL</span></div>
             <div class="project-card-content"><div class="project-topline"><span>04 / REINFORCEMENT LEARNING</span><span class="project-state">EXPERIMENT</span></div>
               <h3><a href="projects/neurosim.html">NeuroSim 2.0 <span aria-hidden="true">↗</span></a></h3>
               <p>Training and evaluating landing policies in a simulated rocket environment, with a focus on whether the controller really lands.</p>
               <div class="project-stack"><span>Python</span><span>Gymnasium</span><span>PPO</span></div>
-              <div class="project-bottom"><a href="projects/neurosim.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/NeuroSim-2.0" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+              <div class="project-bottom"><a href="projects/neurosim.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/NeuroSim-2.0" target="_blank" rel="noopener noreferrer">Repository ↗</a><a class="try-link" href="demos.html?project=neurosim">Try live demo ↗</a></div>
             </div>
           </article>
 
-          <article class="project-card" data-project-card data-category="simulation">
+          <article class="project-card" data-project-card data-media-project="transitops-m" data-category="simulation">
             <div class="work-art art-depot" aria-hidden="true"><img src="assets/depot-b-preview.svg" alt="" loading="lazy"><span class="visual-corner">FLEET LOGIC / HARDWARE CONCEPT</span></div>
             <div class="project-card-content"><div class="project-topline"><span>05 / PHYSICAL SYSTEMS</span><span class="project-state">CONCEPT</span></div>
               <h3><a href="projects/transitops-m.html">TransitOps-M <span aria-hidden="true">↗</span></a></h3>
               <p>Exploring how miniature buses reserve bays, confirm docking and recover safely from faults before hardware integration.</p>
               <div class="project-stack"><span>Python</span><span>State machines</span><span>CAD</span></div>
-              <div class="project-bottom"><a href="projects/transitops-m.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/TransitOps-M" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+              <div class="project-bottom"><a href="projects/transitops-m.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/TransitOps-M" target="_blank" rel="noopener noreferrer">Repository ↗</a><a class="try-link" href="demos.html?project=transitops-m">Try live demo ↗</a></div>
             </div>
           </article>
 
-          <article class="project-card" data-project-card data-category="autonomy">
+          <article class="project-card" data-project-card data-media-project="vision" data-category="autonomy">
             <div class="work-art art-vision" aria-hidden="true"><div class="scan-field"><span class="scan-person"><i></i><b></b></span><div class="scan-frame"><span>PERSON 01</span></div><div class="scan-line"></div></div><span class="visual-corner">PERCEPTION / IMAGE PROCESSING</span></div>
             <div class="project-card-content"><div class="project-topline"><span>06 / COMPUTER VISION</span><span class="project-state">EARLIER WORK</span></div>
               <h3><a href="projects/vision.html">Person detection <span aria-hidden="true">↗</span></a></h3>
               <p>An earlier OpenCV prototype exploring camera capture, bounded processing and the trade-off between speed and coverage.</p>
               <div class="project-stack"><span>OpenCV</span><span>Python</span><span>Tkinter</span></div>
-              <div class="project-bottom"><a href="projects/vision.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/Real-Time-Person-Detection" target="_blank" rel="noopener noreferrer">Repository ↗</a></div>
+              <div class="project-bottom"><a href="projects/vision.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/Real-Time-Person-Detection" target="_blank" rel="noopener noreferrer">Repository ↗</a><a class="try-link" href="demos.html?project=vision">Try live demo ↗</a></div>
             </div>
           </article>
         </div>

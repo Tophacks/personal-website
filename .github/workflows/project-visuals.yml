@@ -1,0 +1,60 @@
+name: Capture public project visuals
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/project-visuals.yml"
+      - "scripts/capture-projects.mjs"
+      - "scripts/capture-neurosim.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: portfolio-project-visual-capture
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install public-page capture browser
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Capture verified public websites without logging in
+        run: node scripts/capture-projects.mjs
+      - name: Check out public NeuroSim viewer source
+        uses: actions/checkout@v4
+        with:
+          repository: Tophacks/NeuroSim-2.0
+          path: source-neurosim
+          persist-credentials: false
+      - name: Prepare optional Python rendering dependencies
+        continue-on-error: true
+        run: python -m pip install --quiet numpy==2.2.6 pygame==2.6.1 gymnasium==1.1.1 Pillow==11.3.0
+      - name: Capture actual NeuroSim viewer if runnable
+        continue-on-error: true
+        env:
+          SDL_VIDEODRIVER: dummy
+          SDL_AUDIODRIVER: dummy
+        run: python scripts/capture-neurosim.py
+      - name: Check image and video references
+        run: node --test tests/project-media.test.mjs
+      - name: Commit the verified media
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/project-media/
+          if git diff --cached --quiet; then
+            echo "No publicly accessible screens were verified. Existing diagrams retained."
+            exit 0
+          fi
+          git commit -m "chore(media): publish verified project screenshots and clips [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
