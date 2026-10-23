@@ -22,3 +22,18 @@ jobs:
         run: node --check script.js && node --check media.js && node --check demo-core.js && node --check demos.js && node --check scripts/capture-projects.mjs
       - name: Validate pages, links and interactions
         run: node --test tests/*.test.mjs
+
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Exercise all six browser demos
+        run: node scripts/smoke-demos.mjs
