@@ -93,7 +93,7 @@ test('NeuroSim full mission-control interface and case-study embedding are avail
  assert.ok(engine.includes('thrust*Math.sin(angle)')&&engine.includes('PLANETS'));
 });
 
-test('NeuroSim full viewer and local physics are embedded without claiming trained AI',()=>{const read=n=>readFileSync(join(root,n),'utf8');const p=read('projects/neurosim.html');const app=read('full/neurosim.html');assert.ok(p.includes('../full/neurosim.html'));assert.ok(app.includes('neurosim-model.js'));assert.ok(app.includes('neurosim.js'));assert.ok(app.includes('MANUAL MODE'));});
+test('NeuroSim full viewer and local physics are embedded without claiming trained AI',()=>{const read=n=>readFileSync(join(root,n),'utf8');const p=read('projects/neurosim.html');const app=read('full/neurosim.html');assert.ok(p.includes('../neurosim-mission.html'));assert.ok(app.includes('neurosim-model.js'));assert.ok(app.includes('neurosim.js'));assert.ok(app.includes('MANUAL MODE'));});
 
 test('real person-detection app is linked and embedded, with a browser detector',()=>{
  const read=(p)=>readFileSync(join(root,p),'utf8');
