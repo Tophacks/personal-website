@@ -56,7 +56,8 @@
         <p class="hero-context">Mathematical Physics at the University of Waterloo. Founder of Quadmates. Currently exploring autonomy, transit systems and the engineering behind useful products.</p>
         <div class="hero-actions">
           <a class="button button-solid" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-          <a class="button button-text" href="engineering.html">Read the engineering notes <span aria-hidden="true">↗</span></a><a class="button button-text" href="demos.html">Try interactive demos <span aria-hidden="true">↗</span></a>
+          <a class="button button-text" href="engineering.html">Engineering notes <span aria-hidden="true">↗</span></a>
+          <a class="button button-text" href="demos.html">Try interactive demos <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-footnote"><span class="footnote-line" aria-hidden="true"></span><span>PROTOTYPES, PRODUCT DECISIONS &amp; THE OCCASIONAL FAILED EXPERIMENT.</span></div>
       </div>
@@ -71,7 +72,7 @@
           <button id="tab-quadmates" class="console-tab active" role="tab" aria-selected="true" aria-controls="panel-quadmates" data-scene="quadmates" data-case="projects/quadmates.html" data-live="https://quadmates.ca" type="button">01 <span>Quadmates</span></button>
           <button id="tab-transit" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-transit" data-scene="transit" data-case="projects/transitops.html" data-live="https://transitops-phi.vercel.app" tabindex="-1" type="button">02 <span>TransitOps</span></button>
           <button id="tab-staff" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-staff" data-scene="staff" data-case="projects/staffflow.html" data-live="https://staff-management-app-da8r.vercel.app/" tabindex="-1" type="button">03 <span>Staffflow</span></button>
-          <button id="tab-neurosim" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-neurosim" data-scene="neurosim" data-case="projects/neurosim.html" data-live="" tabindex="-1" type="button">04 <span>NeuroSim</span></button>
+          <button id="tab-neurosim" class="console-tab" role="tab" aria-selected="false" aria-controls="panel-neurosim" data-scene="neurosim" data-case="projects/neurosim.html" data-live="neurosim-mission.html" tabindex="-1" type="button">04 <span>NeuroSim</span></button>
         </div>
         <div class="console-viewport">
           <section id="panel-quadmates" class="scene scene-quadmates" role="tabpanel" aria-labelledby="tab-quadmates" tabindex="0">
@@ -133,7 +134,7 @@
         </div>
         <div class="console-info">
           <div><span class="console-overline">SELECTED SYSTEM</span><h2 id="consoleTitle">Quadmates</h2><p id="consoleCopy">Helping students discover people to study with, then turn a connection into a plan.</p></div>
-          <div class="console-actions"><a id="consoleCase" href="projects/quadmates.html">Case study <span aria-hidden="true">↗</span></a><a id="consoleLive" href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Live project <span aria-hidden="true">↗</span></a></div>
+          <div class="console-actions"><a id="consoleCase" href="projects/quadmates.html">Case study <span aria-hidden="true">↗</span></a><a id="consoleLive" href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Open application <span aria-hidden="true">↗</span></a></div>
         </div>
         <p class="console-note">Schematic previews · not live telemetry</p>
       </aside>
@@ -142,6 +143,57 @@
     <div class="signal-strip" aria-label="Areas of work">
       <div class="container signal-strip-inner"><span>FULL-STACK PRODUCTS</span><b aria-hidden="true">✳</b><span>SIMULATION &amp; EVALUATION</span><b aria-hidden="true">✳</b><span>AI &amp; AUTONOMY</span><b aria-hidden="true">✳</b><span>REAL-WORLD SYSTEMS</span></div>
     </div>
+
+    <section class="flagship-section" id="flagship" aria-labelledby="flagship-title">
+      <div class="container">
+        <div class="flagship-heading">
+          <div><span class="section-index">FEATURED / EXPLORE THE SOFTWARE</span>
+            <h2 id="flagship-title">From code to <em>working systems.</em></h2>
+            <p>Run the actual interfaces, explore what the models simulate, and inspect the engineering choices. Screenshots below are from public project pages—not synthetic performance data.</p>
+          </div>
+          <a href="demos.html" class="flagship-all-link">All interactive experiments ↗</a>
+        </div>
+        <div class="flagship-grid">
+          <article class="flagship-card" aria-labelledby="flagship-transit-title">
+            <a class="flagship-image" href="https://transitops-phi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open the full TransitOps dashboard">
+              <img src="assets/project-media/transitops.jpg" alt="Public TransitOps web dashboard captured from the deployed project" width="1365" height="768" loading="lazy" decoding="async">
+              <span class="flagship-image-tag">RECORDED PUBLIC INTERFACE / 2026</span>
+              <span class="flagship-image-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="flagship-card-body">
+              <div class="flagship-eyebrow"><span>01 / TRANSIT SIMULATION</span><span>LIVE WEB APP</span></div>
+              <h3 id="flagship-transit-title">TransitOps</h3>
+              <p>Run a Waterloo-inspired control simulation. Test demand surges, disruptions and adaptive dispatch; compare modeled waiting times and completed journeys.</p>
+              <div class="flagship-metadata"><span>Python + FastAPI</span><span>SUMO / TraCI</span><span>MapLibre</span></div>
+              <div class="flagship-actions"><a class="flagship-launch" href="https://transitops-phi.vercel.app/" target="_blank" rel="noopener noreferrer">Launch full app <span aria-hidden="true">↗</span></a><a href="projects/transitops.html">Read the case study ↗</a></div>
+              <p class="flagship-disclosure">Simulated corridor, not live GRT data. SUMO requires its separately hosted service.</p>
+            </div>
+          </article>
+          <article class="flagship-card" aria-labelledby="flagship-neuro-title">
+            <a class="flagship-image flagship-image-neuro" href="neurosim-mission.html" aria-label="Open NeuroSim Mission Control">
+              <img src="assets/project-media/neurosim-diagram.svg" alt="Source-derived NeuroSim simulation diagram, not a captured AI landing" width="1200" height="675" loading="lazy" decoding="async">
+              <span class="flagship-image-tag">SOURCE-BASED VISUAL / NOT FLIGHT FOOTAGE</span>
+              <span class="flagship-image-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="flagship-card-body">
+              <div class="flagship-eyebrow"><span>02 / CONTROL ENGINEERING</span><span>INTERACTIVE MODEL</span></div>
+              <h3 id="flagship-neuro-title">NeuroSim 2.0</h3>
+              <p>Take manual control of a rocket landing, inspect flight telemetry, change planets and replay the simulated descent.</p>
+              <div class="flagship-metadata"><span>Rocket dynamics</span><span>Telemetry</span><span>Flight replay</span></div>
+              <div class="flagship-actions"><a class="flagship-launch" href="neurosim-mission.html">Launch Mission Control <span aria-hidden="true">↗</span></a><a href="projects/neurosim.html">Read the case study ↗</a></div>
+              <p class="flagship-disclosure">Source-derived manual simulator; no published trained PPO checkpoint is running.</p>
+            </div>
+          </article>
+        </div>
+        <div class="flagship-more">
+          <span>MORE WORKING EXPERIENCES</span>
+          <a href="https://quadmates.ca" target="_blank" rel="noopener noreferrer">Quadmates ↗</a>
+          <a href="full/transitops-m.html">TransitOps-M simulator ↗</a>
+          <a href="vision-app.html">Person detection ↗</a>
+          <a href="demos.html?project=staffflow">Staffflow sandbox ↗</a>
+        </div>
+      </div>
+    </section>
 
     <section class="projects-section" id="projects" aria-labelledby="projectsTitle">
       <div class="container">
@@ -183,7 +235,7 @@
               <h3><a href="projects/transitops.html">TransitOps <span aria-hidden="true">↗</span></a></h3>
               <p>A transit operations simulator for testing how dispatch decisions affect passenger service. One adaptive strategy performed worse than the baseline—and that mattered.</p>
               <div class="project-stack"><span>Python</span><span>FastAPI</span><span>SUMO / TraCI</span></div>
-              <div class="project-bottom"><a href="projects/transitops.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://transitops-phi.vercel.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a><a class="try-link" href="demos.html?project=transitops">Try live demo ↗</a></div>
+              <div class="project-bottom"><a href="projects/transitops.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://transitops-phi.vercel.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a><a class="try-link" href="demos.html?project=transitops">Quick sandbox ↗</a></div>
             </div>
           </article>
 
@@ -205,8 +257,8 @@
             <div class="project-card-content"><div class="project-topline"><span>04 / REINFORCEMENT LEARNING</span><span class="project-state">EXPERIMENT</span></div>
               <h3><a href="projects/neurosim.html">NeuroSim 2.0 <span aria-hidden="true">↗</span></a></h3>
               <p>Training and evaluating landing policies in a simulated rocket environment, with a focus on whether the controller really lands.</p>
-              <div class="project-stack"><span>Python</span><span>Gymnasium</span><span>PPO</span><a class="try-link" href="neurosim-mission.html">Mission Control ↗</a></div>
-              <div class="project-bottom"><a href="projects/neurosim.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/NeuroSim-2.0" target="_blank" rel="noopener noreferrer">Repository ↗</a><a class="try-link" href="demos.html?project=neurosim">Try live demo ↗</a></div>
+              <div class="project-stack"><span>Python</span><span>Gymnasium</span><span>PPO</span></div>
+              <div class="project-bottom"><a href="projects/neurosim.html">Explore case study <span aria-hidden="true">↗</span></a><a href="https://github.com/Tophacks/NeuroSim-2.0" target="_blank" rel="noopener noreferrer">Repository ↗</a><a class="try-link" href="neurosim-mission.html">Launch Mission Control ↗</a></div>
             </div>
           </article>
 

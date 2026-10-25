@@ -408,3 +408,40 @@ svg { display: block; }
 /* Interactive demonstration links */
 .project-bottom .try-link{color:#275e30;font-weight:800;padding:3px 0}
 .hero-actions{flex-wrap:wrap}
+
+/* Flagship experiences: real public screenshots and prominent launch links */
+.flagship-section { padding: clamp(62px, 7vw, 112px) 0 57px; background: #e9eee4; border-top: 1px solid #dae2d6; border-bottom: 1px solid #dae2d6; }
+.flagship-heading { display:flex; align-items:end; justify-content:space-between; gap:32px; margin-bottom:34px; }
+.flagship-heading h2 { max-width:780px; font:600 clamp(35px,4vw,62px)/1.05 var(--font-display); letter-spacing:-.065em; margin:15px 0 16px; }
+.flagship-heading h2 em { font-style:normal; color:#547546; }
+.flagship-heading p { max-width:680px; line-height:1.7; color:#647067; font-size:15px; margin:0; }
+.flagship-all-link { flex:none; text-decoration:none; font-size:12px; font-weight:700; border-bottom:1px solid #315b3a; padding-bottom:5px; color:#315b3a; margin-bottom:3px; }
+.flagship-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:stretch; }
+.flagship-card { display:flex; flex-direction:column; min-width:0; border:1px solid #cdd8cb; border-radius:17px; overflow:hidden; background:#fff; box-shadow:0 15px 40px #29473212; transition:box-shadow .2s,transform .2s; }
+.flagship-card:hover { transform:translateY(-4px); box-shadow:0 20px 45px #29473225; }
+.flagship-image { position:relative; display:block; overflow:hidden; aspect-ratio:16/9; background:#163528; border-bottom:1px solid #d3ddd0; }
+.flagship-image img { display:block; width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .45s; }
+.flagship-card:hover .flagship-image img { transform:scale(1.025); }
+.flagship-image-neuro img { object-fit:cover; }
+.flagship-image-tag { position:absolute; bottom:15px; left:15px; z-index:2; background:#10261fe8; color:#daf7db; font:600 9px/1.4 var(--font-mono); letter-spacing:.045em; border-radius:6px; padding:8px 10px; }
+.flagship-image-arrow { position:absolute; z-index:2; right:16px; top:15px; background:#f6f9eb; color:#21462b; height:38px; width:38px; border-radius:50%; display:grid; place-items:center; font-weight:700; font-size:19px; }
+.flagship-card-body { display:flex; flex:1; flex-direction:column; padding:clamp(22px,2.8vw,37px); }
+.flagship-eyebrow { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; font:700 10px var(--font-mono); letter-spacing:.05em; color:#55735b; }
+.flagship-eyebrow span+span { color:#7e8a7f; }
+.flagship-card h3 { font:600 clamp(28px,3vw,42px)/1.1 var(--font-display); letter-spacing:-.06em; margin:18px 0 11px; }
+.flagship-card-body>p:not(.flagship-disclosure) { font-size:14px; color:#657168; line-height:1.7; margin:0 0 20px; }
+.flagship-metadata { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:auto; padding-bottom:22px; }
+.flagship-metadata span { border:1px solid #dce5db; padding:6px 9px; background:#f4f8f1; font:600 10px var(--font-mono); border-radius:5px; color:#526a53; }
+.flagship-actions { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.flagship-actions a { font-size:12px; font-weight:700; text-decoration:none; color:#315e3b; }
+.flagship-actions a:hover { text-decoration:underline; }
+.flagship-actions .flagship-launch { display:inline-flex; align-items:center; justify-content:space-between; gap:28px; color:#fff; background:#1f422c; padding:13px 17px; border-radius:8px; text-decoration:none; }
+.flagship-actions .flagship-launch:hover { background:#346b46; }
+.flagship-disclosure { font-size:11px; line-height:1.5; color:#869087; padding-top:15px; border-top:1px solid #e3e9e0; margin:20px 0 0; }
+.flagship-more { display:flex; align-items:center; gap:13px 26px; flex-wrap:wrap; margin-top:27px; padding-top:22px; border-top:1px solid #cbd8c9; }
+.flagship-more>span { color:#79877b; font:700 10px var(--font-mono); letter-spacing:.07em; margin-right:auto; }
+.flagship-more a { text-decoration:none; font-weight:700; font-size:12px; color:#365d3d; }
+.flagship-more a:hover { text-decoration:underline; }
+@media(max-width:850px) { .flagship-heading { align-items:start; flex-direction:column; gap:17px; } .flagship-grid { grid-template-columns:1fr; } .flagship-image { max-height:470px; } }
+@media(max-width:600px) { .flagship-section { padding:50px 0; } .flagship-heading h2 { font-size:38px; } .flagship-card-body { padding:22px; } .flagship-more>span { flex-basis:100%; } }
+@media(prefers-reduced-motion:reduce) { .flagship-card,.flagship-image img { transition:none; } }
