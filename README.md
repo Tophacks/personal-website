@@ -45,6 +45,12 @@ The TransitOps and TransitOps-M case studies lead with the actual application in
 
 **Exact limitations:** Original Python `env.py` currently has an accidental literal `\\n` parsing defect; the JS translation implements the intended info/reward logic. Original RCS input changes reward and the record, not angular acceleration, and the JS port intentionally preserves this. The public repo contains no compatible trained 3-action PPO weights; the viewer does not pretend to run a trained agent. Browser seeded randomness is deterministic but not byte-for-byte NumPy seed parity.
 
+## Live browser person detection
+
+`vision-app.html` is a functioning TensorFlow.js COCO-SSD **person-class** detector with opt-in webcam access and local image upload, confidence threshold, bounding boxes, on-device inference timing and processing every third render frame. It is linked from the homepage and embedded as the primary experience in `projects/vision.html`.
+
+The original `Tophacks/Real-Time-Person-Detection/main.py` uses desktop Python, Tkinter, OpenCV HOG + SVM, and a five-frame producer/consumer queue. That native implementation **cannot run as-is on a static portfolio/Vercel deployment**. This browser version deliberately uses another pretrained detector (COCO-SSD), while reproducing the high-level input/detect/annotate workflow and 1-in-3 frame scheduling. It does not claim to reproduce the exact HOG detector or threading model. COCO-SSD code/weights download from TensorFlow.js/CDN providers on demand. Photos and video frames are not uploaded to the portfolio backend or persisted. Browser webcam permission requires a secure context and may be blocked inside iframes, so a direct link is provided.
+
 ## Development
 
 Static HTML/CSS/JavaScript with no runtime framework and no build step.

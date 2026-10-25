@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c1722"><meta name="description" content="Try a real person detector in your browser. Upload a picture or enable your webcam to run an on-device model and see person bounding boxes.">
+<title>Real-Time Person Detection · Interactive Computer Vision Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vision-app.css">
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js" defer></script>
+<script src="vision-app.js" defer></script>
+</head><body>
+<a class="skip" href="#vision-controls">Skip to controls</a>
+<header class="top"><a href="index.html">NP<span>.</span> / VISION LAB</a><nav aria-label="Project navigation"><a href="projects/vision.html">Case study ↗</a><a href="https://github.com/Tophacks/Real-Time-Person-Detection" target="_blank" rel="noopener noreferrer">Original Python ↗</a></nav></header>
+<main>
+<section class="hero"><div><p class="eyebrow">COMPUTER VISION / BROWSER LAB / SOURCE-INSPIRED</p><h1>See what the model <em>sees.</em></h1><p>Test person detection with your own image or a live camera feed. The image stays in this browser tab; the pretrained model downloads when you ask to use it.</p></div><div class="privacy"><span class="privacy-indicator"></span><strong>LOCAL INFERENCE</strong><small>Camera permission is optional. No image-upload API.</small></div></section>
+<section class="application" aria-label="Interactive person detector">
+<div class="stage">
+<div class="stage-top"><span>VISION / INFERENCE VIEW</span><span id="frame-status">NO INPUT</span></div>
+<div id="visual-host" class="visual-host"><div class="empty-state" id="empty-state"><div class="empty-symbol" aria-hidden="true">◎</div><strong>Your vision feed appears here</strong><p>Choose a photo, or enable your camera to begin detecting people.</p></div><video id="camera" autoplay playsinline muted hidden aria-label="Live webcam preview"></video><img id="still" alt="Uploaded image being analyzed" hidden><canvas id="view-canvas" width="960" height="540" aria-label="Image or webcam with person detection annotations" hidden></canvas></div>
+<div class="stage-footer"><span id="detector-status" role="status">Model not loaded</span><span id="processing-status">Inference idle</span></div>
+</div>
+<aside id="vision-controls" class="controls">
+<div class="control-heading"><small>CAMERA / IMAGE / DETECTION</small><h2>Controls</h2></div>
+<div class="control-body">
+<label class="file-control" for="photo">Upload an image <span>JPG / PNG / WebP · max 10 MB</span></label><input id="photo" type="file" accept="image/png,image/jpeg,image/webp">
+<div class="actions"><button id="camera-start" type="button" class="primary">Enable camera</button><button id="camera-stop" type="button" disabled>Stop camera</button></div>
+<label class="range-label" for="confidence">Minimum confidence <output id="confidence-value">50%</output></label><input id="confidence" type="range" min="20" max="95" step="5" value="50">
+<div class="actions"><button id="analyze" type="button" disabled>Analyze image</button><button id="clear" type="button">Clear</button></div>
+<div class="metrics"><div><small>People found</small><strong id="people-count">—</strong></div><div><small>Inference time</small><strong id="inference-time">—</strong></div><div><small>Frames analyzed</small><strong id="frame-count">0</strong></div><div><small>Frames skipped</small><strong id="skipped-count">0</strong></div></div>
+<p class="message" id="message" role="status">Choose a photo or enable the camera. Person detection runs on every third camera frame, adapted from the original project's scheduling strategy.</p>
+<div class="settings-note"><h3>What runs here?</h3><p>TensorFlow.js COCO-SSD identifies the <code>person</code> class on your device. It is a different pretrained model from the original Python/OpenCV HOG + SVM program.</p><p>Model code and weights are downloaded from a public CDN/model host. Uploaded photos and video frames are not sent to your portfolio's server.</p></div>
+</div></aside></section>
+<section class="evidence"><h2>From the desktop prototype to the web</h2><div class="evidence-grid"><div><small>ORIGINAL SOURCE</small><strong>Python + OpenCV + Tkinter</strong><p>Capture threads, bounded queue of five frames, every-third-frame processing, HOG + SVM pedestrian detector.</p></div><div><small>BROWSER ADAPTATION</small><strong>JavaScript + TensorFlow.js</strong><p>User-initiated photo/webcam processing, every-third-frame detection, on-device COCO-SSD people bounding boxes.</p></div></div><p>Detection can miss or falsely flag people. Results are a demonstration of computer vision, not surveillance-grade verification or a calibrated safety system.</p><a href="projects/vision.html">Explore the case study and engineering decisions ↗</a></section>
+</main><footer><span>NP · ENGINEERING FIELD NOTES</span><a href="index.html">← Portfolio</a></footer>
+</body></html>
