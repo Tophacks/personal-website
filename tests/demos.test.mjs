@@ -62,7 +62,7 @@ test('all six projects offer embedded standalone demos',()=>{
  const scripts=['demo-core.js','demos.js','demos.css'];
  for(const p of scripts)assert.ok(existsSync(join(root,p)));
  for(const p of ['quadmates','transitops','staffflow','neurosim','transitops-m','vision']){
-  assert.ok(index.includes('demos.html?project='+p));
+  assert.ok(index.includes('projects/'+p+'.html'), 'Homepage should link the full project case study: '+p);
   const casePage=readFileSync(join(root,'projects',p+'.html'),'utf8');
   assert.ok(casePage.includes('project='+p+'&amp;embed=1'));
   assert.ok(hub.includes('data-demo-tab="'+p+'"'));

@@ -159,3 +159,14 @@ footer { max-width:1320px; padding:12px clamp(20px,4.5vw,60px) 47px; font-size:1
 [data-full-application="vision"] .original-stage iframe{height:900px}
 @media(max-width:990px){[data-full-application="vision"] .original-stage iframe{height:1290px}}
 @media(max-width:540px){[data-full-application="vision"] .original-stage iframe{height:1400px}}
+
+/* Keep the real product dominant; reveal the secondary sandbox only on request. */
+.secondary-demo {margin:23px 0 33px; border:1px solid #ced8c5; background:#f5f8f1; border-radius:12px; overflow:hidden}
+.secondary-demo>summary { padding:17px 21px; cursor:pointer; color:#315b3c; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:space-between; gap:15px; list-style:none }
+.secondary-demo>summary::-webkit-details-marker {display:none}
+.secondary-demo>summary span{font-size:23px;font-weight:400}
+.secondary-demo[open]>summary span{transform:rotate(45deg)}
+.secondary-demo .live-demo-embed { margin:0; border:0; border-top:1px solid #ced8c5; border-radius:0; }
+.secondary-demo .live-demo-embed iframe { height:730px; }
+@media(max-width:980px){.secondary-demo .live-demo-embed iframe{height:980px}}
+@media(max-width:600px){.secondary-demo .live-demo-embed iframe{height:1110px}}

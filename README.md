@@ -90,3 +90,7 @@ Project diagrams are schematics, not screenshots or live monitoring. Performance
 ## Next improvements
 
 The GitHub Actions `Capture public project visuals` workflow records public, unauthenticated screenshots and brief walkthrough clips, then updates the media manifest. NeuroSim capture attempts to use the actual Pygame viewer; the older camera project retains a labeled source-derived diagram. If a site is unavailable or protected, the portfolio intentionally keeps a diagram instead of misrepresenting access. Periodically update case studies against repository changes.
+
+## 2026 showcase refresh
+
+The homepage now leads with two project launch experiences: the deployed TransitOps app and the source-derived NeuroSim manual mission controller, using one verified public TransitOps screenshot and one clearly labeled NeuroSim source illustration. Secondary project cards link directly to Quadmates, TransitOps-M, Staffflow's synthetic sandbox, and the on-device person detector. Case studies retain the full integrations, while their redundant lightweight simulations are collapsed behind accessible HTML details. The original screenshots, code and experiment limitations are not represented as real-world operations metrics.
