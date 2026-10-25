@@ -94,3 +94,16 @@ test('NeuroSim full mission-control interface and case-study embedding are avail
 });
 
 test('NeuroSim full viewer and local physics are embedded without claiming trained AI',()=>{const read=n=>readFileSync(join(root,n),'utf8');const p=read('projects/neurosim.html');const app=read('full/neurosim.html');assert.ok(p.includes('../full/neurosim.html'));assert.ok(app.includes('neurosim-model.js'));assert.ok(app.includes('neurosim.js'));assert.ok(app.includes('MANUAL MODE'));});
+
+test('real person-detection app is linked and embedded, with a browser detector',()=>{
+ const read=(p)=>readFileSync(join(root,p),'utf8');
+ const page=read('projects/vision.html'),app=read('vision-app.html'),js=read('vision-app.js');
+ assert.ok(page.includes('src="../vision-app.html"'));
+ assert.ok(page.includes('allow="camera"'));
+ assert.ok(read('index.html').includes('href="vision-app.html"'));
+ assert.ok(app.includes('coco-ssd@2.2.3'));
+ assert.ok(app.includes('camera-start')&&app.includes('photo'));
+ assert.ok(js.includes("getUserMedia")&&js.includes("model.detect(canvas)"));
+ assert.ok(js.includes("item.class==='person'")||js.includes("d.class==='person'"));
+ assert.ok(js.includes("getTracks().forEach"));
+});
