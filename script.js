@@ -7,6 +7,31 @@
   const currentYear = document.getElementById("year");
   if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
+
+  // Public, self-contained Infosys feature. No external post or private project data.
+  const careerFeatures = {
+    role: { label: "WHAT I'LL BE FOCUSING ON", title: "AI Agent Engineering", copy: "I'll be joining as a Computer Engineering Assistant, working in AI Agent Engineering. Looking forward to learning a lot and contributing to the team." },
+    program: { label: "THE INTERNSHIP", title: "Infosys InStep", copy: "I'll be joining through Infosys's InStep Internship Program for Winter 2027." },
+    location: { label: "WHERE I'LL BE", title: "Bengaluru, India", copy: "I'll be based in Bengaluru and joining the team at the Infosys CTO office." }
+  };
+  const careerTabs = Array.from(document.querySelectorAll(".career-feature-tab"));
+  const careerLabel = document.getElementById("careerFeatureLabel");
+  const careerTitle = document.getElementById("careerFeatureTitle");
+  const careerCopy = document.getElementById("careerFeatureCopy");
+  function showCareerFeature(key) {
+    const data = careerFeatures[key];
+    if (!data) return;
+    careerTabs.forEach(tab => {
+      const active = tab.dataset.feature === key;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-pressed", String(active));
+    });
+    if (careerLabel) careerLabel.textContent = data.label;
+    if (careerTitle) careerTitle.textContent = data.title;
+    if (careerCopy) careerCopy.textContent = data.copy;
+  }
+  careerTabs.forEach(tab => tab.addEventListener("click", () => showCareerFeature(tab.dataset.feature)));
+
   // Small-screen menu
   const menu = document.getElementById("mobileNav");
   const menuToggle = document.getElementById("menuToggle");
