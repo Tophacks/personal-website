@@ -17,7 +17,7 @@ The site is an editorial engineering studio rather than a page-flip presentation
 
 ## Interactive engineering lab
 
-`demos.html` hosts six self-contained experiments, linked from every portfolio project:
+`demos.html` is now a real-project launcher that links to public deployed applications and the full source-derived browser experiences. The older synthetic experiments remain in source files for tests/reference, but are not the portfolio's default project experience. Previously, the lab contained:
 - TransitOps: four-stop simulation with fixed vs demand-triggered bus dispatch and side-by-side deterministic comparisons.
 - NeuroSim: manual flight model porting the published fictional rocket constants and simplified 2D physics.
 - TransitOps-M: depot reservation / docking / emergency-stop state transitions.
@@ -37,7 +37,7 @@ The TransitOps and TransitOps-M case studies lead with the actual application in
 
 - TransitOps embeds its independent Next.js/FastAPI deployment at `https://transitops-phi.vercel.app/` with a prominent direct-open link if iframe embedding is blocked by the host. The SUMO/TraCI WebSocket simulator requires its own optional service and cannot run from the static portfolio.
 - TransitOps-M embeds `full/transitops-m.html`, copied from the actual `Tophacks/TransitOps-M/transitops_m/dashboard.html` and deliberately forced into the original offline/browser demonstration mode. The original JavaScript simulation controls are preserved. It is **not** connected to its Python API or physical bus controls.
-- The lightweight adapted Engineering Lab demos remain available below these full project experiences.
+- The homepage now points directly to the working applications and full browser experiences rather than the synthetic Engineering Lab demos.
 
 ## NeuroSim source-derived full mission control
 
