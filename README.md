@@ -94,3 +94,9 @@ The GitHub Actions `Capture public project visuals` workflow records public, una
 ## 2026 showcase refresh
 
 The homepage now leads with two project launch experiences: the deployed TransitOps app and the source-derived NeuroSim manual mission controller, using one verified public TransitOps screenshot and one clearly labeled NeuroSim source illustration. Secondary project cards link directly to Quadmates, TransitOps-M, Staffflow's synthetic sandbox, and the on-device person detector. Case studies retain the full integrations, while their redundant lightweight simulations are collapsed behind accessible HTML details. The original screenshots, code and experiment limitations are not represented as real-world operations metrics.
+
+## Exact project source integration
+
+- `source/transitops-m-dashboard-original.html` is a verbatim copy of `Tophacks/TransitOps-M/transitops_m/dashboard.html` as retrieved on October 27, 2026. It provides a readable source-of-truth snapshot. The actual project repository remains authoritative for updates.
+- `full/transitops-m.html` is refreshed from that original file; its only runtime changes force the existing built-in offline engine and replace the status text. The original dashboard's buttons and offline simulation code are reused; the Python API is **not** hosted on the portfolio. The forced offline mode also prevents accidentally connecting to any unrelated `/api/state` endpoint under the portfolio domain.
+- NeuroSim's Python Gymnasium environment cannot execute directly in static HTML. The existing `neurosim-mission.html` runs the previously translated JS equations, **not** the exact Python interpreter/environment or trained PPO weights. Moving that to exact Python execution would require a separately tested Python backend or WebAssembly package.
