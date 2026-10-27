@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TransitOps-M · Original Simulator Dashboard</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TransitOps-M Simulator</title>
 <style>body{font:16px system-ui;background:#0d1726;color:#edf4fa;max-width:1000px;margin:32px auto;padding:0 18px}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}@media(max-width:700px){.grid{grid-template-columns:1fr}}section{border:1px solid #4a5b71;background:#17273c;border-radius:12px;padding:20px}button{cursor:pointer;background:#178b98;color:white;border:0;padding:10px;border-radius:5px;margin:3px}.danger{background:#b83b4d}pre{white-space:pre-wrap;max-height:300px;overflow:auto}small{color:#b9c8d7}#error{color:#ff9e9e}.pill{display:inline-block;border:1px solid #6b819b;border-radius:20px;padding:7px;margin:4px}</style></head>
-<body><h1>TransitOps-M</h1><p><small>Original project dashboard adapted for offline public showcase. Source: <a href="https://github.com/Tophacks/TransitOps-M/blob/main/transitops_m/dashboard.html" target="_blank" rel="noopener noreferrer" style="color:#7dddd4">TransitOps-M/dashboard.html ↗</a></small></p><p>HO-scale miniature city • <strong>Simulation only</strong> — no physical hardware attached.</p><p id="connection" role="status" style="padding:10px;border:1px solid #61778f;border-radius:6px">Connecting…</p>
+<body><h1>TransitOps-M</h1><p>HO-scale miniature city • <strong>Simulation only</strong> — no physical hardware attached.</p><p id="connection" role="status" style="padding:10px;border:1px solid #61778f;border-radius:6px">Connecting…</p>
 <div class="grid"><section><h2>Network</h2><svg viewBox="0 0 560 320" width="100%" role="img" aria-label="Route diagram with two stations and depot"><rect x="40" y="42" width="480" height="230" rx="90" stroke="#53677c" stroke-width="30" fill="none"/><rect x="40" y="42" width="480" height="230" rx="90" stroke="#efcb72" stroke-dasharray="8 9" stroke-width="2" fill="none"/><rect x="95" y="5" width="140" height="35" rx="5" fill="#8baec5"/><text x="109" y="28" fill="#112132">Station A</text><rect x="350" y="277" width="138" height="34" rx="5" fill="#8baec5"/><text x="361" y="298" fill="#112132">Station B</text><rect x="181" y="109" width="199" height="105" rx="8" fill="#2d4765"/><path d="M 381 172 L 434 172 L 500 120" stroke="#44c7c3" stroke-width="6" stroke-dasharray="8 5" fill="none"/><path d="M 500 120 L 489 124 L 498 133" stroke="#44c7c3" stroke-width="4" fill="none"/><text x="386" y="105" fill="#b9e6e3" font-size="13">Concept depot branch</text><text x="201" y="140" fill="white">Depot 1</text><text x="201" y="161" fill="#d5deea">Parking P1 / P2</text><rect id="bus" x="0" y="0" width="30" height="17" rx="5" fill="#2ac1ca" stroke="white"/></svg><div id="summary"></div></section>
-<section><h2>Operations control</h2><div style="padding:8px;border:1px solid #526d81;border-radius:8px;margin-bottom:10px"><button id="play" type="button">▶ Start</button><button id="pause" type="button">Ⅱ Pause</button><button id="restart" type="button">↺ Reset simulation</button><label for="speed" style="display:inline-block;margin:8px">Speed <select id="speed" style="padding:8px;background:#0d1726;color:white"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label><p id="autostatus" style="margin:6px;color:#abd7e1">Paused</p></div><h3>Manual dispatch</h3><button data-action="tick" data-steps="1">Tick +1</button><button data-action="tick" data-steps="20">Tick +20</button><button data-action="return">Reserve depot</button><button data-action="dock">Confirm mock dock</button><button data-action="dispatch">Release</button><button class="danger" data-action="stop">Emergency stop</button><button data-action="clear">Clear interlock</button><button data-action="reset">Reset fault</button><p id="error"></p><h3>Events</h3><pre id="events"></pre></section></div>
+<section><h2>Operations control</h2><div style="padding:8px;border:1px solid #526d81;border-radius:8px;margin-bottom:10px"><button id="play" type="button">▶ Start</button><button id="pause" type="button">Ⅱ Pause</button><button id="restart" type="button">↺ Reset simulation</button><label for="speed" style="display:inline-block;margin:8px">Speed <select id="speed" style="padding:8px;background:#0d1726;color:white"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label><p id="autostatus" style="margin:6px;color:#abd7e1">Paused</p></div><h3>Manual dispatch</h3><button data-action="tick" data-steps="1">Tick +1</button><button data-action="tick" data-steps="20">Tick +20</button><button data-action="return">Reserve depot</button><button data-action="dock">Confirm mock dock</button><button data-action="dispatch">Release</button><button class="danger" data-action="stop">Emergency stop</button><button data-action="clear">Clear interlock</button><button data-action="reset">Reset fault</button><button data-action="resume">Resume service</button><p>Recovery: clear interlock → reset fault → resume service. Reset alone keeps the bus stopped. Interrupted depot operations require a new depot request.</p><p id="error"></p><h3>Events</h3><pre id="events"></pre></section></div>
 <script>
 const el=id=>document.getElementById(id);
 const notice=(msg)=>{el('error').textContent=msg;};
@@ -15,23 +15,24 @@ function start(){if(timer!==null)return;const ms=Math.round(650/Number(el('speed
 document.addEventListener('DOMContentLoaded',()=>{el('play').addEventListener('click',start);el('pause').addEventListener('click',pause);el('restart').addEventListener('click',async()=>{pause();await runCommand('reset_sim');});el('speed').addEventListener('change',()=>{if(timer!==null){pause();start();}});});
 function initial(){
 return {tick:0,interlock_fault:false,mode:'NORMAL',stations:STATIONS,
-buses:{'BUS-01':{id:'BUS-01',state:'IN_SERVICE',station:null,distance:0,battery:100,bay:null,trips:0,dwell_remaining:0}},
+layout:{scale:'1:87',route:'closed-loop',depot_branch:'conceptual'},
+buses:{'BUS-01':{id:'BUS-01',state:'IN_SERVICE',station:null,distance:0,battery:100,bay:null,trips:0,dwell_remaining:0,interrupted_state:null}},
 bays:{'DEPOT-1':{id:'DEPOT-1',automated:true,occupied_by:null,reserved_for:null},P1:{id:'P1',automated:false,occupied_by:null,reserved_for:null},P2:{id:'P2',automated:false,occupied_by:null,reserved_for:null}},events:[]};}
 function event(type,fields={}){data.events.push({tick:data.tick,type,bus:'BUS-01',...fields});data.events=data.events.slice(-100);}
 function simulatedCommand(action,extra){
 const b=data.buses['BUS-01'], bay=data.bays['DEPOT-1'];
 switch(action){
-case 'reset_sim':data=initial();event('SIMULATION_RESET');break;
+case 'reset_sim':data=initial();event('SIMULATION_RESET',{bus:null});break;
 case 'tick': {
 const n=extra.steps??1;
 if(!Number.isInteger(n)||n<1||n>100)throw Error('Invalid tick count');
 for(let i=0;i<n;i++){data.tick++;
-if(b.dwell_remaining>0){b.dwell_remaining--;if(b.dwell_remaining===0)event('STATION_DEPARTURE',{station:b.station});continue;}
 if(b.state!=='IN_SERVICE'||data.interlock_fault)continue;
+if(b.dwell_remaining>0){b.dwell_remaining--;if(b.dwell_remaining===0)event('STATION_DEPARTURE',{station:b.station});continue;}
 const prev=b.distance;
 b.distance=+( (b.distance+.025)%1).toFixed(5);
 b.battery=Math.max(0,+(b.battery-.05).toFixed(3));
-for(const [name,pos] of Object.entries(STATIONS)){if((prev<=pos&&pos<b.distance)||(b.distance<prev&&(pos>=prev||pos<b.distance))){b.station=name;b.dwell_remaining=3;event('STATION_ARRIVAL',{station:name});}}
+for(const [name,pos] of Object.entries(STATIONS)){const crossed=b.distance>=prev?(prev<pos&&pos<=b.distance):(pos>prev||pos<=b.distance);if(crossed){b.distance=pos;b.station=name;b.dwell_remaining=3;event('STATION_ARRIVAL',{station:name});break;}}
 if(b.distance<prev)b.trips++;
 if(b.battery===0){b.state='HOLDING';event('BATTERY_EMPTY_SIM');}
 }break;}
@@ -42,21 +43,29 @@ bay.reserved_for=b.id;b.state='RETURNING';b.station=null;b.dwell_remaining=0;eve
 case 'dock':
 if(b.state!=='RETURNING'||bay.reserved_for!==b.id)throw Error('No matching depot reservation');
 if(bay.occupied_by||data.interlock_fault)throw Error('Docking interlock active');
-b.state='PARKED';b.bay=bay.id;bay.occupied_by=b.id;bay.reserved_for=null;event('DOCK_CONFIRMED',{bay:bay.id,sensor:'MOCK'});break;
+b.state='PARKED';b.bay=bay.id;bay.occupied_by=b.id;bay.reserved_for=null;event('DOCK_CONFIRMED',{bay:bay.id,sensor:'DEPOT_ENTRY'});break;
 case 'dispatch':
 if(!['PARKED','READY'].includes(b.state))throw Error('Bus is not parked or ready');
 if(data.interlock_fault)throw Error('Depot interlock active');
+if(b.battery<=0)throw Error('Vehicle battery is empty');
 if(b.bay){const slot=data.bays[b.bay];if(slot.occupied_by!==b.id)throw Error('Bay occupancy mismatch');slot.occupied_by=null;}
-b.bay=null;b.state='IN_SERVICE';b.station=null;b.dwell_remaining=0;event('VEHICLE_RELEASED');break;
+b.bay=null;b.state='IN_SERVICE';b.station=null;b.dwell_remaining=0;b.interrupted_state=null;event('VEHICLE_RELEASED');break;
 case 'stop':
 data.interlock_fault=true;
-if(['IN_SERVICE','HOLDING','RETURNING','DOCKING'].includes(b.state))b.state='FAULT';
+if(['IN_SERVICE','HOLDING','RETURNING','DOCKING'].includes(b.state)){if(b.interrupted_state===null)b.interrupted_state=b.state;b.state='FAULT';}
 for(const slot of Object.values(data.bays))slot.reserved_for=null;
-event('EMERGENCY_STOP',{reason:'operator'});break;
-case 'clear':data.interlock_fault=false;event('INTERLOCK_CLEARED');break;
+event('EMERGENCY_STOP',{bus:null,reason:'operator'});break;
+case 'clear':data.interlock_fault=false;event('INTERLOCK_CLEARED',{bus:null});break;
 case 'reset':
 if(b.state!=='FAULT'||data.interlock_fault)throw Error('Reset requires fault state and cleared interlock');
 b.state='HOLDING';event('BUS_RESET_TO_HOLD');break;
+case 'resume':
+if(b.state!=='HOLDING')throw Error('Resume requires holding state');
+if(data.interlock_fault)throw Error('Resume requires cleared interlock');
+if(b.battery<=0)throw Error('Vehicle battery is empty');
+if(b.bay||Object.values(data.bays).some(slot=>slot.occupied_by===b.id||slot.reserved_for===b.id))throw Error('Resume requires no depot allocation');
+if(['RETURNING','DOCKING'].includes(b.interrupted_state))throw Error('Interrupted depot operation requires a new depot request');
+b.state='IN_SERVICE';b.interrupted_state=null;event('SERVICE_RESUMED');break;
 default:throw Error('Unknown command');
 }
 return data;
@@ -89,8 +98,7 @@ el('events').textContent=JSON.stringify(d.events.slice(-10).reverse(),null,2);
 }
 async function init(){
 try{
-throw Error('Portfolio runs the original dashboard in isolated browser mode; Python API is not published');
-if(location.protocol==='file:')throw Error('Local file');
+if(true)throw Error('Portfolio runs source dashboard in isolated offline mode');
 const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),1800);
 let r;
 try{r=await fetch('/api/state',{signal:controller.signal,cache:'no-store'});}
@@ -102,7 +110,7 @@ mode='connected';render(state);
 el('connection').textContent='Connected to Python simulation API • Commands control the in-memory simulator.';
 }catch(_){
 mode='offline';render(initial());
-el('connection').textContent='Browser demo mode • Buttons run locally without Python. Changes reset on refresh. For the Python API, start: python -m transitops_m.api';
+el('connection').textContent='Original TransitOps-M dashboard · Local browser simulation mode · No Python API or hardware connected · State resets on refresh';
 }
 }
 init();
