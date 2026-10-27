@@ -32,6 +32,31 @@
   }
   careerTabs.forEach(tab => tab.addEventListener("click", () => showCareerFeature(tab.dataset.feature)));
 
+
+  // Accessible four-sided project cube. Buttons rotate it; the link follows the visible side.
+  const cube = document.getElementById("worldCube");
+  const cubeLink = document.getElementById("worldProjectLink");
+  const cubeProjects = [
+    {name:"Quadmates",href:"projects/quadmates.html"},
+    {name:"TransitOps",href:"projects/transitops.html"},
+    {name:"NeuroSim",href:"neurosim-mission.html"},
+    {name:"Staffflow",href:"projects/staffflow.html"}
+  ];
+  let cubeIndex = 0;
+  let cubeTurns = 0;
+  function rotateCube(delta) {
+    if (!cube || !cubeLink) return;
+    cubeTurns += delta;
+    cubeIndex = ((cubeTurns % cubeProjects.length) + cubeProjects.length) % cubeProjects.length;
+    cube.style.transform = "rotateX(-15deg) rotateY(" + (-25 - 90 * cubeTurns) + "deg)";
+    const project = cubeProjects[cubeIndex];
+    cubeLink.href = project.href;
+    cubeLink.textContent = "Explore " + project.name + " ↗";
+    cube.setAttribute("aria-label", "Showing " + project.name);
+  }
+  document.getElementById("worldPrev")?.addEventListener("click", () => rotateCube(-1));
+  document.getElementById("worldNext")?.addEventListener("click", () => rotateCube(1));
+
   // Small-screen menu
   const menu = document.getElementById("mobileNav");
   const menuToggle = document.getElementById("menuToggle");
