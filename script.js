@@ -10,7 +10,7 @@
 
   // Public, self-contained Infosys feature. No external post or private project data.
   const careerFeatures = {
-    role: { label: "WHAT I'LL BE FOCUSING ON", title: "AI Agent Engineering", copy: "I'll be joining as a Computer Engineering Assistant, working in AI Agent Engineering. Looking forward to learning a lot and contributing to the team." },
+    role: { label: "WHAT I'LL BE FOCUSING ON", title: "AI Agent Engineering", copy: "I'll be joining as a Computer Engineering Intern, working in AI Agent Engineering. Looking forward to learning a lot and contributing to the team." },
     program: { label: "THE INTERNSHIP", title: "Infosys InStep", copy: "I'll be joining through Infosys's InStep Internship Program for Winter 2027." },
     location: { label: "WHERE I'LL BE", title: "Bengaluru, India", copy: "I'll be based in Bengaluru and joining the team at the Infosys CTO office." }
   };
