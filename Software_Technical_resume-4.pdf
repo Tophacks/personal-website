@@ -18,7 +18,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Times-Italic >>
 endobj
 7 0 obj
-<< /Length 5234 >>
+<< /Length 5609 >>
 stream
 BT /F2 22 Tf 47.00 752.00 Td (NATHANIEL POWELL) Tj ET
 BT /F1 8.45 Tf 48.00 732.00 Td (613-222-8075  |  n2powell@uwaterloo.ca  |  LinkedIn  |  github.com/Tophacks  |  Portfolio) Tj ET
@@ -44,17 +44,17 @@ BT /F2 10.25 Tf 49.00 546.00 Td (Quadmates.ca) Tj ET
 BT /F1 8.35 Tf 512.98 546.00 Td (2026 - Present) Tj ET
 BT /F3 8.95 Tf 49.00 533.00 Td (Founder & Full-Stack Developer) Tj ET
 BT /F2 9.2 Tf 50.00 517.00 Td (-) Tj ET
-BT /F1 9.15 Tf 64.00 517.00 Td (Shipped a full-stack student collaboration platform using React, Node.js/Express, PostgreSQL and Supabase with verified accounts,) Tj ET
-BT /F1 9.15 Tf 64.00 505.20 Td (partner matching, group messaging and study-time tracking.) Tj ET
+BT /F1 9.15 Tf 64.00 517.00 Td (Shipped a React/Express and PostgreSQL/Supabase student platform with real-time messaging, partner matching and study tracking;) Tj ET
+BT /F1 9.15 Tf 64.00 505.20 Td (adapted the existing application into a Capacitor iOS beta.) Tj ET
 BT /F2 9.2 Tf 50.00 490.40 Td (-) Tj ET
-BT /F1 9.15 Tf 64.00 490.40 Td (Reduced direct/group messaging latency by 70% \(internally reported\); merged live chat events with history and moved read receipts to) Tj ET
-BT /F1 9.15 Tf 64.00 478.60 Td (atomic SQL updates to avoid concurrent-write conflicts.) Tj ET
+BT /F1 9.15 Tf 64.00 490.40 Td (Improved chat reliability using live-event reconciliation and atomic PostgreSQL read receipts to prevent concurrent-write races;) Tj ET
+BT /F1 9.15 Tf 64.00 478.60 Td (reported a 70% reduction in messaging latency \(internal estimate\).) Tj ET
 BT /F2 9.2 Tf 50.00 463.80 Td (-) Tj ET
-BT /F1 9.15 Tf 64.00 463.80 Td (Developed privacy-first analytics with anonymous session tracking, public page views and Do Not Track controls; collected 50 views) Tj ET
-BT /F1 9.15 Tf 64.00 452.00 Td (across 27 sessions in the initial November 2026 rollout.) Tj ET
+BT /F1 9.15 Tf 64.00 463.80 Td (Delivered 56 successful Vercel production deployments \(Oct-Nov 2026\); diagnosed failed preview builds and shipped fixes) Tj ET
+BT /F1 9.15 Tf 64.00 452.00 Td (to mobile design, analytics and application workflows.) Tj ET
 BT /F2 9.2 Tf 50.00 437.20 Td (-) Tj ET
-BT /F1 9.15 Tf 64.00 437.20 Td (Built an opt-in AI study coach/planner with input validation and server-side usage quotas; prepared an iOS beta foundation in) Tj ET
-BT /F1 9.15 Tf 64.00 425.40 Td (Capacitor that reuses existing backend services.) Tj ET
+BT /F1 9.15 Tf 64.00 437.20 Td (Built privacy-first analytics with anonymous sessions and Do Not Track controls, plus opt-in AI tools with validated) Tj ET
+BT /F1 9.15 Tf 64.00 425.40 Td (inputs and server-side usage quotas.) Tj ET
 BT /F2 10.25 Tf 49.00 403.60 Td (Infosys InStep) Tj ET
 BT /F1 8.35 Tf 511.73 403.60 Td (Jan - Apr 2027) Tj ET
 BT /F3 8.95 Tf 49.00 390.60 Td (Incoming Computer Engineering Assistant - AI Agent Engineering) Tj ET
@@ -86,6 +86,11 @@ BT /F3 8.75 Tf 188.06 149.40 Td ( | Python, OpenCV, Tkinter) Tj ET
 BT /F2 9.2 Tf 50.00 135.40 Td (-) Tj ET
 BT /F1 9.15 Tf 64.00 135.40 Td (Created real-time person detection using HOG/SVM, a multithreaded producer-consumer pipeline, bounded buffering and frame) Tj ET
 BT /F1 9.15 Tf 64.00 123.60 Td (sampling.) Tj ET
+BT /F2 9.70 Tf 49.00 103.80 Td (Staffflow) Tj ET
+BT /F3 8.75 Tf 96.00 103.80 Td ( | React, Authorization, Vercel CI/CD) Tj ET
+BT /F2 9.20 Tf 50.00 89.80 Td (-) Tj ET
+BT /F1 9.15 Tf 64.00 89.80 Td (Shipped staff scheduling and recruiting with role-based access and applicant workflows; Vercel recorded 47 successful) Tj ET
+BT /F1 9.15 Tf 64.00 78.00 Td (production deployments \(Oct-Nov 2026\).) Tj ET
 endstream
 endobj
 xref
@@ -101,5 +106,5 @@ xref
 trailer
 << /Size 8 /Root 1 0 R >>
 startxref
-5762
+6137
 %%EOF
