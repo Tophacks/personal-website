@@ -1,4 +1,5 @@
 %PDF-1.4
+%%%%%
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
@@ -6,111 +7,162 @@ endobj
 << /Type /Pages /Count 1 /Kids [3 0 R] >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R /Annots [7 0 R 8 0 R] >>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 6 0 obj
-<< /Length 4261 >>
+<< /Length 6035 >>
 stream
-0.1 0.18 0.16 rg
-BT /F2 20.5 Tf 47 747.00 Td (NATHANIEL \(NATE\) POWELL) Tj ET
-0.15 0.41 0.34 rg
-BT /F2 9.2 Tf 48 727.00 Td (AI SYSTEMS / DATA TOOLING / PRODUCT ENGINEERING) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.3 Tf 48 711.00 Td (n2powell@uwaterloo.ca  |  github.com/Tophacks  |  quadmates.ca) Tj ET
-0.38 0.43 0.42 rg
-BT /F1 8.5 Tf 48 698.00 Td (University of Waterloo | Co-operative undergraduate studies | 2025-present) Tj ET
-0.85 0.88 0.84 RG 0.8 w 47 686.00 m 565 686.00 l S
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 48 661.00 Td (PROFILE) Tj ET
-0.85 0.88 0.84 RG 0.8 w 47 652.00 m 565 652.00 l S
-0.13 0.18 0.17 rg
-BT /F1 9.2 Tf 52 637.00 Td (Product-focused software engineer building real web applications, Python data workflows, and simulation experiments. Interested in) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.2 Tf 52 624.40 Td (AI infrastructure, robotics, researcher tools, and software that remains useful after deployment.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 48 598.80 Td (EXPERIENCE) Tj ET
-0.85 0.88 0.84 RG 0.8 w 47 589.80 m 565 589.80 l S
-0.13 0.18 0.17 rg
-BT /F2 9.7 Tf 48 574.80 Td (Quadmates | Founder and Full-Stack Developer) Tj ET
-0.38 0.43 0.42 rg
-BT /F1 8.5 Tf 48 562.80 Td (2026-present) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 550.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 550.80 Td (Shipped a React and Supabase product with SQL-backed user data, authentication, messaging, and matching workflows.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 538.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 538.80 Td (Built responsive interfaces, investigated backend reliability issues, and prepared a Capacitor-based iOS prototype.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 526.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 526.80 Td (Used user feedback and real application testing to prioritize fixes and improve product workflows.) Tj ET
-0.13 0.18 0.17 rg
-BT /F2 9.7 Tf 48 506.80 Td (UW Orbital | Business and Technical Operations) Tj ET
-0.38 0.43 0.42 rg
-BT /F1 8.5 Tf 48 494.80 Td (2026-present) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 482.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 482.80 Td (Prototyped Python processing workflows for structured expense records and supported spreadsheet-based reporting.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 470.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 470.80 Td (Communicated technical plans to manufacturing sponsors and negotiated support around delivery constraints.) Tj ET
-0.13 0.18 0.17 rg
-BT /F2 9.7 Tf 48 450.80 Td (INFOSYS INSTEP | Incoming Computer Engineering Intern - AI Agent Engineering) Tj ET
-0.38 0.43 0.42 rg
-BT /F1 8.5 Tf 48 438.80 Td (Jan-Apr 2027 | Bengaluru, India) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 426.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 426.80 Td (Selected for an upcoming internship with the Infosys CTO office, focused on AI agent engineering and enterprise workflows.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 414.80 Td (-) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 414.80 Td (Planned internship scope includes AI-assisted business-process automation; project deliverables will be updated after the role) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 54 402.80 Td ( ) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.1 Tf 65 402.80 Td (begins.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 48 378.80 Td (SELECTED PROJECTS) Tj ET
-0.85 0.88 0.84 RG 0.8 w 47 369.80 m 565 369.80 l S
-0.13 0.18 0.17 rg
-BT /F2 9.4 Tf 48 354.80 Td (TransitOps / NeuroSim) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.2 Tf 52 342.80 Td (Built Python simulation and reinforcement-learning control experiments, including evaluation of unsuccessful policies.) Tj ET
-0.13 0.18 0.17 rg
-BT /F2 9.4 Tf 48 324.20 Td (Tooling / deployment) Tj ET
-0.13 0.18 0.17 rg
-BT /F1 9.2 Tf 52 312.20 Td (Worked with Git, GitHub Actions, Vercel deployments, web APIs, and self-directed debugging.) Tj ET
-0.1 0.37 0.3 rg
-BT /F2 9.1 Tf 48 289.60 Td (TECHNICAL AND PROFESSIONAL SKILLS) Tj ET
-0.85 0.88 0.84 RG 0.8 w 47 280.60 m 565 280.60 l S
-0.13 0.18 0.17 rg
-BT /F1 9.2 Tf 52 265.60 Td (Python, Java, JavaScript, SQL, React, Supabase, Vite, Git, GitHub Actions, REST APIs, data processing, simulation) Tj ET
-0.42 0.48 0.45 rg
-BT /F1 7.4 Tf 48 34.00 Td (Infosys is an incoming position; no internship deliverables are claimed as completed.) Tj ET
+0.085 0.15 0.17 rg
+BT /F2 23.50 Tf 46.00 750.00 Td (NATE POWELL) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.10 Tf 47.00 727.00 Td (SOFTWARE ENGINEERING  /  AI SYSTEMS  /  DATA TOOLING) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.50 Tf 47.00 709.00 Td (Waterloo, ON    |    n2powell@uwaterloo.ca    |    github.com/Tophacks    |    quadmates.ca) Tj ET
+0.08 0.35 0.34 RG
+1.5 w
+46 697 m 566 697 l S
+0.08 0.35 0.34 rg
+BT /F2 9.20 Tf 46.00 673.00 Td (PROFILE) Tj ET
+0.79 0.84 0.83 RG
+0.7 w
+46 663 m 566 663 l S
+0.14 0.2 0.22 rg
+BT /F1 9.15 Tf 47.00 647.00 Td (Product-focused software developer and founder who ships end-to-end web applications, builds Python simulation and data) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.15 Tf 47.00 634.80 Td (tools, and evaluates reinforcement-learning systems. Incoming Infosys InStep intern in AI Agent Engineering \(January 2027\).) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.20 Tf 46.00 608.60 Td (EXPERIENCE) Tj ET
+0.79 0.84 0.83 RG
+0.7 w
+46 598.5999999999999 m 566 598.5999999999999 l S
+0.085 0.15 0.17 rg
+BT /F2 10.20 Tf 47.00 582.60 Td (Quadmates  |  Founder & Full-Stack Engineer) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.25 Tf 510.73 582.60 Td (2026 - Present) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 565.60 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 565.60 Td (Built and deployed a student networking platform using React, Vite, Node.js/Express, PostgreSQL and Supabase, including) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 553.60 Td (course matching, study groups, real-time messaging and time-based study tracking.) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 539.40 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 539.40 Td (Developed REST APIs, JWT-protected account flows, database migrations and privacy/safety controls; integrated) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 527.40 Td (Supabase Realtime and user-facing reporting workflows.) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 513.20 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 513.20 Td (Iterated on product reliability and responsive UX, and prepared an iOS prototype using Capacitor and Vite.) Tj ET
+0.085 0.15 0.17 rg
+BT /F2 10.20 Tf 47.00 492.00 Td (Infosys InStep  |  Incoming Computer Engineering Intern) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.25 Tf 511.30 492.00 Td (Jan - Apr 2027) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 475.00 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 475.00 Td (Selected for the CTO office in Bengaluru, India; anticipated focus on AI agent engineering and enterprise workflow) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 463.00 Td (automation. Internship has not started.) Tj ET
+0.085 0.15 0.17 rg
+BT /F2 10.20 Tf 47.00 441.80 Td (UW Orbital  |  Business Communications & Engineering Support) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.25 Tf 510.73 441.80 Td (2026 - Present) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 424.80 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 424.80 Td (Negotiated continued corporate manufacturing support by aligning CubeSat engineering drawings and sponsor production) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 412.80 Td (schedules while preserving the long-term relationship.) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 398.60 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 398.60 Td (Organized engineering expense data in Excel and prototyped Python workflows for reporting and automation.) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.20 Tf 46.00 377.40 Td (SELECTED ENGINEERING PROJECTS) Tj ET
+0.79 0.84 0.83 RG
+0.7 w
+46 367.39999999999986 m 566 367.39999999999986 l S
+0.085 0.15 0.17 rg
+BT /F2 10.20 Tf 47.00 351.40 Td (TransitOps  |  Python, SUMO/TraCI, FastAPI, Next.js) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.25 Tf 503.96 351.40 Td (Personal project) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 334.40 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 334.40 Td (Developed a deterministic transit-operations simulator comparing dispatch strategies, passenger queues and disruption) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 322.40 Td (scenarios; integrated SUMO vehicle/signal telemetry through FastAPI WebSockets to a MapLibre dashboard.) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 308.20 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 308.20 Td (Added Docker-based simulator checks and GitHub Actions build/smoke-test validation.) Tj ET
+0.085 0.15 0.17 rg
+BT /F2 10.20 Tf 47.00 287.00 Td (NeuroSim 2.0  |  Python, PPO, Stable-Baselines3) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.25 Tf 503.96 287.00 Td (Personal project) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.40 Tf 48.00 270.00 Td (-) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 270.00 Td (Built a 2D rocket-landing control environment for reinforcement-learning experiments, supporting continuous actions,) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.02 Tf 60.00 258.00 Td (flight recording and policy evaluation on held-out scenarios.) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.20 Tf 46.00 236.80 Td (TECHNICAL SKILLS) Tj ET
+0.79 0.84 0.83 RG
+0.7 w
+46 226.7999999999999 m 566 226.7999999999999 l S
+0.085 0.15 0.17 rg
+BT /F2 8.90 Tf 47.00 210.80 Td (Languages) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 8.90 Tf 165.00 210.80 Td (Python, JavaScript, TypeScript, SQL, Java) Tj ET
+0.085 0.15 0.17 rg
+BT /F2 8.90 Tf 47.00 198.30 Td (Applications / Data) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 8.90 Tf 165.00 198.30 Td (React, Vite, Next.js, Node.js, Express, FastAPI, PostgreSQL, Supabase, REST APIs, WebSockets) Tj ET
+0.085 0.15 0.17 rg
+BT /F2 8.90 Tf 47.00 185.80 Td (AI / Infrastructure) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 8.90 Tf 165.00 185.80 Td (PyTorch, PPO, Stable-Baselines3, OpenCV, Docker, Git, GitHub Actions, Vercel, Capacitor) Tj ET
+0.08 0.35 0.34 rg
+BT /F2 9.20 Tf 46.00 165.30 Td (EDUCATION) Tj ET
+0.79 0.84 0.83 RG
+0.7 w
+46 155.2999999999999 m 566 155.2999999999999 l S
+0.085 0.15 0.17 rg
+BT /F2 10.00 Tf 47.00 139.30 Td (University of Waterloo) Tj ET
+0.35 0.43 0.44 rg
+BT /F1 8.20 Tf 489.00 139.30 Td (2025 - Present) Tj ET
+0.14 0.2 0.22 rg
+BT /F1 9.00 Tf 47.00 125.30 Td (Economics studies \(co-op\); coursework in mathematics, physics and computer science) Tj ET
 endstream
 endobj
+7 0 obj
+<< /Type /Annot /Subtype /Link /Rect [320 702 425 721] /Border [0 0 0] /A << /S /URI /URI (https://github.com/Tophacks) >> >>
+endobj
+8 0 obj
+<< /Type /Annot /Subtype /Link /Rect [436 702 541 721] /Border [0 0 0] /A << /S /URI /URI (https://quadmates.ca) >> >>
+endobj
 xref
-0 7
+0 9
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000251 00000 n 
-0000000321 00000 n 
-0000000396 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000279 00000 n 
+0000000376 00000 n 
+0000000478 00000 n 
+0000006564 00000 n 
+0000006705 00000 n 
 trailer
-<< /Size 7 /Root 1 0 R >>
+<< /Size 9 /Root 1 0 R >>
 startxref
-4708
+6839
 %%EOF
