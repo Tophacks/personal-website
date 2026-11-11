@@ -9,11 +9,3 @@ test('flagship project launch links point to real demos and verified assets',()=
  assert.match(html,/SOURCE-BASED VISUAL \/ NOT FLIGHT FOOTAGE/);
  assert.match(html,/Simulated corridor, not live GRT data/);
 });
-test('all six case studies preserve optional sandbox with a clear disclosure',()=>{
- for(const name of ['transitops','transitops-m','neurosim','vision','quadmates','staffflow']){
-  const body=readFileSync(join(root,'projects',name+'.html'),'utf8');
-  assert.match(body,/<details class="secondary-demo"><summary>/);
-  assert.match(body,/<section class="live-demo-embed"/);
-  assert.match(body,/not a production system or real account data/);
- }
-});

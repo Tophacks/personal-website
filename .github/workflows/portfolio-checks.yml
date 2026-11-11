@@ -35,5 +35,5 @@ jobs:
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Exercise all six browser demos
+      - name: Exercise the project launcher and mission control
         run: node scripts/smoke-demos.mjs

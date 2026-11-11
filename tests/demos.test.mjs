@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
-import { readFileSync,existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname,resolve,join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
@@ -55,18 +55,27 @@ test('vision queue capacity and every third consumed frame',()=>{
  assert.equal(s.processed,Math.floor(s.consumed/3));
  assert.equal(s.skipped,s.consumed-s.processed);
 });
-test('all six projects offer embedded standalone demos',()=>{
- const index=readFileSync(join(root,'index.html'),'utf8');
- const hub=readFileSync(join(root,'demos.html'),'utf8');
- assert.ok(hub.includes('demo-core.js')&&hub.includes('demos.js'));
- const scripts=['demo-core.js','demos.js','demos.css'];
- for(const p of scripts)assert.ok(existsSync(join(root,p)));
- for(const p of ['quadmates','transitops','staffflow','neurosim','transitops-m','vision']){
-  assert.ok(index.includes('projects/'+p+'.html'), 'Homepage should link the full project case study: '+p);
-  const casePage=readFileSync(join(root,'projects',p+'.html'),'utf8');
-  assert.ok(casePage.includes('project='+p+'&amp;embed=1'));
-  assert.ok(hub.includes('data-demo-tab="'+p+'"'));
+test('project pages offer real applications without secondary sandboxes', () => {
+ const read = (name) => readFileSync(join(root, name), 'utf8');
+ const projects = {
+  quadmates: 'https://quadmates.ca',
+  transitops: 'https://transitops-phi.vercel.app/',
+  staffflow: 'https://staff-management-app-da8r.vercel.app/',
+  neurosim: 'neurosim-mission.html',
+  'transitops-m': 'full/transitops-m.html',
+  vision: 'vision-app.html'
+ };
+ const homepage = read('index.html');
+ const launcher = read('demos.html');
+ for (const [project, app] of Object.entries(projects)) {
+  const casePath = 'projects/' + project + '.html';
+  assert.ok(homepage.includes(casePath));
+  assert.ok(launcher.includes(app));
+  const casePage = read(casePath);
+  assert.ok(casePage.includes(app));
+  assert.doesNotMatch(casePage, /secondary-demo|demos\.html\?project=/);
  }
+ assert.doesNotMatch(launcher, /data-demo-tab|demo-core\.js/);
 });
 
 test('full application integrations preserve original interfaces and safe fallbacks',()=>{
@@ -81,7 +90,7 @@ test('full application integrations preserve original interfaces and safe fallba
  for(const token of ['simulatedCommand(action,extra)','Reserve depot','Connecting','EMERGENCY_STOP','SIMULATION_RESET']){
   assert.ok(original.includes(token), 'Original dashboard source should contain '+token);
  }
- assert.ok(original.includes('isolated browser mode'));
+ assert.ok(original.includes('isolated offline mode'));
 });
 
 test('NeuroSim full mission-control interface and case-study embedding are available',()=>{
