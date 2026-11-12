@@ -33,30 +33,6 @@
   careerTabs.forEach(tab => tab.addEventListener("click", () => showCareerFeature(tab.dataset.feature)));
 
 
-  // Accessible four-sided project cube. Buttons rotate it; the link follows the visible side.
-  const cube = document.getElementById("worldCube");
-  const cubeLink = document.getElementById("worldProjectLink");
-  const cubeProjects = [
-    {name:"Quadmates",href:"projects/quadmates.html"},
-    {name:"TransitOps",href:"projects/transitops.html"},
-    {name:"NeuroSim",href:"neurosim-mission.html"},
-    {name:"Staffflow",href:"projects/staffflow.html"}
-  ];
-  let cubeIndex = 0;
-  let cubeTurns = 0;
-  function rotateCube(delta) {
-    if (!cube || !cubeLink) return;
-    cubeTurns += delta;
-    cubeIndex = ((cubeTurns % cubeProjects.length) + cubeProjects.length) % cubeProjects.length;
-    cube.style.transform = "rotateX(-15deg) rotateY(" + (-25 - 90 * cubeTurns) + "deg)";
-    const project = cubeProjects[cubeIndex];
-    cubeLink.href = project.href;
-    cubeLink.textContent = "Explore " + project.name + " ↗";
-    cube.setAttribute("aria-label", "Showing " + project.name);
-  }
-  document.getElementById("worldPrev")?.addEventListener("click", () => rotateCube(-1));
-  document.getElementById("worldNext")?.addEventListener("click", () => rotateCube(1));
-
   // Small-screen menu
   const menu = document.getElementById("mobileNav");
   const menuToggle = document.getElementById("menuToggle");
@@ -85,23 +61,27 @@
     });
   }
 
-  // A project explainer is a controlled preview, not fabricated production telemetry.
+  // The scoreboard switches between projects and their launch links.
   const metadata = {
     quadmates: {
       title: "Quadmates",
-      copy: "Helping students discover people to study with, then turn a connection into a plan."
+      launch: "Open Quadmates",
+      copy: "Find a study partner and make a plan to meet."
     },
     transit: {
       title: "TransitOps",
+      launch: "Open TransitOps",
       copy: "Test dispatch decisions against outcomes across a simulated transit network."
     },
     staff: {
       title: "Staffflow",
+      launch: "Open Staffflow",
       copy: "An internal people-operations workspace for hiring, onboarding and coordinating a team."
     },
     neurosim: {
       title: "NeuroSim 2.0",
-      copy: "Training and evaluating reinforcement-learning policies for simulated landings."
+      launch: "Fly NeuroSim",
+      copy: "Take manual control of a rocket landing and inspect the flight telemetry."
     }
   };
   const consoleTabs = Array.from(document.querySelectorAll(".console-tab"));
@@ -127,8 +107,14 @@
     if (liveLink) {
       const hasLive = Boolean(tab.dataset.live);
       liveLink.hidden = !hasLive;
-      if (hasLive) liveLink.href = tab.dataset.live;
-      else liveLink.removeAttribute("href");
+      if (hasLive) {
+        liveLink.href = tab.dataset.live;
+        liveLink.textContent = metadata[sceneName].launch + " ↗";
+        if (tab.dataset.live.startsWith("https://")) liveLink.setAttribute("target", "_blank");
+        else liveLink.removeAttribute("target");
+      } else {
+        liveLink.removeAttribute("href");
+      }
     }
     if (moveFocus) tab.focus();
   }

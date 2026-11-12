@@ -86,7 +86,7 @@ test('interactive explorer, filters and mobile navigation preserve semantics', (
   const tabs = tabNames.map(name => fakeElement({
     'aria-controls':'panel-' + name,
     'aria-selected':name === 'quadmates' ? 'true' : 'false'
-  }, {scene:name,case:'projects/' + name + '.html', live:name === 'neurosim' ? '' : 'https://example.com'}));
+  }, {scene:name,case:'projects/' + name + '.html', live:name === 'neurosim' ? 'neurosim-mission.html' : 'https://example.com'}));
   tabs[0].classList.add('active');
   const panels = tabNames.map((name,i) => {
     const item = fakeElement();
@@ -130,9 +130,15 @@ test('interactive explorer, filters and mobile navigation preserve semantics', (
   assert.equal(tabs[3].getAttribute('aria-selected'), 'true');
   assert.equal(panels[3].hidden, false);
   assert.equal(panels[0].hidden, true);
-  assert.equal(elements.consoleLive.hidden, true, 'no invented live NeuroSim URL');
+  assert.equal(elements.consoleLive.hidden, false);
+  assert.equal(elements.consoleLive.href, 'neurosim-mission.html');
+  assert.equal(elements.consoleLive.textContent, 'Fly NeuroSim ↗');
+  assert.equal(elements.consoleLive.getAttribute('target'), null);
   tabs[3].dispatch('keydown', {key:'Home'});
   assert.equal(tabs[0].getAttribute('aria-selected'), 'true');
+  assert.equal(tabs[0].focused, true);
+  assert.equal(elements.consoleLive.textContent, 'Open Quadmates ↗');
+  assert.equal(elements.consoleLive.getAttribute('target'), '_blank');
   filters[3].dispatch('click');
   assert.equal(cards.filter(card => !card.hidden).length, 2);
   assert.equal(elements.projectGrid.classList.contains('is-filtered'), true);
