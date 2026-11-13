@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="interests.js" defer></script>
   <script src="media.js" defer></script>
 </head>
 <body>
@@ -56,6 +57,9 @@
   <main id="content">
     <div class="pool-opening">
       <div class="pool-water" aria-hidden="true"></div>
+      <div class="pool-deck" aria-hidden="true">
+        <span>01</span><span>02</span><span>03</span><span>04</span>
+      </div>
       <section class="hero container" aria-labelledby="heroTitle">
         <div class="hero-copy">
           <p class="hero-kicker">University of Waterloo · Software &amp; AI</p>
@@ -64,6 +68,7 @@
           <div class="hero-actions">
             <a class="button button-solid" href="#projects">See my work <span aria-hidden="true">↓</span></a>
             <a class="button button-text" href="resumes.html">Résumé <span aria-hidden="true">↗</span></a>
+            <a class="button button-text" href="#interests">Swimming, climbing &amp; piano <span aria-hidden="true">↓</span></a>
           </div>
         </div>
 
@@ -96,6 +101,55 @@
         </aside>
       </section>
     </div>
+
+    <section class="interest-section" id="about" aria-labelledby="interests">
+      <div class="container">
+        <h2 id="interests">Outside of software</h2>
+        <div class="interest-grid">
+          <article class="interest-card">
+            <div class="interest-visual swim-lanes" aria-hidden="true">
+              <div class="swim-lane"><span>1</span></div>
+              <div class="swim-lane swim-lane-active"><span>2</span></div>
+              <div class="swim-lane"><span>3</span></div>
+              <div class="swim-lane"><span>4</span></div>
+            </div>
+            <div class="interest-copy"><h3>Competitive swimming</h3><p>I swam with Swim Ottawa and went on to work as a lifeguard and swim instructor.</p><a href="#explore">Back to the scoreboard ↑</a></div>
+          </article>
+          <article class="interest-card">
+            <div class="interest-visual climbing-wall" aria-label="Practice climbing route">
+              <span class="climb-hold" style="--x:20%;--y:29%;--tilt:28deg" aria-hidden="true"></span>
+              <span class="climb-hold" style="--x:75%;--y:54%;--tilt:-24deg" aria-hidden="true"></span>
+              <span class="climb-hold" style="--x:83%;--y:82%;--tilt:10deg" aria-hidden="true"></span>
+              <button class="climb-hold route-hold" style="--x:26%;--y:80%;--tilt:-17deg" type="button" aria-label="Hold 1, start">1</button>
+              <button class="climb-hold route-hold" style="--x:51%;--y:63%;--tilt:17deg" type="button" aria-label="Hold 2">2</button>
+              <button class="climb-hold route-hold" style="--x:39%;--y:37%;--tilt:-13deg" type="button" aria-label="Hold 3">3</button>
+              <button class="climb-hold route-hold" style="--x:68%;--y:20%;--tilt:9deg" type="button" aria-label="Hold 4, finish">4</button>
+            </div>
+            <div class="interest-copy"><h3>Rock climbing</h3><p>Follow the blue holds from start to finish.</p><span class="interest-status" id="climb-status" role="status"></span><button class="interest-action" id="climb-reset" type="button" hidden>Reset route</button></div>
+          </article>
+          <article class="interest-card">
+            <div class="interest-visual piano-visual">
+              <div class="piano-keys" aria-label="Play piano">
+                <button class="white-key" type="button" data-note="60" aria-label="C4">C</button>
+                <button class="white-key" type="button" data-note="62" aria-label="D4">D</button>
+                <button class="white-key" type="button" data-note="64" aria-label="E4">E</button>
+                <button class="white-key" type="button" data-note="65" aria-label="F4">F</button>
+                <button class="white-key" type="button" data-note="67" aria-label="G4">G</button>
+                <button class="white-key" type="button" data-note="69" aria-label="A4">A</button>
+                <button class="white-key" type="button" data-note="71" aria-label="B4">B</button>
+                <button class="white-key" type="button" data-note="72" aria-label="C5">C</button>
+                <button class="black-key" style="--position:1" type="button" data-note="61" aria-label="C sharp 4"></button>
+                <button class="black-key" style="--position:2" type="button" data-note="63" aria-label="D sharp 4"></button>
+                <button class="black-key" style="--position:4" type="button" data-note="66" aria-label="F sharp 4"></button>
+                <button class="black-key" style="--position:5" type="button" data-note="68" aria-label="G sharp 4"></button>
+                <button class="black-key" style="--position:6" type="button" data-note="70" aria-label="A sharp 4"></button>
+              </div>
+            </div>
+            <div class="interest-copy"><h3>Piano</h3><p>Play a few notes or listen to a short piano phrase.</p><button class="interest-action" id="piano-phrase" type="button">Play phrase</button><span class="interest-status" id="piano-status" role="status"></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section class="flagship-section" id="flagship" aria-labelledby="flagship-title">
       <div class="container">
@@ -245,10 +299,7 @@
       </div>
     </section>
 
-    <section class="personal-about container" id="about" aria-labelledby="aboutTitle">
-      <div><h2 id="aboutTitle">Away from <em>the screen.</em></h2></div>
-      <div class="personal-about-copy"><p>I grew up swimming competitively with Swim Ottawa and later worked as a lifeguard and swim instructor. That’s where the project scoreboard comes from.</p><p>These days I study at Waterloo, climb when I can, and play piano. I’m usually building something, whether it’s Quadmates or a simulation to see what happens when I change one rule.</p><a class="inline-arrow" href="#experience">See my experience ↗</a></div>
-    </section>
+
 
     <section class="career-highlight" id="infosys-highlight" aria-labelledby="infosysHighlightTitle">
       <div class="container career-highlight-grid">

@@ -648,3 +648,85 @@ site-header { background: rgb(237 245 247 / 96%); }
 @media (prefers-reduced-motion: reduce) {
   .pool-water::after, .pool-opening .scene { animation: none; }
 }
+
+/* Pool starting blocks and the interests gallery */
+.pool-deck {
+  position: absolute;
+  bottom: 0;
+  left: 4%;
+  width: 46%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 2vw, 28px);
+  pointer-events: none;
+}
+.pool-deck span {
+  display: grid;
+  place-items: center;
+  min-height: 38px;
+  transform: skewX(-12deg);
+  color: #f4ffff;
+  background: linear-gradient(#326a7a, #153e53);
+  border: 1px solid #82b7c5;
+  border-bottom: 4px solid #0c2838;
+  border-radius: 5px 5px 0 0;
+  font: 700 14px var(--font-mono);
+}
+.interest-section { padding-block: clamp(48px, 7vw, 100px); background: #f4f8fa; }
+.interest-section h2 { margin: 0 0 28px; font: 700 clamp(35px, 5vw, 60px)/1 var(--font-display); letter-spacing: -.06em; }
+.interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.interest-card { min-width: 0; border: 1px solid #cadde5; border-radius: 15px; background: white; overflow: hidden; }
+.interest-visual { position: relative; height: 188px; }
+.interest-copy { padding: 21px; }
+.interest-copy h3 { margin: 0; font: 700 clamp(21px, 2.5vw, 30px)/1.1 var(--font-display); letter-spacing: -.035em; }
+.interest-copy p { margin: 10px 0 15px; color: var(--ink-2); line-height: 1.55; }
+.interest-copy a { font-weight: 700; color: var(--green-dark); }
+.interest-action { padding: 8px 12px; color: #09283b; background: #dcf3f3; border: 1px solid #91cbd0; border-radius: 5px; font-weight: 700; }
+.interest-action:hover { background: #bde9ec; }
+.interest-status:not(:empty) { display: block; margin: 8px 0; color: var(--green-dark); }
+.swim-lanes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 9px solid #dbe5e6;
+  background: repeating-linear-gradient(0deg, transparent 0 17px, #79d7e1aa 18px, transparent 22px), linear-gradient(145deg, #10557d, #259fb2);
+}
+.swim-lane {
+  display: grid;
+  justify-items: center;
+  align-items: end;
+  border-right: 5px dotted #fff3b5;
+  background: linear-gradient(90deg, transparent 46%, #133f6b99 47% 53%, transparent 54%);
+}
+.swim-lane:last-child { border-right: 0; }
+.swim-lane span { padding: 5px 10px; background: #e4f9fa; color: #12394a; border-radius: 5px 5px 0 0; font: 700 14px var(--font-mono); }
+.swim-lane-active { box-shadow: inset 0 0 38px #b8ffff90; }
+.climbing-wall {
+  background:
+    radial-gradient(circle, #665e56 1px, transparent 1.6px) 0 0 / 18px 18px,
+    linear-gradient(153deg, #a68f7b 0 41%, #cbb39a 41% 64%, #9f8875 64%);
+}
+.climb-hold {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 39px;
+  transform: translate(-50%, -50%) rotate(var(--tilt));
+  border-radius: 60% 39% 50% 42%;
+  border: 1px solid #493b32;
+  box-shadow: 2px 5px 0 #30282075;
+  background: #755e50;
+}
+.route-hold { background: #07566d; color: #fff; font: 700 13px var(--font-mono); }
+.route-hold:hover, .route-hold.is-reached { background: #a0f4ef; color: #09283b; }
+.piano-visual { display: grid; align-items: center; padding: 18px; background: linear-gradient(145deg, #3f2732, #171521); }
+.piano-keys { position: relative; display: grid; grid-template-columns: repeat(8, 1fr); height: 142px; gap: 2px; }
+.piano-keys button { border: 1px solid #211a25; border-radius: 0 0 5px 5px; padding: 0; }
+.white-key { display: grid; place-items: end center; padding-bottom: 8px !important; background: #fffaf3; color: #362933; font: 700 11px var(--font-mono); }
+.black-key { position: absolute; top: 0; left: calc(var(--position) * 12.5%); transform: translateX(-50%); width: 8%; height: 62%; background: linear-gradient(#121319, #362939); }
+.piano-keys button:active { background: #9cecea; }
+.piano-keys button:focus-visible { z-index: 1; outline-color: #138599; }
+@media (max-width: 850px) { .pool-deck { width: 82%; left: 9%; } }
+@media (max-width: 760px) { .interest-grid { grid-template-columns: 1fr; } }
